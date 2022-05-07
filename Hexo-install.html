@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">关于Hexo搭建博客我所踩过的坑和小白安装教程</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%98%AF-Hexo-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">第一是 Hexo 环境搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%98%AF-Hexo%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="toc-text">第二是 Hexo初始化博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%98%AF-%E7%BB%99%E5%AE%89%E8%A3%85%E5%8D%9A%E5%AE%A2%E4%BE%9D%E8%B5%96"><span class="toc-text">第三是 给安装博客依赖</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%98%AF-%E6%89%BE%E4%B8%BB%E9%A2%98"><span class="toc-text">第四是 找主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%98%AF-%E6%B8%85%E9%99%A4%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="toc-text">第五是 清除静态文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E6%98%AF-%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E5%92%8C"><span class="toc-text">第六是 生成静态文件和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E6%98%AF-%E9%83%A8%E7%BD%B2"><span class="toc-text">第七是 部署</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E6%98%AF-%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C"><span class="toc-text">第八是 本地运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E4%BD%A0%E6%9C%89%E6%B2%A1%E6%9C%89%E8%A2%AB%E7%99%BE%E5%BA%A6%E6%94%B6%E5%BD%95%E6%96%87%E7%AB%A0"><span class="toc-text">查看你有没有被百度收录文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#amp-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">&amp;的作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%B9%E5%8F%98%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%E8%A7%84%E5%88%99"><span class="toc-text">改变文章链接规则</span></a></li></ol>
+      </div>
+      <p><strong>搭建博客笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="第一是-Hexo-环境搭建"><a href="#第一是-Hexo-环境搭建" class="headerlink" title="第一是 Hexo 环境搭建"></a>第一是 Hexo 环境搭建</h1><p>前提是需要安装 Node.js,不懂的可以百度下载然后按照<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wA411s7re?from=search&seid=11841654225437997570">B站的安装视频按照</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-cli -g<br></code></pre></td></tr></table></figure>
+
+<h1 id="第二是-Hexo初始化博客"><a href="#第二是-Hexo初始化博客" class="headerlink" title="第二是 Hexo初始化博客"></a>第二是 Hexo初始化博客</h1><p><strong>cd 到你想存放博客源码的一个目录里面，这时会自动建立一个博客文件夹</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo init blog  //hexo init (博客名字自定义)<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="第三是-给安装博客依赖"><a href="#第三是-给安装博客依赖" class="headerlink" title="第三是 给安装博客依赖"></a>第三是 给安装博客依赖</h1><p><strong>cd 进刚创建的博客文件夹，安装依赖模块命令如下</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install<br></code></pre></td></tr></table></figure>
+
+<h1 id="第四是-找主题"><a href="#第四是-找主题" class="headerlink" title="第四是 找主题"></a>第四是 找主题</h1><p><strong>到这个 <a target="_blank" rel="noopener" href="https://hexo.bootcss.com/themes/">Hexo网站</a> 去找主题</strong></p>
+<h1 id="第五是-清除静态文件"><a href="#第五是-清除静态文件" class="headerlink" title="第五是 清除静态文件"></a>第五是 清除静态文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br></code></pre></td></tr></table></figure>
+
+<h1 id="第六是-生成静态文件和"><a href="#第六是-生成静态文件和" class="headerlink" title="第六是 生成静态文件和"></a>第六是 生成静态文件和</h1><p><strong>部署在GitHub 或者 Gitee服务器上，生成静态文件，生成的静态文件在博客工程的 public文件夹下 到哪里找就行了</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g<br></code></pre></td></tr></table></figure>
+
+<h1 id="第七是-部署"><a href="#第七是-部署" class="headerlink" title="第七是 部署"></a>第七是 部署</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo d<br></code></pre></td></tr></table></figure>
+
+<h1 id="第八是-本地运行"><a href="#第八是-本地运行" class="headerlink" title="第八是 本地运行"></a>第八是 本地运行</h1><p><strong>这里地址是localhost:4000</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo server<br></code></pre></td></tr></table></figure>
+
+<h1 id="查看你有没有被百度收录文章"><a href="#查看你有没有被百度收录文章" class="headerlink" title="查看你有没有被百度收录文章"></a>查看你有没有被百度收录文章</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">site:(你的博客)  //直接复制命令百度搜索<br></code></pre></td></tr></table></figure>
+
+<h1 id="amp-的作用"><a href="#amp-的作用" class="headerlink" title="&amp;的作用"></a>&amp;的作用</h1><p><strong>表示清除静态文件和部署</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean &amp; hexo d <br></code></pre></td></tr></table></figure>
+
+<h1 id="改变文章链接规则"><a href="#改变文章链接规则" class="headerlink" title="改变文章链接规则"></a>改变文章链接规则</h1><p><strong>Ctrl+f搜索 permalink</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">permalink: :id.html   //填入:id.html<br></code></pre></td></tr></table></figure>
+
+<p><strong>然后在指定位置填入id即可 数字随意，只要保证每篇文章里面的数字不要一样就行</strong></p>
+<img src="/images/Hexo博客/案例.jpg">
+
+<br>
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/Hexo-install.html">https://sdq3.gitee.io/Hexo-install.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

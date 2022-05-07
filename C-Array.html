@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">C语 数组</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">一维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的定义:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">数组定义格式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的赋值例子:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的储存例子:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">一维数组元素的引用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%95%B0%E7%BB%84int-arr-N-%E5%88%99%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%8B%E6%A0%87%E4%B8%BA-0-N-1-%E5%8D%B3%E6%9C%80%E5%A4%A7%E7%9A%84%E4%B8%8B%E6%A0%87%E4%B8%BA%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6-1"><span class="toc-text">如果数组int arr[N]; 则数组的下标为: 0 ~ N-1 即最大的下标为数组长度-1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">数组元素的引用形式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">一维数组元素的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的遍历例子:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">二维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">二维数组的定义:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">二维数组的储存例子:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">二维数组的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">二维数组的初始化:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的遍历例子:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">二维数组元素的引用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">数组元素的引用形式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">二维数组元素的初始化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84"><span class="toc-text">字符数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">字符数组的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的定义形式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">二维数组的定义形式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">字符数组元素的初始化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">字符串处理函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0-puts"><span class="toc-text">字符串输出函数 puts</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E5%87%BD%E6%95%B0-gets"><span class="toc-text">字符串输入函数 gets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5%E5%87%BD%E6%95%B0-strcat"><span class="toc-text">字符串连接函数 strcat</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%8D%E5%88%B6%E5%87%BD%E6%95%B0-strcpy"><span class="toc-text">字符串复制函数 strcpy</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0-strcmp"><span class="toc-text">字符串比较函数 strcmp</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6%E5%87%BD%E6%95%B0-strlen"><span class="toc-text">检测字符串长度函数 strlen</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%86%99%E5%AD%97%E6%AF%8D%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E5%87%BD%E6%95%B0-strlwr"><span class="toc-text">大写字母转换为小写字母函数 strlwr</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%A4%A7%E5%86%99%E5%AD%97%E6%AF%8D-strupr"><span class="toc-text">小写字母转换为大写字母 strupr</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <p><strong>C语学习笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h1><h4>一维数组的定义:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">储存类型 数据类型 数组名 [ 常量表达式 ] = &#123; 初始值 &#125;<br></code></pre></td></tr></table></figure>
+
+
+<br>
+
+
+<h4>数组定义格式:</h4>
+
+<ul>
+<li>储存类型是任意项, 可以是 auto, static, extern 储存类型, 但没有 register 型</li>
+</ul>
+<ul>
+<li>数据类型可以是 int, float, char</li>
+</ul>
+<ul>
+<li>数据名符号标识符定义, 但不能与其它变量同名</li>
+</ul>
+<ul>
+<li>数组元素的下标是从0开始编号的, 否则会产生数组越界</li>
+</ul>
+<ul>
+<li>常量表达式中可以包含常量和符号, 不能包含变量</li>
+</ul>
+<br>
+
+<h4>一维数组的赋值例子:</h4>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-type">int</span> <span class="hljs-class"><span class="hljs-keyword">class</span>[5] =</span> &#123;<span class="hljs-number">90</span>,<span class="hljs-number">80</span>,<span class="hljs-number">88</span>,<span class="hljs-number">77</span>,<span class="hljs-number">66</span>&#125;<span class="hljs-comment">// 全部赋初值</span><br><span class="hljs-type">int</span> <span class="hljs-class"><span class="hljs-keyword">class</span>[5] =</span> &#123;<span class="hljs-number">90</span>,<span class="hljs-number">80</span>,<span class="hljs-number">88</span>&#125;<span class="hljs-comment">// 部分赋初值, 未赋值的元素默认为0</span><br><span class="hljs-type">int</span> <span class="hljs-class"><span class="hljs-keyword">class</span>[ ] =</span> &#123;<span class="hljs-number">90</span>,<span class="hljs-number">80</span>,<span class="hljs-number">88</span>,<span class="hljs-number">77</span>,<span class="hljs-number">66</span>&#125;<span class="hljs-comment">// 元素个数5 省略长度赋初值, 数组的长度(数组的元素个数) 根据赋初值的数决定</span><br><br><span class="hljs-comment">// 初值的个数不能超过长度</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>一维数组的储存例子:</h4>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta"># <span class="hljs-keyword">define</span> SIZE 5 <span class="hljs-comment">// 定义5个数</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> a0,a1,a2,a3,a4;<br>    <span class="hljs-type">int</span> sdq[SIZE]; <span class="hljs-comment">// int是4个字节 5个数相当于 4*5</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,<span class="hljs-keyword">sizeof</span>(a0)); <span class="hljs-comment">// 输出4个字节</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;总字节数: %d\n&quot;</span>,<span class="hljs-keyword">sizeof</span>(sdq)); <span class="hljs-comment">// 输出20个字节 int有4字节, 有5个数 4*5=20</span><br><br>    <span class="hljs-comment">// 数组长度 = 总字节数 / sizeof(类型)</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;长度: %d\n&quot;</span>,<span class="hljs-keyword">sizeof</span>(sdq) / <span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>)); <span class="hljs-comment">// int = a0</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;长度: %d\n&quot;</span>,<span class="hljs-keyword">sizeof</span>(sdq) / <span class="hljs-keyword">sizeof</span>(a0)); <span class="hljs-comment">// a0 = int</span><br><br>    <span class="hljs-comment">// 总字节数 = sizeof(数组类型) * 数组个数(长度)  </span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="一维数组元素的引用"><a href="#一维数组元素的引用" class="headerlink" title="一维数组元素的引用"></a>一维数组元素的引用</h3><ul>
+<li>数组元素的实质为该数组所属数据类型的一个具有下标的变量, 故又称下标变量, 因此, 数组元素与具有相同数据类型的普通变量的引用完全相同</li>
+</ul>
+<ul>
+<li><h1 id="如果数组int-arr-N-则数组的下标为-0-N-1-即最大的下标为数组长度-1"><a href="#如果数组int-arr-N-则数组的下标为-0-N-1-即最大的下标为数组长度-1" class="headerlink" title="如果数组int arr[N]; 则数组的下标为: 0 ~ N-1 即最大的下标为数组长度-1"></a>如果数组int arr[N]; 则数组的下标为: 0 ~ N-1 即最大的下标为数组长度-1</h1></li>
+</ul>
+<h4>数组元素的引用形式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">数组名 [ 下标 ]<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="一维数组元素的初始化"><a href="#一维数组元素的初始化" class="headerlink" title="一维数组元素的初始化"></a>一维数组元素的初始化</h3><ul>
+<li>注意: [ ]中括号不能省略</li>
+</ul>
+<ul>
+<li>可以对数组全部元素赋值 </li>
+</ul>
+<ul>
+<li>也可以对部分元素赋初值</li>
+</ul>
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">数组类型 数组名 [ 数组元素个数 ] = &#123; 值<span class="hljs-number">1</span>, 值 <span class="hljs-number">2</span>, ..., 值 n &#125;; <br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>一维数组的遍历例子:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta"># <span class="hljs-keyword">define</span> N 4 <span class="hljs-comment">// 定义4个数</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> a[M] = &#123; <span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span> &#125;; <span class="hljs-comment">//定义数组长度为3的一维数组</span><br><br>    <span class="hljs-comment">// 定义一个3行4列的二维数组 相当于3个数组长度为4的一维数组</span><br>    <span class="hljs-type">int</span> b[M][N] = &#123;&#123; <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span> &#125;, &#123; <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span> &#125;&#125;;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;M;i++)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,a[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h1><br>
+
+<h4>二维数组的定义:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">储存类型 数据类型 数组名 [ 行 ] [ 列 ];<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>二维数组的储存例子:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta"># <span class="hljs-keyword">define</span> M 3 <span class="hljs-comment">// 定义3个数</span></span><br><br><span class="hljs-meta"># <span class="hljs-keyword">define</span> N 4 <span class="hljs-comment">// 定义4个数</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> a[M]; <span class="hljs-comment">// 定义长度为3的一维数组</span><br><br>    <span class="hljs-comment">// 相当于3个数组长度为4的一维数组</span><br>    <span class="hljs-type">int</span> sdq[M][N]; <span class="hljs-comment">// 定义3行4列的二维数组 M行 N列</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;总字节数: %d\n&quot;</span>,<span class="hljs-keyword">sizeof</span>(sdq)); <br><br>    <span class="hljs-comment">// 总字节数 = sizeof(数组类型) * 行数 * 列数  </span><br><br>    <span class="hljs-comment">// a[i][j]在数组中的位置的公式:  i * 总列数 * j</span><br>    <span class="hljs-comment">// 例如 a[1][2] 相当于 1 * 4 + 2 = 6</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="二维数组的初始化"><a href="#二维数组的初始化" class="headerlink" title="二维数组的初始化"></a>二维数组的初始化</h3><br>
+
+<h4>二维数组的初始化:</h4>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">// 按行全部赋初值</span><br><span class="hljs-type">int</span> a[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = &#123;&#123; <span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span> &#125;,&#123; <span class="hljs-number">40</span>,<span class="hljs-number">50</span>,<span class="hljs-number">60</span> &#125;&#125;;<br><br><span class="hljs-comment">// 按储存顺序全部赋初值</span><br><span class="hljs-type">int</span> a[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = &#123; <span class="hljs-number">100</span>,<span class="hljs-number">200</span>,<span class="hljs-number">300</span>,<span class="hljs-number">400</span>,<span class="hljs-number">500</span>,<span class="hljs-number">600</span> &#125;;<br><br><span class="hljs-comment">// 部分赋初值 (按存储顺序) 未赋值的元素均为零</span><br><span class="hljs-type">int</span> a[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = &#123; <span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">40</span> &#125;;<br><br><span class="hljs-comment">// 部分赋初值 (按行)</span><br><span class="hljs-type">int</span> a[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = &#123;&#123; <span class="hljs-number">10</span>,<span class="hljs-number">20</span> &#125;,&#123; <span class="hljs-number">40</span> &#125;&#125;;<br><br><span class="hljs-comment">// 省略行数赋初值</span><br><span class="hljs-type">int</span> a[ ][<span class="hljs-number">3</span>] = &#123;&#123; <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span> &#125;,&#123; <span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span> &#125;,&#123; <span class="hljs-number">7</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span> &#125;&#125;;<br><span class="hljs-type">int</span> a[ ][<span class="hljs-number">3</span>] = &#123; <span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>,<span class="hljs-number">40</span>,<span class="hljs-number">50</span>,<span class="hljs-number">60</span>,<span class="hljs-number">70</span> &#125;;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>一维数组的遍历例子:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta"># <span class="hljs-keyword">define</span> M 3 <span class="hljs-comment">// 定义3个数</span></span><br><br><span class="hljs-meta"># <span class="hljs-keyword">define</span> N 4 <span class="hljs-comment">// 定义4个数</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span><br>&#123;<br>    <span class="hljs-type">int</span> arr[M][N] = &#123;&#123; <span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">7</span>,<span class="hljs-number">10</span> &#125;, &#123;<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">8</span>,<span class="hljs-number">11</span>&#125;, &#123; <span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">9</span>,<span class="hljs-number">12</span> &#125;&#125;&#125;; <span class="hljs-comment">//定义3行4列的二维数组</span><br>    <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> j = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;M;i++) <span class="hljs-comment">// 行下标遍历</span><br>    &#123;<br>        <span class="hljs-keyword">for</span>(j=<span class="hljs-number">0</span>;j&lt;N;j++) <span class="hljs-comment">// 列下标遍历</span><br>        &#123;<br>           <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\t&quot;</span>,a[i][j]); <br>        &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>)<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+<h3 id="二维数组元素的引用"><a href="#二维数组元素的引用" class="headerlink" title="二维数组元素的引用"></a>二维数组元素的引用</h3><ul>
+<li>不论是一维数组还是二维数组, 都不能对数组进行整体引用, 只能对具体的元素进行访问</li>
+</ul>
+<ul>
+<li>在数组元素引用要特别注意下标越界, 因为系统不检查下标越界问题, 所以程序设计者要特别注意</li>
+</ul>
+<h4>数组元素的引用形式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">数组名 [ 下标 <span class="hljs-number">1</span> ] [ 下标 <span class="hljs-number">2</span> ]<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="二维数组元素的初始化"><a href="#二维数组元素的初始化" class="headerlink" title="二维数组元素的初始化"></a>二维数组元素的初始化</h3><ul>
+<li>对数组全部元素赋值, 这时允许二维数组定义中缺省行下标, 但不能缺省列下标</li>
+</ul>
+<ul>
+<li>也可以对部分元素赋初值</li>
+</ul>
+<h1 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h1><h2 id="字符数组的定义"><a href="#字符数组的定义" class="headerlink" title="字符数组的定义"></a>字符数组的定义</h2><h4>一维数组的定义形式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">储存类型 <span class="hljs-type">char</span> 数组名 [ 常量表达式 ] = &#123; 初始值 &#125;;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>二维数组的定义形式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">储存类型 <span class="hljs-type">char</span> 数组名 [ 常量表达式 e1 ] [ 常量表达式 e2 ] = &#123; 初始值 &#125;;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="字符数组元素的初始化"><a href="#字符数组元素的初始化" class="headerlink" title="字符数组元素的初始化"></a>字符数组元素的初始化</h3><ul>
+<li>定义数组同时又可以缺省数组定义的长度, 对于二维数组, 可以缺省行下标, 但不能省列下标</li>
+</ul>
+<ul>
+<li>可以用字符串常量初始化数组: 该初始化法自动在末尾一个字符后加 ‘ \0 ‘作为结束符, 用字符串常量方式赋值比用字符常量赋值方式每行要多占一个字节</li>
+</ul>
+<ul>
+<li>在初始化中, 如果提供的字符个数多余数组元素的个数, 则作为语法错误处理, 如果字符个数小于元素个数, 则多余的数组元素自动赋空格字符</li>
+</ul>
+<h1 id="字符串处理函数"><a href="#字符串处理函数" class="headerlink" title="字符串处理函数"></a>字符串处理函数</h1><h3 id="字符串输出函数-puts"><a href="#字符串输出函数-puts" class="headerlink" title="字符串输出函数 puts"></a>字符串输出函数 puts</h3><ul>
+<li>功能: 将一个字符串 ( 以 ‘ \0 ‘ 结束的字符序列 ) 输出到终端 用 puts 函数输出的字符串中可以包含转义字符</li>
+</ul>
+<h4>字符串输出函数 puts的格式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-built_in">puts</span> (字符串数组名);<br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+
+<h3 id="字符串输入函数-gets"><a href="#字符串输入函数-gets" class="headerlink" title="字符串输入函数 gets"></a>字符串输入函数 gets</h3><ul>
+<li>功能: 从键盘输入一个字符串到字符数组, 并且得到一个函数值, 该函数数值是字符数组的起始地址 </li>
+</ul>
+<h4>字符串输出函数 puts的格式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">gets (字符串数组名);<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="字符串连接函数-strcat"><a href="#字符串连接函数-strcat" class="headerlink" title="字符串连接函数 strcat"></a>字符串连接函数 strcat</h3><ul>
+<li>功能: 把字符数组 2 中的字符串接到字符数组 1中的字符串后面, 结果放在字符数组 1 中, 并取消字符数组 1 中的 ‘ \0 ‘, 函数调用后得到的返回值为字符数组 1 的首地址 </li>
+</ul>
+<h4>字符串输出函数 puts的格式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-built_in">strcat</span> ( 字符数组 <span class="hljs-number">1</span>, 字符数组 <span class="hljs-number">2</span> );<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="字符串复制函数-strcpy"><a href="#字符串复制函数-strcpy" class="headerlink" title="字符串复制函数 strcpy"></a>字符串复制函数 strcpy</h3><ul>
+<li><p>功能: 把字符数组 2 复制到字符数组 1 中去, 串结束符 ‘ \0 ‘ 也一同复制, 字符数组 2 可以为字符串常量, 使用时要注意</p>
+<ol>
+<li><p>字符数组 1 必须定义得足够大, 以便能存放被复制的字符串, 字符数组 2 的长度</p>
+</li>
+<li><p>“ 字符数组 1 “ 必须写成数组名形式, 不能为字符串常量</p>
+</li>
+<li><p>不能用赋值语句将一个字符串常量或字符数组直接赋给一个字符数组 </p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>使用时, 字符数组 1 必须足够大, 以便容纳连接后的新字符串 </li>
+</ul>
+<h4>字符串输出函数 puts的格式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-built_in">strcpy</span> ( 字符串数组 <span class="hljs-number">1</span> , 字符数组 <span class="hljs-number">2</span> );<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="字符串比较函数-strcmp"><a href="#字符串比较函数-strcmp" class="headerlink" title="字符串比较函数 strcmp"></a>字符串比较函数 strcmp</h3><ul>
+<li>功能: 按照 ASCII 码顺序比较两个字符数组中的字符串, 由函数返回值可以比较结果, 也可以用于比较两个字符串常量或数组与字符串常量</li>
+</ul>
+<p><strong>比较结果:</strong></p>
+<ul>
+<li>字符串 1 == 字符串 2, 函数值为0</li>
+</ul>
+<ul>
+<li>字符串 1 &gt; 字符串 2, 函数值为正整数</li>
+</ul>
+<ul>
+<li>字符串 1 &lt; 字符串 2, 函数值为负整数</li>
+</ul>
+<h4>字符串输出函数 puts的格式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-built_in">strcmp</span> ( 字符数组 <span class="hljs-number">1</span> , 字符数组 <span class="hljs-number">2</span> );<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="检测字符串长度函数-strlen"><a href="#检测字符串长度函数-strlen" class="headerlink" title="检测字符串长度函数 strlen"></a>检测字符串长度函数 strlen</h3><ul>
+<li>功能: 该函数值为字符串实际长度, 即字符串中不包含 ‘ \0 ‘在内的字符个数</li>
+</ul>
+<h4>字符串输出函数 puts的格式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-built_in">strlen</span> ( 字符数组 );<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="大写字母转换为小写字母函数-strlwr"><a href="#大写字母转换为小写字母函数-strlwr" class="headerlink" title="大写字母转换为小写字母函数 strlwr"></a>大写字母转换为小写字母函数 strlwr</h3><ul>
+<li>功能: 将字符串中大写字母转换成小写字母</li>
+</ul>
+<h4>字符串输出函数 puts的格式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">strlwr ( 字符数组 );<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="小写字母转换为大写字母-strupr"><a href="#小写字母转换为大写字母-strupr" class="headerlink" title="小写字母转换为大写字母 strupr"></a>小写字母转换为大写字母 strupr</h3><ul>
+<li>功能: 将字符串中小写字母转换成大写字母</li>
+</ul>
+<h4>字符串输出函数 puts的格式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">strupr ( 字符数组 );<br></code></pre></td></tr></table></figure>
+
+<br>
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/C-Array.html">https://sdq3.gitee.io/C-Array.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">JavaScript 面向对象</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF"><span class="toc-text">面向对象原型继承</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#class-%E7%BB%A7%E6%89%BF"><span class="toc-text">class 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E7%B1%BB-%E5%B1%9E%E6%80%A7-%E6%96%B9%E6%B3%95"><span class="toc-text">定义类 属性 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-text">继承</span></a></li></ol></li></ol>
+      </div>
+      <p><strong>JavaScript个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="面向对象原型继承"><a href="#面向对象原型继承" class="headerlink" title="面向对象原型继承"></a>面向对象原型继承</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">// 定义实验品</span><br><span class="hljs-keyword">var</span> <span class="hljs-title class_">Syp</span> = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;史迪奇&quot;</span>,<br>    <span class="hljs-attr">number</span>: <span class="hljs-number">626</span>,<br>    <span class="hljs-attr">run</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> + <span class="hljs-string">&quot;星际宝贝&quot;</span>)<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">var</span> <span class="hljs-title class_">Sdq</span> = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;史迪奇&quot;</span><br>&#125;;<br><br><span class="hljs-comment">// 原型对象</span><br><span class="hljs-title class_">Sdq</span>.<span class="hljs-property">__proto__</span> = <span class="hljs-title class_">Syp</span>;<br><br><span class="hljs-keyword">var</span> <span class="hljs-title class_">Sdz</span> = &#123;<br>    <span class="hljs-attr">destruction</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> + <span class="hljs-string">&quot;疯狂破坏&quot;</span>)<br>    &#125;<br>&#125;;<br><br><span class="hljs-comment">// 史迪仔的原型 是 实验品</span><br><span class="hljs-title class_">Sdz</span>.<span class="hljs-property">__proto__</span> = <span class="hljs-title class_">Syp</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="class-继承"><a href="#class-继承" class="headerlink" title="class 继承"></a>class 继承</h1><h2 id="定义类-属性-方法"><a href="#定义类-属性-方法" class="headerlink" title="定义类 属性 方法"></a>定义类 属性 方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">// 定义实验品</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Syp</span> = &#123;<br><br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name</span>)&#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name<br>    &#125;<br><br>    <span class="hljs-title function_">destruction</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;破坏&quot;</span>)<br>    &#125;<br><br><span class="hljs-keyword">var</span> sdq = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Syp</span>(<span class="hljs-string">&quot;史迪奇&quot;</span>);<br><span class="hljs-keyword">var</span> sdz = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Syp</span>(<span class="hljs-string">&quot;史迪仔&quot;</span>);<br><br>sdq.<span class="hljs-title class_">Syp</span>()<br>sdz.<span class="hljs-title class_">Syp</span>()<br></code></pre></td></tr></table></figure>
+
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">// 定义实验品</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Syp</span> = &#123;<br><br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name</span>)&#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name<br>    &#125;<br><br>    <span class="hljs-title function_">destruction</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;破坏&quot;</span>)<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Syp626</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Syp</span>&#123;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name,grade</span>)&#123;<br>    <span class="hljs-variable language_">super</span>.(name);<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">grade</span> = grade;<br>    &#125;<br><br>    <span class="hljs-title function_">myGrade</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;搞破坏&quot;</span>)<br>    &#125;<br>&#125;<br><br><br><br><span class="hljs-keyword">var</span> sdq = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Syp</span>(<span class="hljs-string">&quot;小怪物&quot;</span>);<br><span class="hljs-keyword">var</span> sdz = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Syp626</span>(<span class="hljs-string">&quot;小怪物&quot;</span>,<span class="hljs-number">3</span>);<br></code></pre></td></tr></table></figure>
+
+<p><strong>原型链</strong></p>
+<div class="mermaid">
+    graph TB
+    A([" Person <br> (构造函数) "])-->C([" person "])
+    C([" person "])-->| __proto__  |B([" Person.prototype <br> (实例原型) "])
+    A([" Person <br> (构造函数) "])--prototype-->B([" Person.prototype <br> (实例原型) "])
+    B([" Person.prototype <br> (实例原型) "])--constructor-->A([" Person <br> (构造函数) "])
+    B([" Person.prototype <br> (实例原型) "])-->| __proto__  |E([" Object.prototype "])
+    E([" Object.prototype "])-->| __proto__  |H([" null "])
+    L([" Oject() "])--prototype-->E([" Object.prototype "])
+    E([" Object.prototype "])--constructor-->L([" Oject() "])
+</div>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+<!-- ~~~ JavaScript
+
+       prototype
+      /￣￣￣￣￣↘
+Person           Person.prototype
+(构造函数)         (实例原型)
+    |  ↖__________/      |
+    |   constructor    ↑  |
+    |                  |  |
+    |                  |  |
+    |                  |  |
+   person ——————————————  |  _proto_
+                          |
+                          |
+                          |
+        prototype         |
+       /￣￣￣￣￣↘       |
+Object()           Object.prototype
+      ↖__________/       |
+       constructor        |  _proto_
+                          |
+                          ↓
+                         null
+~~~ -->
+
+
+
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/JavaScript-object-oriented.html">https://sdq3.gitee.io/JavaScript-object-oriented.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">私有云配置(个人笔记)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A9%BA%E7%99%BD%E5%88%86%E5%8C%BA%E5%88%92%E5%88%86"><span class="toc-text">空白分区划分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C-%E4%B8%BB%E6%9C%BA%E5%90%8D-%E4%BF%AE%E6%94%B9%E5%92%8C%E6%B7%BB%E5%8A%A0"><span class="toc-text">配置网络 主机名 修改和添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEyum%E6%BA%90"><span class="toc-text">配置yum源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%82%E8%BD%BDiso%E6%96%87%E4%BB%B6"><span class="toc-text">挂载iso文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAftp%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%BC%80%E5%90%AF%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%90%AF"><span class="toc-text">搭建ftp服务器，开启并设置自启</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAhttp%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%BC%80%E5%90%AF%E5%B9%B6%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%90%AF"><span class="toc-text">搭建http服务器，开启并设置自启</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99%E5%92%8CSelinux"><span class="toc-text">配置防火墙和Selinux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">编辑环境变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过脚本安装服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过脚本安装数据库服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85keystone%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过脚本安装keystone服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85glance%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过脚本安装glance服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E9%95%9C%E5%83%8F"><span class="toc-text">上传镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Nova%E8%AE%A1%E7%AE%97%E6%9C%8D%E5%8A%A1"><span class="toc-text">安装Nova计算服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Neutron%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1"><span class="toc-text">安装Neutron网络服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Dashboard%E6%9C%8D%E5%8A%A1"><span class="toc-text">安装Dashboard服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE"><span class="toc-text">访问</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BA%91%E4%B8%BB%E6%9C%BA"><span class="toc-text">创建云主机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Cinder%E5%9D%97%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">安装Cinder块存储服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81-%E4%BB%A5%E5%90%8E%E4%BC%9A%E7%94%A8%E5%88%B0"><span class="toc-text">验证  [以后会用到]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Swift%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">安装Swift对象存储服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Heat%E7%BC%96%E9%85%8D%E6%9C%8D%E5%8A%A1"><span class="toc-text">安装Heat编配服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Zun%E6%9C%8D%E5%8A%A1"><span class="toc-text">安装Zun服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E9%95%9C%E5%83%8F-1"><span class="toc-text">上传镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="toc-text">启动容器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Ceilometer%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1"><span class="toc-text">安装Ceilometer监控服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Aodh%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1"><span class="toc-text">安装Aodh监控服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0-%E6%B8%85%E9%99%A4%E6%89%80%E6%9C%89"><span class="toc-text">更新&#x2F;清除所有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="toc-text">重启服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%8E%A7%E5%88%B6%E8%8A%82%E7%82%B9%E8%B5%84%E6%BA%90%E5%88%B0%E4%BA%91%E5%B9%B3%E5%8F%B0"><span class="toc-text">添加控制节点资源到云平台</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93"><span class="toc-text">文件传输</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh"><span class="toc-text">ssh</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6"><span class="toc-text">查看文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%B7%AF%E5%BE%84"><span class="toc-text">查看当前路径</span></a></li></ol>
+      </div>
+      <p><strong>要有Linux基础</strong></p>
+<span id="more"></span>
+
+
+<h1 id="空白分区划分"><a href="#空白分区划分" class="headerlink" title="空白分区划分"></a>空白分区划分</h1><p><strong>CentOS7的安装与CentOS6.5的安装有明显的区别。在CentOS7安装过程中，设置分区都需要一个挂载点，这样一来就无法创建两个空白的磁盘分区作为cinder服务和swift服务的存储磁盘了</strong></p>
+<p><strong>所以我们应该在系统安装过程中留下足够的磁盘大小，系统安装完成后，使用命令parted划分新分区，然后使用mkfs.xfs进行文件系统格式化，完成空白分区的划分  “强烈建议使用fdisk”</strong></p>
+<p><strong>parted具体命令如下: 不建议使用</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@compute ~]# parted /dev/md126<br></code></pre></td></tr></table></figure>
+
+<p><strong>创建swift分区，从702G到</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@compute ~]# (parted) mkpart swift 702G 803G    803G                                                  <br>[root@compute ~]# mkfs.xfs /dev/md126p5<br></code></pre></td></tr></table></figure>
+
+<p><strong>fdisk具体命令如下: 强烈建议使用</strong></p>
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@compute ~]# fdisk -l <br></code></pre></td></tr></table></figure>
+
+<p><strong>sda为硬盘号</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@compute ~]# fdisk /dev/sda <br></code></pre></td></tr></table></figure>
+
+<p><strong>选择m n是创建 d是删除 w是保存</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs shell">Command (m for help): m<br>Command action<br>   a   toggle a bootable flag<br>   b   edit bsd disklabel<br>   c   toggle the dos compatibility flag<br>   d   delete a partition<br>   g   create a new empty GPT partition table<br>   G   create an IRIX (SGI) partition table<br>   l   list known partition types<br>   m   print this menu<br>   n   add a new partition<br>   o   create a new empty DOS partition table<br>   p   print the partition table<br>   q   quit without saving changes<br>   s   create a new empty Sun disklabel<br>   t   change a partition&#x27;s system id<br>   u   change display/entry units<br>   v   verify the partition table<br>   w   write table to disk and exit <br></code></pre></td></tr></table></figure>
+
+<h1 id="配置网络-主机名-修改和添加"><a href="#配置网络-主机名-修改和添加" class="headerlink" title="配置网络 主机名 修改和添加"></a>配置网络 主机名 修改和添加</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">vi /etc/sysconfig/network-scripts/ifcfg-enp*(具体的网口)文件</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(1) controller节点 配置网络:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">私网的ip地址</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">device=enp8s0</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">type</span>=Ethernet</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">onboot=<span class="hljs-built_in">yes</span></span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">nm_controlled=no</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">bootroto=static</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">ipaddr=192.168.88.131</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">prefix=24</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"></span><br><span class="language-bash">[root@controller]<span class="hljs-comment"># 公网的ip地址</span></span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">device=enp9s0</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">type</span>=Ethernet</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">onboot=<span class="hljs-built_in">yes</span></span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">nm_controlled=no</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">bootroto=static</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">ipaddr=192.168.200.10</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">prefix=24</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>生效</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">service network restart</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">ip a</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>配置主机名: 输入完成 按ctrl+d 退出  重新登陆</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">hostnamectl set-hostname controller</span><br><br></code></pre></td></tr></table></figure>
+
+<p><strong>(2) compute 节点 配置网络:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">私网的ip地址</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">device=enp8s0      //设备名称</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">type</span>=Ethernet</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">onboot=<span class="hljs-built_in">yes</span></span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">nm_controlled=no</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">bootroto=static</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">ipaddr=192.168.100.20</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">prefix=24</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"></span><br><span class="language-bash">[root@controller]<span class="hljs-comment"># 公网的ip地址</span></span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">device=enp9s0</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">type</span>=Ethernet</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">onboot=<span class="hljs-built_in">yes</span></span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">nm_controlled=no</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">bootroto=static</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">ipaddr=192.168.200.20</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">prefix=24</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>生效</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">service network restart</span><br></code></pre></td></tr></table></figure>
+
+
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">ip a</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>配置主机名: 输入完成 按ctrl+d 退出  重新登陆</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">hostnamectl set-hostname compute/controller</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">hostname</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="配置yum源"><a href="#配置yum源" class="headerlink" title="配置yum源"></a>配置yum源</h1><p><strong>Controller和compute节点</strong></p>
+<p><strong>(1)yum源备份</strong></p>
+<p><strong>命令解释: 用来为文件或目录改名、或将文件或目录移入其它位置</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">mv</span> /etc/yum.repos.d/*  /opt/</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(2)创建repo文件</strong></p>
+<p><strong>controller 在/etc/yum.repos.d创建源文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">vi contrller.repo</span>   <br></code></pre></td></tr></table></figure>
+
+<p><strong>配置本地file</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">[centos]</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">name=centos</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">baseurl=file:///opt/centos</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">gpgcheck=0</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">enabled=1</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">[iaas]</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">name=iaas</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">baseurl=file:///opt/iaas-repo</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">gpgcheck=0</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">enabled=1</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">yum repolist</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">cat</span> [文件名]</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>compute 在/etc/yum.repos.d创建centos.repo源文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">vi compute.repo</span> <br></code></pre></td></tr></table></figure>
+
+<p><strong>全部移走</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">mv</span> * /tmp</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>配置ftp</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">[centos]</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">name=centos</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">baseurl=ftp://192.168.88.131/centos</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">gpgcheck=0</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">enabled=1</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">[iaas]</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">name=iaas</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">baseurl=ftp://192.168.88.131/iaas-repo</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">gpgcheck=0</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">enabled=1</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>配置http</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">[centos]</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">name=centos</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">baseurl=http://192.168.88.131/centos</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">gpgcheck=0</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">enabled=1</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">[iaas]</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">name=iaas</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">baseurl=http://192.168.88.131/iaas-repo</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">gpgcheck=0</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">enabled=1</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">yum repolist</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">cat</span> [文件名]</span><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="挂载iso文件"><a href="#挂载iso文件" class="headerlink" title="挂载iso文件"></a>挂载iso文件</h1><p><strong>挂载CentOS-7xxxx.iso</strong></p>
+<p><strong>命令解释: mount挂载Linux系统外的文件, loop是mount用来加载loop设备的选项，不是文件系统类型</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">mount -o loop /home/sdq/CentOS-7-x86_64-DVD-2003.iso  /mnt</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>命令解释: 删除重来</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">rm</span> -rf /opt/centos/*</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>mkdir创建</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">mkdir</span> /opt/centos</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">df</span></span><br></code></pre></td></tr></table></figure>
+
+<p><strong>意思是并将光盘内的数据拷贝到centos文件夹中，数据有点多，要等一会</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">cp</span> -rvf /mnt/* /opt/centos/</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>umount可卸除目前挂在Linux目录中的文件系统</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">umount  /mnt/</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>挂载XianDian-IaaS-v2.4.iso</strong></p>
+<p><strong>mount挂载Linux系统外的文件, loop是mount用来加载loop设备的选项，不是文件系统类型</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">mount -o loop /home/sdq/chinaskills_cloud_iaas.iso  /mnt</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>意思是并将光盘内的数据拷贝到opt文件夹中，数据有点多，要等一会</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">cp</span> -rvf /mnt/* /opt/</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>umount可卸除目前挂在Linux目录中的文件系统</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">umount  /mnt/</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="搭建ftp服务器，开启并设置自启"><a href="#搭建ftp服务器，开启并设置自启" class="headerlink" title="搭建ftp服务器，开启并设置自启"></a>搭建ftp服务器，开启并设置自启</h1><p><strong>安装vsftpd 默认-y= yes</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# yum install vsftpd –y<br></code></pre></td></tr></table></figure>
+
+<p><strong>添加anon_root=/opt/</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# vi /etc/vsftpd/vsftpd.conf<br></code></pre></td></tr></table></figure>
+<p><strong>启动服务</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# systemctl start vsftpd<br></code></pre></td></tr></table></figure>
+
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">yum repolist</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>在开机时启用服务</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# systemctl enable vsftpd<br></code></pre></td></tr></table></figure>
+
+<h1 id="搭建http服务器，开启并设置自启"><a href="#搭建http服务器，开启并设置自启" class="headerlink" title="搭建http服务器，开启并设置自启"></a>搭建http服务器，开启并设置自启</h1><p><strong>安装httpd 默认-y= yes</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7<br>[root@controller ~]# yum install httpd –y<br></code></pre></td></tr></table></figure>
+
+<p><strong>/var/www/html改”/opt”</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# vi /etc/httpd/conf/httpd.conf<br></code></pre></td></tr></table></figure>
+
+<p><strong>启动服务</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# systemctl start httpd<br></code></pre></td></tr></table></figure>
+
+<p><strong>在开机时启用服务</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# systemctl enable httpd<br></code></pre></td></tr></table></figure>
+
+<h1 id="配置防火墙和Selinux"><a href="#配置防火墙和Selinux" class="headerlink" title="配置防火墙和Selinux"></a>配置防火墙和Selinux</h1><p><strong>controller/compute都要</strong></p>
+<p><strong>编辑selinux文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">vi /etc/selinux/config</span> <br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">SELINUX=permissive</span><br>[root@controller selinux]# setenforce 0<br></code></pre></td></tr></table></figure>
+<!-- [root@controller selinux]# getenforce     //查看 -->
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">getenforce</span> <br></code></pre></td></tr></table></figure>
+
+<p><strong>关闭防火墙并设置开机不自启</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">systemctl stop firewalld.service</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">systemctl <span class="hljs-built_in">disable</span> firewalld.service</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">systemctl status firewalld.service</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>清除缓存和验证yum源 controller/compute都要</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">yum clean all</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">yum repolist</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="编辑环境变量"><a href="#编辑环境变量" class="headerlink" title="编辑环境变量"></a>编辑环境变量</h1><p><strong>controller和compute节点</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">yum install iaas-xiandian -y</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>编辑文件/etc/xiandian/openrc.sh, 此文件是安装过程中的各项参数, 根据每项参数上一行的说明及服务器实际情况进行配置</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">HOST_IP=192.168.88.131</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">HOST_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">HOST_NAME=controller</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">HOST_IP_NODE=192.168.100.20</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">HOST_PASS_NODE=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">HOST_NAME_NODE=compute</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">network_segment_IP=192.168.100.0/24</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">RABBIT_USER=openstack</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">RABBIT_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">DB_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">DOMAIN_NAME=demo</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">ADMIN_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">DEMO_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">KEYSTONE_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">GLANCE_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">GLANCE_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">NOVA_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">NOVA_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">NEUTRON_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">NEUTRON_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">METADATA_SECRET=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">INTERFACE_IP=192.168.88.131/192.168.100.20(controllerIP/computeIP)</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">INTERFACE_NAME=enp9s0 (外部网络网卡名称)</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">Physical_NAME=provider (外部网络适配器名称)</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">minvlan=101 (vlan网络范围的第一个vlanID)</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">maxvlan=200 (vlan网络范围的最后一个vlanID)</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">CINDER_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">CINDER_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">BLOCK_DISK=md126p4 (空白分区)</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">SWIFT_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">OBJECT_DISK=md126p5 (空白分区)</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">STORAGE_LOCAL_NET_IP=192.168.100.20</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">HEAT_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">HEAT_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">ZUN_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">ZUN_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">KURYR_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">KURYR_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">CEILOMETER_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">CEILOMETER_PASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">AODH_DBPASS=000000</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">AODH_PASS=000000</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="通过脚本安装服务"><a href="#通过脚本安装服务" class="headerlink" title="通过脚本安装服务"></a>通过脚本安装服务</h1><p><strong>执行脚本iaas-pre-host.sh进行安装</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# iaas-pre-host.sh<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@controller ~]# chronyc sources -v<br></code></pre></td></tr></table></figure>
+
+<h1 id="通过脚本安装数据库服务"><a href="#通过脚本安装数据库服务" class="headerlink" title="通过脚本安装数据库服务"></a>通过脚本安装数据库服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-mysql.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="通过脚本安装keystone服务"><a href="#通过脚本安装keystone服务" class="headerlink" title="通过脚本安装keystone服务"></a>通过脚本安装keystone服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-keystone.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="通过脚本安装glance服务"><a href="#通过脚本安装glance服务" class="headerlink" title="通过脚本安装glance服务"></a>通过脚本安装glance服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-glance.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="上传镜像"><a href="#上传镜像" class="headerlink" title="上传镜像"></a>上传镜像</h1><p><strong>首先下载(Wget)提供的系统镜像到本地，本次以上传CentOS_7.5_x86_64镜像为例 安装Wget，从Ftp服务器上下载镜像到本地</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">source</span> admin-openrc.sh</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">glance image-create --name <span class="hljs-string">&quot;CentOS7.5&quot;</span> --disk-format qcow2  --container-format bare --progress &lt;       /opt/images/CentOS_7.5_x86_64_XD.qcow2</span>  <br></code></pre></td></tr></table></figure>
+
+<h1 id="安装Nova计算服务"><a href="#安装Nova计算服务" class="headerlink" title="安装Nova计算服务"></a>安装Nova计算服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-nova-controller.sh</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Compute节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-nova-compute.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="安装Neutron网络服务"><a href="#安装Neutron网络服务" class="headerlink" title="安装Neutron网络服务"></a>安装Neutron网络服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-neutron-controller.sh</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Compute节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-neutron-compute.sh</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="安装Dashboard服务"><a href="#安装Dashboard服务" class="headerlink" title="安装Dashboard服务"></a>安装Dashboard服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">aas-install-dashboard.sh</span><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h1><p><strong>打开浏览器访问Dashboard, 网址<a target="_blank" rel="noopener" href="http://controller/">http://controller</a> (或本机内网ip) /dashboard</strong><br><strong>注: 检查防火墙规则，确保允许http服务相关端口通行，或者关闭防火墙</strong></p>
+<h1 id="创建云主机"><a href="#创建云主机" class="headerlink" title="创建云主机"></a>创建云主机</h1><p><strong>(1) 管理员-&gt;资源管理-&gt;云主机类型-&gt;创建云主机类型</strong></p>
+<p><strong>(2) 管理员-&gt;网络-&gt;网络-&gt;创建网络</strong></p>
+<p><strong>(2) 项目-&gt;网络-&gt;安全组-&gt;管理规则-&gt;添加规则(ICMP、TCP、UDP)</strong> </p>
+<p><strong>(4) 项目-&gt;资源管理-&gt;云主机-&gt;创建云主机</strong></p>
+<h1 id="安装Cinder块存储服务"><a href="#安装Cinder块存储服务" class="headerlink" title="安装Cinder块存储服务"></a>安装Cinder块存储服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-cinder-controller.sh</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Compute节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-cinder-compute.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="验证-以后会用到"><a href="#验证-以后会用到" class="headerlink" title="验证  [以后会用到]"></a>验证  [以后会用到]</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">使用cinder create 创建一个新的卷<br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">cinder create  --display-name myVolume 1</span><br>通过cinder list 命令查看是否正确创建<br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">cinder list</span> <br></code></pre></td></tr></table></figure>
+
+<p><strong>Compute节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-neutron-compute.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="安装Swift对象存储服务"><a href="#安装Swift对象存储服务" class="headerlink" title="安装Swift对象存储服务"></a>安装Swift对象存储服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-swift-controller.sh</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Compute节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-swift-compute.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="安装Heat编配服务"><a href="#安装Heat编配服务" class="headerlink" title="安装Heat编配服务"></a>安装Heat编配服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-heat.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="安装Zun服务"><a href="#安装Zun服务" class="headerlink" title="安装Zun服务"></a>安装Zun服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-zun-controller.sh</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Compute节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-zun-compute.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="上传镜像-1"><a href="#上传镜像-1" class="headerlink" title="上传镜像"></a>上传镜像</h1><p><strong>以CentOS7_1804.tar镜像为例, CentOS7_1804.tar镜像包存放在XianDian-IaaS-v2.4.iso镜像包中, 将docker镜像上传到glance中, 通过openstack使用镜像启动容器</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash"><span class="hljs-built_in">source</span> /etc/keystone/admin-openrc.sh</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">openstack image create centos7.5 --public --container-format docker --disk-format raw &lt; CentOS7_1804.tar</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h1><p><strong>通过glance存储镜像启动容器</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">zun run --image-driver glance centos7.5</span><br><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">zun list</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="安装Ceilometer监控服务"><a href="#安装Ceilometer监控服务" class="headerlink" title="安装Ceilometer监控服务"></a>安装Ceilometer监控服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-ceilometer-controller.sh</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Compute节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-ceilometer-compute.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="安装Aodh监控服务"><a href="#安装Aodh监控服务" class="headerlink" title="安装Aodh监控服务"></a>安装Aodh监控服务</h1><p><strong>Controller节点 执行以下脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">iaas-install-aodh.sh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="更新-清除所有"><a href="#更新-清除所有" class="headerlink" title="更新/清除所有"></a>更新/清除所有</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">yum clean all</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h1><p><strong>httpd为服务名称</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">[root@controller]# </span><span class="language-bash">systemctl restart httpd</span><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="添加控制节点资源到云平台"><a href="#添加控制节点资源到云平台" class="headerlink" title="添加控制节点资源到云平台"></a>添加控制节点资源到云平台</h1><p><strong>修改openrc.sh  把compute节点的IP和主机名改为controller节点的IP和主机名</strong></p>
+<p><strong>运行iaas-install-nova-compute.sh  行过程中需要确认登录controller节点和输入controller节点root用户密码</strong></p>
+<h1 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h1><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs inform7">scp -r <span class="hljs-comment">[文件名]</span> <span class="hljs-comment">[用户名]</span>@<span class="hljs-comment">[ip]</span>:/home/<span class="hljs-comment">[用户名]</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h1><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs inform7">ssh <span class="hljs-comment">[用户名]</span>@<span class="hljs-comment">[ip]</span><br></code></pre></td></tr></table></figure>
+<p>生成ssh公钥</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ssh-keygen</span><br></code></pre></td></tr></table></figure>
+<p>复制密钥给主机2</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> [用户名]@[ip]  <br></code></pre></td></tr></table></figure>
+<p>然后输入主机2的密码</p>
+<p>密钥位置 传过来的在用户目录  将要传的在root目录后缀为pub是公钥 rsa是私钥</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> <span class="hljs-string">/home/</span>用户名<br><span class="hljs-keyword">ls</span> -a<br><span class="hljs-keyword">cd</span> <span class="hljs-string">.ssh</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">cat <span class="hljs-regexp">/etc/</span>[路径]<br></code></pre></td></tr></table></figure>
+
+<h1 id="查看当前路径"><a href="#查看当前路径" class="headerlink" title="查看当前路径"></a>查看当前路径</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">pwd</span><br></code></pre></td></tr></table></figure>
+
+<br>
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/Private-cloud.html">https://sdq3.gitee.io/Private-cloud.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

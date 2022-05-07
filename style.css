@@ -1,0 +1,165 @@
+/* wenzhang=文章 */
+/* pai = 排 */
+/* kong = 空 */
+/* jiao = 脚 */
+
+#footer {
+    height: 5rem;
+}
+
+.Text>a{
+    color:#000;
+    font-size: 20px;
+}
+
+.pai {
+    display: flex;    
+    width: 100%;
+    justify-content: space-around;
+    font-size: 25px;
+    margin: 30px 30px 40px 0px;
+}
+
+a > span {
+    color:#000;
+}
+
+strong > a {
+    color:#000;
+}
+
+h1,h2,h3,h4,h5 > a{
+    color:#000;
+}
+
+h1>a, h2>a, h3>a, h4>a {
+    color:#000;
+}
+
+.category-list-item>.category-list-link{
+    color:#000;
+}
+
+
+.kong{
+    color:#000;
+    margin: 0px 0px 0px 0px;
+}
+
+.box{
+    border-style:solid;
+    border-width:medium;
+}
+
+.jiao{
+    color:#000;
+    margin: 0px 0px 0px 0px;
+}
+
+.konga {
+        display: flex;    
+        width: 100%;
+        justify-content: space-around;
+        font-size: 50px;
+        margin: 60px 0px 0px 0px;
+        color:#000;
+}
+
+.bx{
+    border-style:solid;
+    border-width:medium;
+    font-size: 1px;
+    font-weight: bold;
+    color:#000;
+}
+
+p > a{
+     color:#000;
+}
+
+
+/* 文章布局 */
+.wenzhang-container {
+    margin: auto;
+    max-width: 960px;
+    padding: 16px 16px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.6;
+    font-size: larger;
+}
+
+/* 表格 */
+
+table > thead > tr {
+    border: 1px solid;
+    border-spacing: 2px;
+    border-color: #000;
+}
+
+#content-wrap > div > div > wenzhang > table:nth-child(13) > tbody > tr{
+    border: 1px solid;
+    border-spacing: 2px;
+    border-color: #000;
+}
+
+#content-wrap > div > div > wenzhang > table:nth-child(11) > tbody > tr{
+    border: 1px solid;
+    border-spacing: 2px;
+    border-color: #000;
+}
+
+#content-wrap > div > div > wenzhang > table:nth-child(7) > tbody > tr{
+    border: 1px solid;
+    border-spacing: 2px;
+    border-color: #000;
+}
+
+#content-wrap > div > div > ul > li{
+    display: flex;    
+    width: 100%;
+    justify-content: space-around;
+}
+
+#content-wrap > div > div > p{
+    display: flex;    
+    width: 100%;
+    justify-content: space-around;
+}
+
+wenzhang h1 {
+    font-size: 1.7em
+}
+
+wenzhang h2 {
+    font-size: 1.6em
+}
+
+wenzhang h3 {
+    font-size: 1.45em
+}
+
+wenzhang h4 {
+    font-size: 1.25em;
+}
+
+wenzhang h5 {
+    font-size: 1.1em;
+}
+wenzhang h6 {
+    font-size: 1em;
+    font-weight: bold
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

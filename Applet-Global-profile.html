@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">小程序 全局配置文件</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE-app-json"><span class="toc-text">全局配置 app.json</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pages%E5%AD%97%E6%AE%B5"><span class="toc-text">pages字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window%E5%AD%97%E6%AE%B5"><span class="toc-text">window字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tabbar%E5%AD%97%E6%AE%B5"><span class="toc-text">tabbar字段</span></a></li></ol></li></ol>
+      </div>
+      <p><strong>小程序学习笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="全局配置-app-json"><a href="#全局配置-app-json" class="headerlink" title="全局配置 app.json"></a>全局配置 app.json</h1><h2 id="pages字段"><a href="#pages字段" class="headerlink" title="pages字段"></a>pages字段</h2><p><strong>用处: 描述小程序所以页面的路径</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs JSON"><span class="hljs-comment">// 该字段用来表明子页面的</span><br><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-comment">// 页面</span><br>    <span class="hljs-attr">&quot;pages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>        <span class="hljs-comment">// 子页面 首页</span><br>        <span class="hljs-string">&quot;pages/index/index&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-comment">// 增加页面 减少页面也同理</span><br>        <span class="hljs-string">&quot;pages/sdq/sdq&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-comment">// 子页面 日志</span><br>        <span class="hljs-string">&quot;pages/logs/logs&quot;</span><br>    <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="window字段"><a href="#window字段" class="headerlink" title="window字段"></a>window字段</h2><p><strong>用处: 定义小程序所有页面的顶部背景颜色, 文字颜色等等</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs JSON"><span class="hljs-comment">// 该字段用来表明子页面的</span><br><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-comment">// 页面</span><br>    <span class="hljs-attr">&quot;window&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-comment">// 下拉 loading 的样式</span><br>        <span class="hljs-attr">&quot;backgroundTextStyle&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;light&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-comment">// 导航栏背景颜色</span><br>        <span class="hljs-attr">&quot;navigationBarBackgroundColor&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;#000000&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-comment">// 导航栏标题文字内容</span><br>        <span class="hljs-attr">&quot;navigationBarTitleText&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;史迪奇的博客&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-comment">// 导航栏标题颜色</span><br>        <span class="hljs-attr">&quot;navigationBarTextStyle&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;white&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-comment">// 下拉刷新</span><br>        <span class="hljs-attr">&quot;enablePullDownRefresh&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;sitemaplocation&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sitemap.json&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">navigationBarBackgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">#000000</td>
+<td align="left">导航栏背景颜色</td>
+</tr>
+<tr>
+<td align="left">navigationBarTextStyle</td>
+<td align="left">string</td>
+<td align="left">white</td>
+<td align="left">导航栏标题颜色, 仅支持 black / white</td>
+</tr>
+<tr>
+<td align="left">navigationBarTitleText</td>
+<td align="left">string</td>
+<td align="left">导航栏标题文字内容</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationStyle</td>
+<td align="left">string</td>
+<td align="left">default</td>
+<td align="left">导航栏样式, 仅支持以下值: default 默认样式custom 自定义导航栏, 只保留右上角胶囊按钮</td>
+</tr>
+<tr>
+<td align="left">backgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">#ffffff</td>
+<td align="left">窗口的背景色</td>
+</tr>
+<tr>
+<td align="left">backgroundTextStyle</td>
+<td align="left">string</td>
+<td align="left">dark</td>
+<td align="left">下拉 loading 的样式, 仅支持 dark / light</td>
+</tr>
+<tr>
+<td align="left">backgroundColorTop</td>
+<td align="left">string</td>
+<td align="left">#ffffff</td>
+<td align="left">顶部窗口的背景色</td>
+</tr>
+<tr>
+<td align="left">backgroundColorBottom</td>
+<td align="left">string</td>
+<td align="left">#ffffff</td>
+<td align="left">底部窗口的背景色</td>
+</tr>
+<tr>
+<td align="left">enablePullDownRefresh</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">是否开启全局的下拉刷新。详见 Page.onPullDownRefresh</td>
+</tr>
+<tr>
+<td align="left">onReachBottomDistance</td>
+<td align="left">number</td>
+<td align="left">50</td>
+<td align="left">页面上拉触底事件触发时距页面底部距离, 单位为 px 详见 Page.onReachBottom</td>
+</tr>
+<tr>
+<td align="left">pageOrientation</td>
+<td align="left">string</td>
+<td align="left">portrait</td>
+<td align="left">屏幕旋转设置, 支持 auto / portrait / landscape 详见 响应显示区域变化</td>
+</tr>
+</tbody></table>
+<h2 id="tabbar字段"><a href="#tabbar字段" class="headerlink" title="tabbar字段"></a>tabbar字段</h2><p><strong>用处: 定义小程序所有页面的顶部背景颜色, 文字颜色等等</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs JSON"><span class="hljs-attr">&quot;tabBar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-comment">// list要两包括两个以上才生效</span><br>  <span class="hljs-attr">&quot;list&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><br>     <span class="hljs-comment">// 首页</span><br>    <span class="hljs-attr">&quot;pagePath&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pages/index/index&quot;</span><span class="hljs-punctuation">,</span><br>     <span class="hljs-comment">// 给文章名字</span><br>    <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;首页&quot;</span><span class="hljs-punctuation">,</span><br>     <span class="hljs-comment">// 在同级创一个sdz的文件夹然后放图片在里面 </span><br>     <span class="hljs-comment">// 点击前的图标</span><br>    <span class="hljs-attr">&quot;iconPath&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sdq/_sdq.png&quot;</span><span class="hljs-punctuation">,</span><br>     <span class="hljs-comment">// 点击后的图标</span><br>    <span class="hljs-attr">&quot;selectedIconPath&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sdq/sdq.png&quot;</span><br>  <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;pagePath&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pages/sdz/sdz&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;史迪奇&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;iconPath&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sdz/_sdq.png&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;selectedIconPath&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sdz/sdq.png&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="right">必填</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">color</td>
+<td align="left">HexColor</td>
+<td align="right">是</td>
+<td align="left">tab 上的文字默认颜色, 仅支持十六进制颜色</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">selectedColor</td>
+<td align="left">HexColor</td>
+<td align="right">是</td>
+<td align="left">tab 上的文字选中时的颜色, 仅支持十六进制颜色</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">backgroundColor</td>
+<td align="left">HexColor</td>
+<td align="right">是</td>
+<td align="left">tab 的背景色, 仅支持十六进制颜色</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">borderStyle</td>
+<td align="left">string</td>
+<td align="right">否</td>
+<td align="left">black    tabbar 上边框的颜色,  仅支持 black / white</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">list</td>
+<td align="left">Array</td>
+<td align="right">是</td>
+<td align="left">tab 的列表, 详见 list 属性说明, 最少 2 个、最多 5 个 tab</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">position</td>
+<td align="left">string</td>
+<td align="right">否</td>
+<td align="left">bottom    tabBar 的位置, 仅支持 bottom / top</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">custom</td>
+<td align="left">boolean</td>
+<td align="right">否</td>
+<td align="left">false    自定义 tabBar, 见详情</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<br>
+
+
+
+
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/Applet-Global-profile.html">https://sdq3.gitee.io/Applet-Global-profile.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

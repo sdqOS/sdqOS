@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">爬虫 verify参数与CA证书(吃牢饭集合)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-text">使用</span></a></li></ol>
+      </div>
+      <p><strong>每天一个入狱小技巧</strong></p>
+<span id="more"></span>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> requests<br><br><span class="hljs-comment"># 例如校园网</span><br>url = <span class="hljs-string">&quot;https://sam.huat.edu.cn:8443/selfservice/&quot;</span><br><br>response = requests.get(url, verify=<span class="hljs-literal">False</span>)<br><br><span class="hljs-built_in">print</span>(response.content)<br><span class="hljs-built_in">print</span>(response.text)<br></code></pre></td></tr></table></figure>
+
+<br>
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/reptile-verify-CA.html">https://sdq3.gitee.io/reptile-verify-CA.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">爬虫 状态码(吃牢饭集合)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-text">状态码</span></a></li></ol>
+      </div>
+      <p><strong>每天一个入狱小技巧</strong></p>
+<span id="more"></span>
+
+<h1 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h1><p><strong>常见的状态码 (了解就行)</strong></p>
+<ul>
+<li>200: 成功</li>
+<li>302: 跳转, 新的url在响应的Location头中给出</li>
+<li>303: 浏览器对于POST的响应进行重新定向至新的url</li>
+<li>307: 浏览器对应GET响应进行重新定向至新的url</li>
+<li>403: 资源不可用; 服务器理解客户的请求, 但拒绝处理它(没有权限)</li>
+<li>404: 找不到资源</li>
+<li>500: 服务器内部错误</li>
+<li>503: 服务器又有维护或者负载过重未能应答, 在响应中可能会携带Retry-After响应头; 有可能是因为爬虫频繁访问url, 使得服务器忽视爬虫的请求, 最终返回503响应状态码</li>
+</ul>
+
+<p><strong>常见状态码表格形式 (了解就行)</strong></p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>代表意思</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>200</td>
+<td>成功</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>302</td>
+<td>跳转, 新的url在响应的Location头中给出</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>303</td>
+<td>浏览器对于POST的响应进行重新定向至新的url</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>307</td>
+<td>浏览器对应GET响应进行重新定向至新的url</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>资源不可用; 服务器理解客户的请求, 但拒绝处理它(没有权限)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>找不到资源</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>500</td>
+<td>服务器内部错误</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>503</td>
+<td>服务器又有维护或者负载过重未能应答, 在响应中可能会携带Retry-After响应头; 有可能是因为爬虫频繁访问url, 使得服务器忽视爬虫的请求, 最终返回503响应状态码</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>总结 所有的状态码都不可信, 一切以是否从抓包得到的响应中获得到的数据为准 network中抓包得到的源码才是判断依据, elements中的源码是渲染之后的源码</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">请求过程</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">浏览器</td>
+<td align="left">发送所有请求, 进行渲染</td>
+</tr>
+<tr>
+<td align="left">爬虫</td>
+<td align="left">发送所有请求, 不会渲染</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">请页面可分为</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">骨骼文件</td>
+<td align="left">html静态文件</td>
+</tr>
+<tr>
+<td align="left">肌肉文件</td>
+<td align="left">js/ajax请求</td>
+</tr>
+<tr>
+<td align="left">皮肤文件</td>
+<td align="left">css/font/图片等</td>
+</tr>
+</tbody></table>
+<p><strong>抓包过程: 根据发送请求的流程分别在 骨骼 / 肌肉 / 皮肤 响应中查找数据</strong></p>
+<br>
+
+
+
+
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/reptile-state.html">https://sdq3.gitee.io/reptile-state.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

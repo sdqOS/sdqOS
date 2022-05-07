@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">爬虫 反爬知识大讲解(抓到即坐牢)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E5%B8%B8%E5%8F%8D%E7%88%AC%E7%9A%84%E4%B8%89%E4%B8%AA%E6%96%B9%E5%90%91"><span class="toc-text">通常反爬的三个方向</span></a></li></ol>
+      </div>
+      <p><strong>好好劳改重新做人</strong></p>
+<span id="more"></span>
+
+<h1 id="通常反爬的三个方向"><a href="#通常反爬的三个方向" class="headerlink" title="通常反爬的三个方向"></a>通常反爬的三个方向</h1><ul>
+<li><p>基于身份识别进行反爬</p>
+<ul>
+<li><p>通过hraders中的User-Agent字段来反爬</p>
+<ul>
+<li><p>反爬原因: 爬虫默认情况下没有User-Agent, 而是使用模块默认设置</p>
+</li>
+<li><p>解决方法: 请求之前添加User-Agent即可或者使用User-Agent池来解决</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>通过referer字段或者是其他字段来反爬 </p>
+<ul>
+<li><p>反爬原因: 爬虫默认情况下不会带上referer字段, 服务器端通过判断请求头是否合法</p>
+</li>
+<li><p>解决方法: 添加referer字段</p>
+</li>
+</ul>
+</li>
+<li><p>通过cookie来反爬</p>
+<ul>
+<li><p>反爬原因: 通过检查cookie来查看发起请求的用户是否具备相应权限来进行反爬</p>
+</li>
+<li><p>解决方法: 进行模拟代理, 成功获取cookie之后在进行数据爬取</p>
+</li>
+</ul>
+</li>
+<li><p>通过从html静态文件中获取请求数据</p>
+<ul>
+<li><p>反爬原因: 通过增加获取请求参数的难度进行反爬</p>
+</li>
+<li><p>解决方法: 仔细分析抓到的每个包, 搞清楚请求之间的联系</p>
+</li>
+</ul>
+</li>
+<li><p>通过发生请求获取请求数据</p>
+<ul>
+<li><p>反爬原因: 通过增加获取请求参数的难度进行反爬</p>
+</li>
+<li><p>解决方法: 仔细分析抓到的每个包, 搞清楚请求之间的联系, 搞清楚请求参数的来源</p>
+</li>
+</ul>
+</li>
+<li><p>通过js生成请求参数</p>
+<ul>
+<li><p>反爬原因: js生成请求参数</p>
+</li>
+<li><p>解决方法: 分析js, 观察加密的实现过程, 通过js2py获取js的执行结果或者使用selenium来实现</p>
+</li>
+</ul>
+</li>
+<li><p>通过验证码来反爬</p>
+<ul>
+<li><p>反爬原因: 对方服务器通过弹出验证码来强制用户浏览行为</p>
+</li>
+<li><p>解决方法: 打码平台或者机器学习的方法识别验证码</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>基于爬虫行为进行反爬</p>
+<ul>
+<li><p>通过请求IP/账号单位时间内总请求数量进行反爬</p>
+<ul>
+<li><p>反爬原因: 正常浏览器请求网站, 速度不会太快, 同一个IP/账号大量请求了对方服务器, 有更大的可能性会被识别为爬虫</p>
+</li>
+<li><p>解决方法: 对应的通过购买高质量的IP的方式能够解决问题或者多账号</p>
+</li>
+</ul>
+</li>
+<li><p>通过同一账号/IP请求之间的间隔进行反爬</p>
+<ul>
+<li><p>反爬原因: 正常浏览器浏览网站请求之间的时间是随机的, 而爬虫前后两个请求之间间隔固定同时间隔较短</p>
+</li>
+<li><p>解决方法: 请求之间进行随机等待, 模拟真实用户操作, 在添加时间间隔后, 为了能够高速获取数据, 尽量使用代理池, 如果是账号则将账号请求之间设置随机睡眠</p>
+</li>
+</ul>
+</li>
+<li><p>通过对请求IP/账号每天请求次数设置阈值进行反爬</p>
+<ul>
+<li><p>反爬原因: 正常的浏览行为, 其一天次数是有限的, 通常超过某一个值, 服务器就会拒绝响应</p>
+</li>
+<li><p>解决方法: 对应的通过购买高质量的IP的方式能够解决问题或者多账号, 同时设置请求间随机休眠</p>
+</li>
+</ul>
+</li>
+<li><p>通过js实现跳转来反爬</p>
+<ul>
+<li><p>反爬原因: js实现页面跳转, 无法在源码中获取下一页的url</p>
+</li>
+<li><p>解决方法: 多次抓包获取跳转url, 分析规律</p>
+</li>
+</ul>
+</li>
+<li><p>通过蜜罐(陷阱)获取爬虫IP或代理IP</p>
+<ul>
+<li><p>反爬原因: 在爬虫获取链接进行请求的过程中, 爬虫会根据正则, xpath, css等方式进行后续链接的提取, 此时服务器端可以设置一个陷阱url, 会被提取规则获取, 但是正常用户无法获取, 这样就能有效的区分爬虫和正常用户</p>
+</li>
+<li><p>解决方法: 完成爬虫的编写之后, 使用代理批量爬取测试/仔细分析响应内容结构, 找出页面中存在的陷阱</p>
+</li>
+</ul>
+</li>
+<li><p>通过假数据反爬</p>
+<ul>
+<li><p>反爬原因: 向返回的响应中添加假数据库, 通常不会被正常用户看到</p>
+</li>
+<li><p>解决方法: 长期运行, 核对数据库中数据同实际数据的对应情况, 如果存在问题/仔细分析响应内容</p>
+</li>
+</ul>
+</li>
+<li><p>阻塞任务队列</p>
+<ul>
+<li><p>反爬原因: 通过生成大量垃圾url从而阻塞任务队列, 降低爬虫的实际工作效率</p>
+</li>
+<li><p>解决方法: 观察运行过程中请求响应状态/仔细分析源码获取垃圾url生成规则, 对url进行过滤</p>
+</li>
+</ul>
+</li>
+<li><p>阻塞网络IO</p>
+<ul>
+<li><p>反爬原因: 发送请求获取响应的过程实际上就是下载的过程, 在任务队列中混入一个大文件的url, 当爬虫在进行该请求是将会占用网络IO, 多线程下载会占用线程</p>
+</li>
+<li><p>解决方法: 观察运行过程中请求响应状态/多线程对请求线程计时/发送请求钱</p>
+</li>
+</ul>
+</li>
+<li><p>运维平台综合审计</p>
+<ul>
+<li><p>反爬原因: 通过运维平台进行综合管理, 通常采用复合型反爬策略, 多种手段同时使用</p>
+</li>
+<li><p>解决方法: 仔细分析, 长期运行测试目标网站, 检查数据采集速度多方面处理</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>基于数据加密进行反爬 </p>
+<ul>
+<li><p>自定义字体来实现反爬</p>
+<ul>
+<li><p>反爬原因: 使用自有字体文件</p>
+</li>
+<li><p>解决方法: 切换到手机版/解析字体文件进行翻译</p>
+</li>
+</ul>
+</li>
+<li><p>通过css来实现反爬</p>
+<ul>
+<li><p>反爬原因: 源码数据不为真正数据, 需要通过css位移才能产生真正数据</p>
+</li>
+<li><p>解决方法: 计算css的偏移</p>
+</li>
+</ul>
+</li>
+<li><p>通过js动态生成数据进行反爬</p>
+<ul>
+<li><p>反爬原因: 通过js动态生成</p>
+</li>
+<li><p>解决方法: 解析关键js, 获得数据生成流程, 模拟存储数据</p>
+</li>
+</ul>
+</li>
+<li><p>通过数据图片化实现反爬</p>
+<ul>
+<li><p>反爬原因: 通过数据图片化生成</p>
+</li>
+<li><p>解决方法: 通过使用图片解析引擎从图片解析数据</p>
+</li>
+</ul>
+</li>
+<li><p>通过编码格式进行反爬</p>
+<ul>
+<li><p>反爬原因: 不适合用默认编码格式, 在获取响应之后通常爬虫使用UTF-8格式进行解码, 此时解码结构将会是乱码或者报错</p>
+</li>
+<li><p>解决方法: 根据源码进行多格式解码或者真正的解码格式</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/reptile-prevent.html">https://sdq3.gitee.io/reptile-prevent.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

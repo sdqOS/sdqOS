@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">C语 结构体 共用体 检举类型</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">结构体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">结构体的定义:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%A3%B0%E6%98%8E%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%90%8C%E6%97%B6%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="toc-text">在声明类型的同时定义变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%81%E7%95%A5%E7%BB%93%E6%9E%84%E4%BD%93%E5%90%8D-%E7%9B%B4%E6%8E%A5%E5%AE%9A%E4%B9%89%E7%BB%93%E6%9E%84%E4%BD%93%E5%8F%98%E9%87%8F"><span class="toc-text">省略结构体名, 直接定义结构体变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E5%8F%98%E9%87%8F%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%AE%9A%E4%B9%89%E6%95%B0%E7%BB%84"><span class="toc-text">结构体变量也可以定义数组</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">结构体的普通变量 通过 . 来访问成员  结构体的指针变量 通过 -&gt; 来访问成员  
+
+
+
+给变量类型别名
+
+1234&#x2F;&#x2F; #define 别名 要替换的数 (作用类似于)typedef 数据类型 别名;   &#x2F;&#x2F; 区别 typedef 要声明数据类型 而 #define 不用别名 变量名 &#x3D; 赋值;
+
+结构体数组12345678910typedef 数据类型 名称;   {    数据类型1 变量名1;    数据类型2 变量名2;    数据类型3 变量名3;}别名;&#x2F;&#x2F; 然后再调用别名 要声明的变量 [数组];
+
+结合一起12345typedef struct 结构体名{    数据类型 成员变量名1;    数据类型 成员变量名2;    数据类型 成员变量名3;  }别名;  &#x2F;&#x2F; 定义别名后, 原先的结构体名称也可以用 
+
+结构体指针12345数据名 *指针 &#x3D; &amp;地址;printf(&quot;%s\n&quot;, b-&gt;成员)&#x2F;&#x2F; 或者printf(&quot;%s\n&quot;, (*b).成员)
+
+注意: 访问成员用 . 点号
+共用体结构体和共用体的区别: 共用体可以共用内存, 结构体不行共用体:
+
+
+    graph LR
+    A[(&quot; 共用体 &quot;)]--&gt;B[&quot; 变量名1变量名2变量名3 &quot;] 
+
+
+
+
+结构体:
+
+
+    graph LR
+    A[(&quot; 结构体 &quot;)]--&gt;B[&quot; 变量名1&quot;]
+    A[(&quot; 结构体 &quot;)]--&gt;C[&quot; 变量名2&quot;] 
+    A[(&quot; 结构体 &quot;)]--&gt;D[&quot; 变量名3&quot;]  
+
+
+
+
+共用体的定义:
+
+
+
+1234union 共用体名{    成员列表};
+
+枚举类型
+枚举类型作用就是美化代码, 让代码由复杂到简单
+
+枚举类型的定义:
+
+
+
+1234enum 标识名{    枚举项0, 枚举项1, 枚举项2; };
+
+注意: 枚举项没赋值的情况下是从 0 开始, 赋值之后是从 赋值的那个值往后 依次加 1
+</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">
+
+
+
+给变量类型别名
+
+1234&#x2F;&#x2F; #define 别名 要替换的数 (作用类似于)typedef 数据类型 别名;   &#x2F;&#x2F; 区别 typedef 要声明数据类型 而 #define 不用别名 变量名 &#x3D; 赋值;
+
+结构体数组12345678910typedef 数据类型 名称;   {    数据类型1 变量名1;    数据类型2 变量名2;    数据类型3 变量名3;}别名;&#x2F;&#x2F; 然后再调用别名 要声明的变量 [数组];
+
+结合一起12345typedef struct 结构体名{    数据类型 成员变量名1;    数据类型 成员变量名2;    数据类型 成员变量名3;  }别名;  &#x2F;&#x2F; 定义别名后, 原先的结构体名称也可以用 
+
+结构体指针12345数据名 *指针 &#x3D; &amp;地址;printf(&quot;%s\n&quot;, b-&gt;成员)&#x2F;&#x2F; 或者printf(&quot;%s\n&quot;, (*b).成员)
+
+注意: 访问成员用 . 点号
+共用体结构体和共用体的区别: 共用体可以共用内存, 结构体不行共用体:
+
+
+    graph LR
+    A[(&quot; 共用体 &quot;)]--&gt;B[&quot; 变量名1变量名2变量名3 &quot;] 
+
+
+
+
+结构体:
+
+
+    graph LR
+    A[(&quot; 结构体 &quot;)]--&gt;B[&quot; 变量名1&quot;]
+    A[(&quot; 结构体 &quot;)]--&gt;C[&quot; 变量名2&quot;] 
+    A[(&quot; 结构体 &quot;)]--&gt;D[&quot; 变量名3&quot;]  
+
+
+
+
+共用体的定义:
+
+
+
+1234union 共用体名{    成员列表};
+
+枚举类型
+枚举类型作用就是美化代码, 让代码由复杂到简单
+
+枚举类型的定义:
+
+
+
+1234enum 标识名{    枚举项0, 枚举项1, 枚举项2; };
+
+注意: 枚举项没赋值的情况下是从 0 开始, 赋值之后是从 赋值的那个值往后 依次加 1
+</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84"><span class="toc-text">结构体数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E5%90%88%E4%B8%80%E8%B5%B7"><span class="toc-text">结合一起</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88"><span class="toc-text">结构体指针</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B1%E7%94%A8%E4%BD%93"><span class="toc-text">共用体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E5%85%B1%E7%94%A8%E4%BD%93%E7%9A%84%E5%8C%BA%E5%88%AB-%E5%85%B1%E7%94%A8%E4%BD%93%E5%8F%AF%E4%BB%A5%E5%85%B1%E7%94%A8%E5%86%85%E5%AD%98-%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8D%E8%A1%8C"><span class="toc-text">结构体和共用体的区别: 共用体可以共用内存, 结构体不行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B1%E7%94%A8%E4%BD%93-1"><span class="toc-text">共用体:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93-1"><span class="toc-text">结构体:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">共用体的定义:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="toc-text">枚举类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">枚举类型的定义:</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <p><strong>C语学习笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h1><ul>
+<li>概念: <strong>结构体是一种可以由自己定义的数据类型</strong></li>
+</ul>
+<ul>
+<li>结构体可以定义成全局变量也可以定义在函数里面成局部变量 </li>
+</ul>
+<ul>
+<li>先声明, 再定义</li>
+</ul>
+<h4>结构体的定义:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-class"><span class="hljs-keyword">struct</span> 结构体名&#123;</span><br>    数据类型 成员变量名<span class="hljs-number">1</span>;  <span class="hljs-comment">// 成员列表</span><br>    数据类型 成员变量名<span class="hljs-number">2</span>;  <span class="hljs-comment">// 成员列表</span><br>    数据类型 成员变量名<span class="hljs-number">3</span>;  <span class="hljs-comment">// 成员列表</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="在声明类型的同时定义变量"><a href="#在声明类型的同时定义变量" class="headerlink" title="在声明类型的同时定义变量"></a>在声明类型的同时定义变量</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-class"><span class="hljs-keyword">struct</span> 结构体名&#123;</span> <br>    数据类型 成员变量名<span class="hljs-number">1</span>;<br>    数据类型 成员变量名<span class="hljs-number">2</span>;<br>    数据类型 成员变量名<span class="hljs-number">3</span>;  <br>&#125;变量名列表;<br></code></pre></td></tr></table></figure>
+
+<h3 id="省略结构体名-直接定义结构体变量"><a href="#省略结构体名-直接定义结构体变量" class="headerlink" title="省略结构体名, 直接定义结构体变量"></a>省略结构体名, 直接定义结构体变量</h3><ul>
+<li>注意: <strong>只能定义一次, 接下来不能再定义结构体变量</strong></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    数据类型 成员变量名<span class="hljs-number">1</span>;<br>    数据类型 成员变量名<span class="hljs-number">2</span>;<br>    数据类型 成员变量名<span class="hljs-number">3</span>;  <br>&#125;变量名列表;<br></code></pre></td></tr></table></figure>
+
+<h3 id="结构体变量也可以定义数组"><a href="#结构体变量也可以定义数组" class="headerlink" title="结构体变量也可以定义数组"></a>结构体变量也可以定义数组</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-class"><span class="hljs-keyword">struct</span> 结构体名&#123;</span> <br>    数据类型 成员变量名<span class="hljs-number">1</span>;<br>    数据类型 数组变量名<span class="hljs-number">2</span> [ 数组 ];<br>    数据类型 成员变量名<span class="hljs-number">3</span>;  <br>&#125;;<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> 结构体名 变量名 =</span> &#123; 成员<span class="hljs-number">1</span>, &#123; 数组<span class="hljs-number">1</span>, 数组<span class="hljs-number">2</span>, 数组<span class="hljs-number">3</span> &#125;, 成员<span class="hljs-number">3</span> &#125;<br></code></pre></td></tr></table></figure>
+
+<h1>结构体的普通变量 <font  color=#DC143C>通过 . 来访问成员</font> <br> 结构体的指针变量 <font  color=#DC143C>通过 -> 来访问成员</font>  <h1>
+
+
+<ul>
+<li><strong>给变量类型别名</strong></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">// #define 别名 要替换的数 (作用类似于)</span><br><span class="hljs-keyword">typedef</span> 数据类型 别名;   <span class="hljs-comment">// 区别 typedef 要声明数据类型 而 #define 不用</span><br><br>别名 变量名 = 赋值;<br></code></pre></td></tr></table></figure>
+
+<h3 id="结构体数组"><a href="#结构体数组" class="headerlink" title="结构体数组"></a>结构体数组</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">typedef</span> 数据类型 名称;   <br>&#123;<br>    数据类型<span class="hljs-number">1</span> 变量名<span class="hljs-number">1</span>;<br>    数据类型<span class="hljs-number">2</span> 变量名<span class="hljs-number">2</span>;<br>    数据类型<span class="hljs-number">3</span> 变量名<span class="hljs-number">3</span>;<br>&#125;别名;<br><br><span class="hljs-comment">// 然后再调用</span><br><br>别名 要声明的变量 [数组];<br></code></pre></td></tr></table></figure>
+
+<h3 id="结合一起"><a href="#结合一起" class="headerlink" title="结合一起"></a>结合一起</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> 结构体名&#123;</span><br>    数据类型 成员变量名<span class="hljs-number">1</span>;<br>    数据类型 成员变量名<span class="hljs-number">2</span>;<br>    数据类型 成员变量名<span class="hljs-number">3</span>;  <br>&#125;别名;  <span class="hljs-comment">// 定义别名后, 原先的结构体名称也可以用 </span><br></code></pre></td></tr></table></figure>
+
+<h1 id="结构体指针"><a href="#结构体指针" class="headerlink" title="结构体指针"></a>结构体指针</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C">数据名 *指针 = &amp;地址;<br><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, b-&gt;成员)<br><span class="hljs-comment">// 或者</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, (*b).成员)<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意: 访问成员用 . 点号</strong></p>
+<h1 id="共用体"><a href="#共用体" class="headerlink" title="共用体"></a>共用体</h1><h3 id="结构体和共用体的区别-共用体可以共用内存-结构体不行"><a href="#结构体和共用体的区别-共用体可以共用内存-结构体不行" class="headerlink" title="结构体和共用体的区别: 共用体可以共用内存, 结构体不行"></a>结构体和共用体的区别: 共用体可以共用内存, 结构体不行</h3><h2 id="共用体-1"><a href="#共用体-1" class="headerlink" title="共用体:"></a>共用体:</h2><br>
+
+<div class="mermaid">
+    graph LR
+    A[(" 共用体 ")]-->B[" 变量名1<br>变量名2<br>变量名3 "] 
+</div>
+
+<br>
+
+<h2 id="结构体-1"><a href="#结构体-1" class="headerlink" title="结构体:"></a>结构体:</h2><br>
+
+<div class="mermaid">
+    graph LR
+    A[(" 结构体 ")]-->B[" 变量名1"]
+    A[(" 结构体 ")]-->C[" 变量名2"] 
+    A[(" 结构体 ")]-->D[" 变量名3"]  
+</div>
+
+<br>
+
+<h4>共用体的定义:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-class"><span class="hljs-keyword">union</span> 共用体名</span><br><span class="hljs-class">&#123;</span><br>    成员列表<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h1><ul>
+<li>枚举类型作用就是美化代码, 让代码由复杂到简单</li>
+</ul>
+<h4>枚举类型的定义:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-class"><span class="hljs-keyword">enum</span> 标识名</span><br><span class="hljs-class">&#123;</span><br>    枚举项<span class="hljs-number">0</span>, 枚举项<span class="hljs-number">1</span>, 枚举项<span class="hljs-number">2</span>; <br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意: 枚举项没赋值的情况下是从 0 开始, 赋值之后是从 赋值的那个值往后 依次加 1</strong></p>
+<br>
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/C-struct-union-enum.html">https://sdq3.gitee.io/C-struct-union-enum.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

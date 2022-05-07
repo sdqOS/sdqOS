@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">C语 指针</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80-%E6%8C%87%E9%92%88%E5%92%8C%E5%8F%98%E9%87%8F"><span class="toc-text">地址 指针和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">地址和指针的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="toc-text">变量的地址</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-text">指针</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">指针的声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">相应的意思说明</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="toc-text">函数指针</span></a></li></ol>
+      </div>
+      <p><strong>C语学习笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="地址-指针和变量"><a href="#地址-指针和变量" class="headerlink" title="地址 指针和变量"></a>地址 指针和变量</h1><h2 id="地址和指针的基本概念"><a href="#地址和指针的基本概念" class="headerlink" title="地址和指针的基本概念"></a>地址和指针的基本概念</h2><ul>
+<li><p>在程序中定义每一个变量, 当编译时系统就会根据程序中定义的变量的类型, 分配定字节数的存储空间。内存中的每一个字节都有一个编号,也就是地址,它相当于旅馆中的房间号, 在地址所标志的单元存储数据, 这相当于旅馆中的房间住一个旅客一样</p>
+<ul>
+<li>变量: 命名的内存空间, 变量在内存中占有一定空间,用于存放各种类型的数据</li>
+</ul>
+<ul>
+<li>变量名: 变量名是给内存空间取的一个容易记忆的名字</li>
+</ul>
+</li>
+</ul>
+<pre><code>* 变量的地址: 变量所使用的内存空间的地址
+
++ 变量值: 在变量的地址所对应的内存空间中存放的数值即为变量的值或变量的内容, &amp;符号为取地址符号, 可以取任何变量的地址
+</code></pre>
+<br>
+
+<p><strong>指针通常指向常量</strong></p>
+<h3 id="变量的地址"><a href="#变量的地址" class="headerlink" title="变量的地址"></a>变量的地址</h3><ul>
+<li><p>概念: 内存变量简称变量, 在C语言中, 每定义一个变量, 系统就会给变量分配一块内存, 而内存是有地址的, 如果把计算机的内存区域比喻成大宾馆, 每块内存的地址就像房间的编号</p>
+<ul>
+<li>C 语言采用运算符 &amp; 来获取变的地址</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>注意</strong></p>
+<ul>
+<li>每次取地址不同的原因: 程序每次运行的时候, 向系统申请个内存, 系统每次随机分配个内存</li>
+</ul>
+<ul>
+<li>在printf函数中, 输入内存地址的格式控制符是 %p , 地址采用十六进制的数字显示 </li>
+</ul>
+</li>
+</ul>
+<h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><ul>
+<li>概念: 指针是一种特别变量, 全称是指针变量, 专用于存放其它变量在内存中的地址编号, 指针在使用之前要先声明</li>
+</ul>
+<h4>指针的声明</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C">存储类型 数据类型 *指针变量名 [ = 初始地址值 ];<br><span class="hljs-comment">// 存储类型: 主要有 auto ( 自动 ) , register ( 寄存器 ) , staitic ( 静态 ) 和 extern ( 外部 ) 这四种 可省略</span><br><br><span class="hljs-comment">// 数据类型: 是int, char, float 等基本类型, 也可是数组等构造类型</span><br><br><span class="hljs-comment">// * 星号表示指针</span><br></code></pre></td></tr></table></figure>
+
+<!-- ~~~ C
+datatype *varname
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs -->"><br>&lt;br&gt;<br><br>+ 说明<br>    <br>    * 指针变量是用来存放变量的地址的<br><br>    + 指针变量前面的 * 表示该变量为指针变量<br><br>    * 一个指针变量只能指向同一个类型的变量<br><br>    + 指针变量存放地址值, 在16位系统环境下, 用两个字节表示一个地址, 所以指变量无论什么类型,其本身在内存中占用的空间是两个字节<br><br><br># 对指针的赋值<br><br>- 地址是什么类型, 指针就是什么类型 一一对应<br><br>+ 地址跟指针的关系, 地址是实实在在的编号, 指针是用存放这个编号的, &lt;font color=&quot;#DC143C&quot;&gt;指针是用来存放地址的&lt;/font&gt;<br><br><br># 指针的应用场景<br><br>* 使用指针的好处: 减少内存开销<br><br>+ 函数的参数<br><br>* 函数的返回值<br><br># 空指针<br><br>+ 概念: 没有赋值的指针不了 ( 没有指向内存的变量地址 ) , 对空指针操作会造成程序的 Core dump<br><br># 野指针<br><br>* 概念: 指针指向内存已释放, 但指针的值不会被清零, 对野指针操作的结果不可预测<br><br>+ 解决方法: 代码规范化<br><br># 数组的地址<br><br>* 概念: 在 C 语言中, 数组占用的内存空间是连续的, 数组名是数组元素的首地址, 也是数组的地址<br><br>+ C 语言数组名是数组的首地址也称为指针常量<br><br>&lt;h4&gt;a[i][j]找位置&lt;/h4&gt;<br><br>&lt;br&gt;<br><br>~~~ C<br>// 5种表达式<br>a[i][j] // 以i和j为例子 i是行 j是列<br><br>&amp;a[i][j] <br><br>*(a+i)+j<br><br>&amp;a[0][0]+4*i+j<br><br>a[0]+4*i+j<br></code></pre></td></tr></table></figure>
+
+
+<br>
+
+<h4>相应的意思说明</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs C">&amp;a <span class="hljs-comment">// 表示二维数组地址</span><br><br>a <span class="hljs-comment">// 表示首行地址</span><br><br>&amp;a[<span class="hljs-number">0</span>] <span class="hljs-comment">// 表示首行地址</span><br><br>a[<span class="hljs-number">0</span>] <span class="hljs-comment">// 表示首行首元素地址</span><br><br>a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] <span class="hljs-comment">// 表示首行首元素的值</span><br><br>&amp;a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] <span class="hljs-comment">// 表示首行首元素地址</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<table>
+<thead>
+<tr>
+<th align="center">二维数组个元素内容的关系</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">a[0]</td>
+<td align="center">* (a[0]+0)</td>
+<td align="center">* (a[0]+1)</td>
+<td align="center">* (a[0]+2)</td>
+<td align="center">* (a[0]+3)</td>
+</tr>
+<tr>
+<td align="center">a[1]</td>
+<td align="center">* (a[0]+0)</td>
+<td align="center">* (a[0]+1)</td>
+<td align="center">* (a[0]+2)</td>
+<td align="center">* (a[0]+3)</td>
+</tr>
+<tr>
+<td align="center">a[2]</td>
+<td align="center">* (a[0]+0)</td>
+<td align="center">* (a[0]+1)</td>
+<td align="center">* (a[0]+2)</td>
+<td align="center">* (a[0]+3)</td>
+</tr>
+<tr>
+<td align="center">a[0]</td>
+<td align="center">* (*(a+0)+0)</td>
+<td align="center">* (*(a+0)+1)</td>
+<td align="center">* (*(a+0)+2)</td>
+<td align="center">* (*(a+0)+3)</td>
+</tr>
+<tr>
+<td align="center">a[1]</td>
+<td align="center">* (*(a+1)+0)</td>
+<td align="center">* (*(a+1)+1)</td>
+<td align="center">* (*(a+1)+2)</td>
+<td align="center">* (*(a+1)+3)</td>
+</tr>
+<tr>
+<td align="center">a[2]</td>
+<td align="center">* (*(a+2)+0)</td>
+<td align="center">* (*(a+2)+1)</td>
+<td align="center">* (*(a+2)+2)</td>
+<td align="center">* (*(a+2)+3)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><br></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><ul>
+<li>C程序的每一个函数都有一个入口地址, 函数指针是指向函数入口地址的指针变量, 有了指向函数的指针变量后可以用函数指针变量调用函数, 就像用指针变量操作其他类型变量一样</li>
+</ul>
+<ul>
+<li>函数指针有两个用途: 调用函数和做函数的参数</li>
+</ul>
+<br>
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/C-Pointer.html">https://sdq3.gitee.io/C-Pointer.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

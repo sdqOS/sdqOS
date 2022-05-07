@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">C语 选择结构程序设计</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-text">C语言提供了两种类型的选择结构</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">程序流程图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#if-%E8%AF%AD%E5%8F%A5"><span class="toc-text">if 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if%E7%9A%84%E4%B8%89%E7%A7%8D%E6%A0%BC%E5%BC%8F"><span class="toc-text">if的三种格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%88%86%E6%94%AF%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84"><span class="toc-text">单分支选择结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">单分支选择结构图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E5%88%86%E6%94%AF%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84"><span class="toc-text">双分支选择结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">双分支选择结构图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%88%86%E6%94%AF%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84"><span class="toc-text">多分支选择结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">多分支选择结构图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%B5%8C%E5%A5%97"><span class="toc-text">if 语句的嵌套</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">双分支选择结构图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%88%86%E6%94%AF%E9%80%89%E6%8B%A9%E8%AF%AD%E5%8F%A5-switch-%E8%AF%AD%E5%8F%A5"><span class="toc-text">多分支选择语句 ( switch 语句 )</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">switch语句执行流程图</span></a>
+      </div>
+      <p><strong>C语学习笔记</strong></p>
+<span id="more"></span>
+<h5>C语言提供了两种类型的选择结构</h5>
+
+<ul>
+<li>条件选择结构: 根据给定的条件表达式进行判断, 决定执行某个分支中的程序段</li>
+</ul>
+<ul>
+<li>开关选择结构: 根据给定的整型表达式的值进行判断, 然后决定执行多个分支中的某个分支</li>
+</ul>
+<h1 id="程序流程图"><a href="#程序流程图" class="headerlink" title="程序流程图"></a>程序流程图</h1><div class="mermaid">
+    graph LR
+    A([" 起始框 "])
+
+<pre><code>E[/&quot; 输入/输出框&quot; /]
+
+B&#123;&quot; 判断框 &quot;&#125;
+
+D[&quot; 处理框 &quot;]--&gt;流程线C((&quot; 连接点 &quot;))
+</code></pre>
+</div>
+
+
+<h1 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h1><h2 id="if的三种格式"><a href="#if的三种格式" class="headerlink" title="if的三种格式"></a>if的三种格式</h2><h3 id="单分支选择结构"><a href="#单分支选择结构" class="headerlink" title="单分支选择结构"></a>单分支选择结构</h3><br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">if</span> ( 表达式 )<br>&#123; 语句; &#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>单分支选择结构图</h4>
+
+<br>
+
+<div class="mermaid">
+    graph TB
+    A([" 开始 "])-->B{" 表达式 "}
+    B{" 表达式 "}--非0 / 真-->D[" 语句 "]
+    D[" 语句 "]-->E[" 结果 "]
+    B{" 表达式 "}--0 / 假-->E[" 结果 "]
+</div>
+
+<h3 id="双分支选择结构"><a href="#双分支选择结构" class="headerlink" title="双分支选择结构"></a>双分支选择结构</h3><br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">if</span> ( 表达式 )<br>&#123; 语句<span class="hljs-number">1</span>; &#125;<br><span class="hljs-keyword">else</span><br>&#123; 语句<span class="hljs-number">2</span>; &#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>双分支选择结构图</h4>
+
+<br>
+
+<div class="mermaid">
+    graph TB
+    A([" 开始 "])-->B{" 表达式 "}
+    B{" 表达式 "}--真-->D[" A "]
+    B{" 表达式 "}--假-->F[" B "]
+    D[" A "]-->E[" 结果 "]
+    F[" B "]-->E[" 结果 "]
+</div>
+
+<h3 id="多分支选择结构"><a href="#多分支选择结构" class="headerlink" title="多分支选择结构"></a>多分支选择结构</h3><br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">1</span> ) &#123; 语句<span class="hljs-number">1</span>; &#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">2</span> ) &#123; 语句<span class="hljs-number">2</span>; &#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">3</span> ) &#123; 语句<span class="hljs-number">3</span>; &#125;<br>...<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( 表达式n ) &#123; 语句n; &#125;<br><span class="hljs-keyword">else</span> &#123; 语句 n+<span class="hljs-number">1</span>; &#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>多分支选择结构图</h4>
+
+<br>
+
+<div class="mermaid">
+    graph TD
+    A([" 开始 "])-->B{" 表达式1 "}
+    B{" 表达式1 "}--非0/真-->D[" 语句1 "]
+    B{" 表达式1 "}--0/假-->C{" 表达式2 "}
+
+<pre><code>C&#123;&quot; 表达式2 &quot;&#125;--0/假--&gt;F&#123;&quot; 表达式3 &quot;&#125;
+C&#123;&quot; 表达式2 &quot;&#125;--非0/真--&gt;G[&quot; 语句2 &quot;]
+
+F&#123;&quot; 表达式3 &quot;&#125;--0/假--&gt;H&#123;&quot; 表达式4 &quot;&#125;
+F&#123;&quot; 表达式3 &quot;&#125;--非0/真--&gt;I[&quot; 语句3 &quot;]
+
+H&#123;&quot; 表达式4 &quot;&#125;--0/假--&gt;J[&quot; 语句5 &quot;]
+H&#123;&quot; 表达式4 &quot;&#125;--非0/真--&gt;K[&quot; 语句4 &quot;]
+
+D[&quot; 语句1 &quot;]--&gt;L[&quot; 结果 &quot;]
+G[&quot; 语句2 &quot;]--&gt;L[&quot; 结果 &quot;]
+I[&quot; 语句3 &quot;]--&gt;L[&quot; 结果 &quot;]
+J[&quot; 语句4 &quot;]--&gt;L[&quot; 结果 &quot;]
+K[&quot; 语句5 &quot;]--&gt;L[&quot; 结果 &quot;]
+</code></pre>
+</div>
+
+<h3 id="if-语句的嵌套"><a href="#if-语句的嵌套" class="headerlink" title="if 语句的嵌套"></a>if 语句的嵌套</h3><br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">1</span> )<br>    <span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">11</span> ) 语句<span class="hljs-number">11</span>;<br>    <span class="hljs-keyword">else</span> 语句<span class="hljs-number">12</span>; <br><span class="hljs-keyword">else</span><br>    <span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">2</span> ) 语句<span class="hljs-number">21</span>;<br>    <span class="hljs-keyword">else</span> 语句<span class="hljs-number">22</span>;<br><br><span class="hljs-comment">// 其中要注意以下两种if语句结构的差别</span><br><br><span class="hljs-comment">// 第一种</span><br><span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">1</span> )<br>    <span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">11</span> ) 语句<span class="hljs-number">11</span>;<br>    <span class="hljs-keyword">else</span> 语句<span class="hljs-number">12</span>; <br><br><span class="hljs-comment">// 第二种</span><br><span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">1</span> )<br>    &#123; <span class="hljs-keyword">if</span> ( 表达式<span class="hljs-number">11</span> ) 语句<span class="hljs-number">11</span>; &#125;<br>    <span class="hljs-keyword">else</span> 语句<span class="hljs-number">12</span>;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>双分支选择结构图</h4>
+
+<br>
+
+<h2 id="多分支选择语句-switch-语句"><a href="#多分支选择语句-switch-语句" class="headerlink" title="多分支选择语句 ( switch 语句 )"></a>多分支选择语句 ( switch 语句 )</h2><br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">switch</span> ( 表达式 )<br>&#123;<br>    <span class="hljs-keyword">case</span> 常量表达式<span class="hljs-number">1</span>: 语句组<span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> 常量表达式<span class="hljs-number">2</span>: 语句组<span class="hljs-number">2</span>; <span class="hljs-keyword">break</span>;<br>    ...<br>    <span class="hljs-keyword">case</span> 常量表达式n: 语句组n; <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">default</span>:          语句组n+<span class="hljs-number">1</span>; <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>switch语句执行流程图</h4>
+
+<br>
+
+<div class="mermaid">
+    graph TB
+    A([" 开始 "])-->B{" 表达式 "}
+    B{" 表达式 "}--值1-->F[" 语句1 "]
+    B{" 表达式 "}--值2-->G[" 语句2 "]
+    B{" 表达式 "}--值n-->H[" 语句n "]
+    B{" 表达式 "}--default-->I[" 语句n+1 "]
+    F[" 语句1 "]-->E[" 结果 "]
+    G[" 语句2 "]-->E[" 结果 "]
+    H[" 语句n "]-->E[" 结果 "]
+    I[" 语句n+1 "]-->E[" 结果 "]
+</div>
+
+<ol>
+<li><p>switch 后面小括号里的表达式可以是任何类型的, 其常用的是字符或整型表达式</p>
+</li>
+<li><p>case 后面的常量表达式是由常量组成的表达式, 其中的使用常量表达式的值必须互不相同, 且常量表达式的值必须与 switch 后面表达式的值类型相同</p>
+</li>
+<li><p>语句组是由若干个语句组成的, 但不需要用大括号括起来, 其中的语句可以是任何 C语言 的可执行语句, 当然也可以是另一个 switch 语句 ( 称为嵌套 switch 语句 ) ,即 switch 语句也是可以嵌套使用</p>
+</li>
+<li><p>break 是 C语言的一种语句, 其功能是跳出当前 switch 语句, 在  switch 语句中 当执行某个语句组后, 后面若有 break , 变退出该  switch 语句, 如果省略了 break 语句, 则执行完某个语句组后, 将连续执行其后的语句组, 直至遇到下一个 break 语句, 如果后面没有 break 语句, 则一直执行到 switch 语句的最后一个语句</p>
+</li>
+<li><p>在书写格式上, 所有的 case 应对齐, 每个 case 后的语句缩格并对齐, 以方便看出各个分支的条件依据和应执行的操作</p>
+</li>
+<li><p>注意 case 和常量表达式之间要有空格</p>
+</li>
+<li><p>当  switch 后面表达式的值与某个 case 后面常量表达式的值一直时, 就会执行该 case 后面的语句组, 若所有 case 后面常量表达式的值和 switch 后面表达式的值都不相同时, 便执行 default 后面的语句组</p>
+</li>
+<li><p>default 语句可以省略</p>
+</li>
+<li><p>case 和 default 语句的出现次序是任意的, 可以变换位置, 这并不影响 switch 的功能, 如可以先出现 “ default : … “, 再出现 “ case ‘B’ : … “, 然后是 “ case ‘A’ : … “</p>
+</li>
+<li><p>可将相同操作的 case 语句及对应的常量表达式连续排序, 其对应操作的语句组及 break 只在最后一个 case 语句后出现</p>
+</li>
+</ol>
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">switch</span> ( 表达式<span class="hljs-number">1</span> )<br>&#123;<br>    <span class="hljs-keyword">case</span> 常用表达式 <span class="hljs-number">1</span>:<br>    <span class="hljs-keyword">case</span> 常用表达式 <span class="hljs-number">2</span>:<br>    <span class="hljs-keyword">case</span> 常用表达式 <span class="hljs-number">3</span>:      语句组<span class="hljs-number">1</span>; <span class="hljs-keyword">break</span>;<br><br>    ...                      ...<br><br>    <span class="hljs-keyword">case</span> 常用表达式 n<span class="hljs-number">-1</span>:<br>    <span class="hljs-keyword">case</span> 常用表达式 n:      语句组n; <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">default</span>:               语句组 n+<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<!-- 
++ [矩形]
+
+- [[暂不支持]]
+
+- [(圆柱)]
+
+- [{暂不支持}]
+
+- [/平行四边形/]
+
+- [\平行四边形\]
+
+- [/梯形\]
+
+- [\梯形/]
+
++ (圆角矩形)
+
+- ((圆形))
+
+- ([体育场])
+
+- ({暂不支持})
+
++ {菱形}
+
+- 
+
+<ul>
+<li><p>{[暂不支持]}</p>
+</li>
+<li><p>{(暂不支持)}</p>
+</li>
+</ul>
+<ul>
+<li><blockquote>
+<p>不对称矩形] </p>
+</blockquote>
+</li>
+</ul>
+<p>–&gt;</p>
+
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/C-if.html">https://sdq3.gitee.io/C-if.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

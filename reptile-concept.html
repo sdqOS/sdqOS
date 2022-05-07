@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">爬虫 概念(牢饭吃到饱)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B2%E6%9F%93"><span class="toc-text">服务器渲染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93"><span class="toc-text">客户端渲染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE"><span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E6%8A%8A%E4%B8%80%E6%9D%A1%E6%B6%88%E6%81%AF%E5%88%86%E4%B8%BA%E4%B8%89%E5%A4%A7%E5%9D%97%E5%86%85%E5%AE%B9"><span class="toc-text">HTTP协议把一条消息分为三大块内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">请求: </span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">响应: </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%B8%AD%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E5%86%85%E5%AE%B9"><span class="toc-text">请求头中最常见的一些重要内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E5%A4%B4%E4%B8%AD%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">响应头中一些重要的内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F"><span class="toc-text">请求方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-text">数据解析的三种方式</span></a></li></ol>
+      </div>
+      <p><strong>每天一个入狱小技巧</strong></p>
+<span id="more"></span>
+
+
+<h1 id="服务器渲染"><a href="#服务器渲染" class="headerlink" title="服务器渲染"></a>服务器渲染</h1><p><strong>其实就是在服务器那边直接把数据和HTMl整合在一起, 统一返回浏览器, 其实源代码就是网站的基本面貌, 之所以有可视化界面都是浏览器的功劳</strong></p>
+<h1 id="客户端渲染"><a href="#客户端渲染" class="headerlink" title="客户端渲染"></a>客户端渲染</h1><p><strong>第一次只是请求HTMl骨架, 第二次请求拿到数据, 然后在你的浏览器中组合变形</strong></p>
+<h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><p><strong>HTTP协议传输的就是网站源代码</strong></p>
+<h1 id="HTTP协议把一条消息分为三大块内容"><a href="#HTTP协议把一条消息分为三大块内容" class="headerlink" title="HTTP协议把一条消息分为三大块内容"></a>HTTP协议把一条消息分为三大块内容</h1><h1>请求: </h1>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Python">请求行 -&gt; 请求方式(get/post) 请求url地址 协议<br><br>请求头 -&gt; 放一些服务器要使用的附加信息<br><br>请求体 -&gt; 一般放一些请求参数<br></code></pre></td></tr></table></figure>
+
+<h1>响应: </h1>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Python">状态行 -&gt;  协议 状态码 例如:<span class="hljs-number">404</span><br><br>响应头 -&gt; 放一些客户端要使用的附加信息<br><br>响应体 -&gt; 服务器返回的真正客户端要使用的内容 例如:HTML, json等等<br></code></pre></td></tr></table></figure>
+
+<h1 id="请求头中最常见的一些重要内容"><a href="#请求头中最常见的一些重要内容" class="headerlink" title="请求头中最常见的一些重要内容"></a>请求头中最常见的一些重要内容</h1><p><strong>User-Agent: 请求载体的身份标识(用啥发送的请求)</strong></p>
+<p><strong>Referer: 防盗链(这次请求是从哪个页面来的? 防爬会用到)</strong></p>
+<p><strong>cookie: 本地字符串数据信息(用户登陆信息, 防爬的token)</strong></p>
+<h1 id="响应头中一些重要的内容"><a href="#响应头中一些重要的内容" class="headerlink" title="响应头中一些重要的内容"></a>响应头中一些重要的内容</h1><p><strong>cookie: 本地字符串数据信息(用户登陆信息, 防爬的token)</strong></p>
+<p><strong>各种神奇的莫名其妙的字符串(一般都是yoken字样,防止各种攻击和防爬)</strong></p>
+<h1 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h1><p><strong>GET: 显示提交</strong></p>
+<p>查询用的多</p>
+<p><strong>POST: 隐示提交</strong></p>
+<p>增加,修改,上传服务器里面的数据</p>
+<h1 id="数据解析的三种方式"><a href="#数据解析的三种方式" class="headerlink" title="数据解析的三种方式"></a>数据解析的三种方式</h1><p><strong><a href="/reptile-re.html">re解析</a></strong></p>
+<p><strong><a href="/reptile-bs4-lxml.html">bs4解析</a></strong></p>
+<p><strong><a href="/reptile-xpath.html">xpath解析</a></strong></p>
+<br>
+
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/reptile-concept.html">https://sdq3.gitee.io/reptile-concept.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>

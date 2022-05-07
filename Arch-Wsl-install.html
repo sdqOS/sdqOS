@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <!-- 导入网络js -->
+    <link rel="stylesheet" href="/bulma.min.css">
+
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+  
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div class="wenzhang-container">
+  <h1 class="title is-3 is-4-mobile">Arch wsl的傻瓜式安装 (有手就行)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%8A%9F%E8%83%BD%E4%B8%AD%E6%89%93%E5%BC%80-%E6%88%96%E8%80%85-%E4%BB%A5%E7%AE%A1%E7%90%86%E5%91%98%E8%BA%AB%E4%BB%BD%E6%89%93%E5%BC%80-PowerShell-%E7%BB%88%E7%AB%AF-%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B"><span class="toc-text">第一步 程序与功能中打开 或者 以管理员身份打开 PowerShell 终端 输入命令如下</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="toc-text">第二步 下载文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E9%85%8D%E7%BD%AEArch-Wsl"><span class="toc-text">第三步 配置Arch Wsl</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0"><span class="toc-text">第四步 配置相关参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5-%E5%AE%89%E8%A3%85%E5%AE%8C%E5%90%8E%E6%93%8D%E4%BD%9C"><span class="toc-text">第五步 安装完后操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#neofetch%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F"><span class="toc-text">neofetch查看系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E6%95%99%E7%A8%8B%E7%99%BE%E5%88%86%E6%AF%94%E5%8F%AF%E4%BB%A5%E7%9C%8B%E6%87%82-%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%9C%8B%E4%B8%8D%E6%87%82%E9%82%A3%E5%8F%AA%E8%83%BD%E8%AF%B4%E6%98%8E%E4%BD%A0%E6%B2%A1%E8%AE%A4%E7%9C%9F%E5%8E%BB%E7%9C%8B"><span class="toc-text">这个教程百分比可以看懂,如果你看不懂那只能说明你没认真去看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A4%E8%AE%A4%E7%9C%9F%E7%9C%9F%E7%9A%84%E5%8F%8D%E5%A4%8D%E5%8E%BB%E7%9C%8B%E4%BD%A0%E7%9C%9F%E7%9A%84%E5%8F%AF%E4%BB%A5%E7%9C%8B%E6%87%82%E7%9A%84"><span class="toc-text">认认真真的反复去看你真的可以看懂的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%84%B6%E5%90%8E%E5%8F%91%E7%8E%B0%E5%B9%B6%E4%B8%8D%E9%9A%BE"><span class="toc-text">然后发现并不难</span></a></li></ol>
+      </div>
+      <p><strong>本人是Arch教徒过来传一下教</strong> </p>
+<img src="/images/wsl傻瓜式安装/Arch教徒.jpg" style="width: 200px; height: 200px;" >
+<span id="more"></span>
+
+<h1 id="第一步-程序与功能中打开-或者-以管理员身份打开-PowerShell-终端-输入命令如下"><a href="#第一步-程序与功能中打开-或者-以管理员身份打开-PowerShell-终端-输入命令如下" class="headerlink" title="第一步 程序与功能中打开 或者 以管理员身份打开 PowerShell 终端 输入命令如下"></a>第一步 程序与功能中打开 或者 以管理员身份打开 PowerShell 终端 输入命令如下</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux<br></code></pre></td></tr></table></figure>
+
+<img src="/images/wsl傻瓜式安装/按照提示重启电脑.jpg" style="width: 300px; height: 300px;" >
+
+<p><strong>按照提示重启电脑</strong></p>
+<h1 id="第二步-下载文件"><a href="#第二步-下载文件" class="headerlink" title="第二步 下载文件"></a>第二步 下载文件</h1><p><strong>然后下载<a target="_blank" rel="noopener" href="https://github.com/yuk7/ArchWSL">Arch WSL</a></strong></p>
+<img src="/images/wsl傻瓜式安装/Arch wsl下载.jpg">
+<br>
+<img src="/images/wsl傻瓜式安装/Arch wsl下载版本.jpg">
+
+<p><strong>那个安装证书是给appx版的arch wsl用的</strong></p>
+<p><strong>你已经安装zip版的</strong></p>
+<p><strong>没有必要安两次</strong></p>
+<p><strong>只用需要用到zip</strong></p>
+<h1 id="第三步-配置Arch-Wsl"><a href="#第三步-配置Arch-Wsl" class="headerlink" title="第三步 配置Arch Wsl"></a>第三步 配置Arch Wsl</h1><img src="/images/wsl傻瓜式安装/Arch wsl配置.jpg" style="width: 800px; height: 500px;" >
+
+<p><strong>反正按照我这个改，保存是ctrl + x 回车</strong></p>
+<h1 id="第四步-配置相关参数"><a href="#第四步-配置相关参数" class="headerlink" title="第四步 配置相关参数"></a>第四步 配置相关参数</h1><p><strong>这里会提示配置  按照我的方法配置</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">Arch.exe//这个是启动后的显示<br>[root@PC-NAME user]<span class="hljs-comment"># passwd       //这个是用户名输完名字输密码</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">Arch.exe<br>[root@PC-NAME]<span class="hljs-comment"># EDITOR=nano visudo</span><br>    %wheel      ALL=(ALL) ALL<br>    (setup sudoers file.)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@PC-NAME]<span class="hljs-comment"># useradd -m -G wheel -s /bin/bash &#123;username&#125;</span><br>(add user)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@PC-NAME user]<span class="hljs-comment"># passwd &#123;username&#125;      //&#123;&#125;换成你的用户名,记住不需要打&#123;&#125;</span><br>(<span class="hljs-built_in">set</span> default user password)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@PC-NAME user]<span class="hljs-comment"># exit  //退出</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">Arch.exe config --default-user &#123;username&#125;<br>    (setting to default user)     //现在是root用户,不用加sudo<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman-key --init<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[user@PC-NAME]sudo pacman-key --init<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@PC-NAME]sudo pacman-key --populate<br></code></pre></td></tr></table></figure>
+
+<h1 id="第五步-安装完后操作"><a href="#第五步-安装完后操作" class="headerlink" title="第五步 安装完后操作"></a>第五步 安装完后操作</h1><p><strong>下面是<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/archlinux/">换源</a></strong></p>
+<p><strong>打开nano /etc/pacman.d/mirrorlist 然后再最顶端添加 切记去##</strong></p>
+<img src="/images/wsl傻瓜式安装/Arch wsl配置文件.jpg" style="width: 800px; height: 500px;" >
+<br>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Server = https:mirrors.tuna.tsinghua.edu.cn/archlinux/<span class="hljs-variable">$repo</span>/os/<span class="hljs-variable">$arch</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>然后就可以 更新软件包缓存</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -Syy<br></code></pre></td></tr></table></figure>
+
+<h1 id="neofetch查看系统"><a href="#neofetch查看系统" class="headerlink" title="neofetch查看系统"></a>neofetch查看系统</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S neofetch<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">neofetch<br></code></pre></td></tr></table></figure>
+
+<img src="/images/wsl傻瓜式安装/Arch wsl.jpg" style="width: 800px; height: 500px;" >
+
+<h1 id="这个教程百分比可以看懂-如果你看不懂那只能说明你没认真去看"><a href="#这个教程百分比可以看懂-如果你看不懂那只能说明你没认真去看" class="headerlink" title="这个教程百分比可以看懂,如果你看不懂那只能说明你没认真去看"></a>这个教程百分比可以看懂,如果你看不懂那只能说明你没认真去看</h1><h1 id="认认真真的反复去看你真的可以看懂的"><a href="#认认真真的反复去看你真的可以看懂的" class="headerlink" title="认认真真的反复去看你真的可以看懂的"></a>认认真真的反复去看你真的可以看懂的</h1><h1 id="然后发现并不难"><a href="#然后发现并不难" class="headerlink" title="然后发现并不难"></a>然后发现并不难</h1><br>
+      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/Arch-Wsl-install.html">https://sdq3.gitee.io/Arch-Wsl-install.html</a></strong></p>
+  </wenzhang>
+</div>
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+        <a class="jiao"  href=".">></a>
+    </span>
+</footer>
+  </div>
+  </body>
+</html>
