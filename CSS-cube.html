@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>CSS 正方体旋转效果</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E6%AD%A3%E6%96%B9%E4%BD%93"><span class="toc-text">绘制正方体</span></a></li></ol>
+      </div>
+      <p><strong>CSS个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="绘制正方体"><a href="#绘制正方体" class="headerlink" title="绘制正方体"></a>绘制正方体</h1><p><strong>以面为单位</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><code class="hljs CSS">&lt;style&gt;<br>    <span class="hljs-selector-tag">html</span> &#123;<br>        <span class="hljs-attribute">background</span>:<span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">#9ed128</span> <span class="hljs-number">0%</span>,<span class="hljs-number">#358b98</span> <span class="hljs-number">80%</span>);<br>        <span class="hljs-attribute">height</span>:<span class="hljs-number">1000px</span>;<br>        <span class="hljs-attribute">opacity</span>:<span class="hljs-number">0.8</span>;<br>    &#125;<br>    <span class="hljs-selector-class">.wrapper</span> &#123;<br>        <span class="hljs-attribute">margin-top</span>:<span class="hljs-number">200px</span>;<br>        <span class="hljs-attribute">perspective</span>:<span class="hljs-number">1000px</span>;<br>    &#125;<br>    <span class="hljs-selector-class">.cube</span> &#123;<br>        <span class="hljs-attribute">height</span>:<span class="hljs-number">200px</span>;<br>        <span class="hljs-attribute">width</span>:<span class="hljs-number">200px</span>;<br>        <span class="hljs-attribute">position</span>:relative;<br>        <span class="hljs-attribute">margin</span>:auto;<br>        <span class="hljs-attribute">transform-style</span>:preserve-<span class="hljs-number">3</span>d;<br>        -webkit-<span class="hljs-attribute">animation</span>:rotate <span class="hljs-number">15s</span> infinite;<br>        -o-<span class="hljs-attribute">animation</span>:rotate <span class="hljs-number">15s</span> infinite;<br>        <span class="hljs-attribute">animation</span>:rotate <span class="hljs-number">15s</span> infinite <span class="hljs-number">2s</span>;<br>    &#125;<br>    <span class="hljs-keyword">@keyframes</span> rotate &#123;<br>        <span class="hljs-selector-tag">from</span> &#123;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateY</span>(<span class="hljs-number">0deg</span>) <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">0deg</span>);<br>    &#125;<br>    <span class="hljs-selector-tag">to</span> &#123;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateY</span>(<span class="hljs-number">360deg</span>) <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">360deg</span>);<br>    &#125;<br>    &#125;<span class="hljs-selector-class">.cube</span>&gt;<span class="hljs-selector-tag">div</span> &#123;<br>        <span class="hljs-attribute">height</span>:<span class="hljs-number">100%</span>;<br>        <span class="hljs-attribute">width</span>:<span class="hljs-number">100%</span>;<br>        <span class="hljs-attribute">opacity</span>:<span class="hljs-number">0.9</span>;<br>        <span class="hljs-attribute">position</span>:absolute;<br>        <span class="hljs-attribute">text-align</span>:center;<br>        <span class="hljs-attribute">background</span>:<span class="hljs-number">#333</span>;<br>        <span class="hljs-attribute">color</span>:<span class="hljs-number">#fff</span>;<br>        <span class="hljs-attribute">line-height</span>:<span class="hljs-number">200px</span>;<br>        <span class="hljs-attribute">font-size</span>:<span class="hljs-number">30px</span>;<br>    &#125;<br>    <span class="hljs-selector-class">.plane-front</span> &#123;<br>        <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.5s</span>;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">translateZ</span>(<span class="hljs-number">100px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.plane-back</span> &#123;<br>        <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.5s</span>;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateY</span>(<span class="hljs-number">180deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">100px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.plane-left</span> &#123;<br>        <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.5s</span>;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateY</span>(<span class="hljs-number">270deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">100px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.plane-right</span> &#123;<br>        <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.5s</span>;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateY</span>(<span class="hljs-number">90deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">100px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.plane-top</span> &#123;<br>        <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.5s</span>;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateX</span>(<span class="hljs-number">90deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">100px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.plane-bottom</span> &#123;<br>        <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.5s</span>;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateX</span>(<span class="hljs-number">270deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">100px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.plane-front</span> &#123;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">translateZ</span>(<span class="hljs-number">200px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.plane-back</span> &#123;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateY</span>(<span class="hljs-number">180deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">200px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.plane-left</span> &#123;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateY</span>(<span class="hljs-number">270deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">200px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.plane-right</span> &#123;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateY</span>(<span class="hljs-number">90deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">200px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.plane-top</span> &#123;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateX</span>(<span class="hljs-number">90deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">200px</span>);<br>    &#125;<br>    <span class="hljs-selector-class">.cube</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.plane-bottom</span> &#123;<br>        <span class="hljs-attribute">transform</span>:<span class="hljs-built_in">rotateX</span>(<span class="hljs-number">270deg</span>) <span class="hljs-built_in">translateZ</span>(<span class="hljs-number">200px</span>);<br>    &#125;<br>    &lt;/style&gt;<br><br>&lt;/head&gt;<br>&lt;<span class="hljs-selector-tag">body</span>&gt;<br>    &lt;<span class="hljs-selector-tag">div</span> class=&quot;wrapper&quot;&gt;<br>        &lt;<span class="hljs-selector-tag">div</span> class=&quot;cube&quot;&gt;<br>            &lt;<span class="hljs-selector-tag">div</span> class=&quot;plane-front&quot;&gt;前面&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>            &lt;<span class="hljs-selector-tag">div</span> class=&quot;plane-back&quot;&gt;后面&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>            &lt;<span class="hljs-selector-tag">div</span> class=&quot;plane-<span class="hljs-attribute">right</span>&quot;&gt;右面&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>            &lt;<span class="hljs-selector-tag">div</span> class=&quot;plane-<span class="hljs-attribute">left</span>&quot;&gt;左面&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>            &lt;<span class="hljs-selector-tag">div</span> class=&quot;plane-<span class="hljs-attribute">top</span>&quot;&gt;上面&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>            &lt;<span class="hljs-selector-tag">div</span> class=&quot;plane-<span class="hljs-attribute">bottom</span>&quot;&gt;下面&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>        &lt;/<span class="hljs-selector-tag">div</span>&gt;<br>    &lt;/<span class="hljs-selector-tag">div</span>&gt;<br>&lt;/<span class="hljs-selector-tag">body</span>&gt;<br>&lt;/<span class="hljs-selector-tag">html</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C>效果展示</font></p>
+<p><a href="./html/正方体旋转效果.html" target="_blank">点击进入</a></p>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <style>
+    html {
+        background:linear-gradient(#9ed128 0%,#358b98 80%);
+        height:1000px;
+        opacity:0.8;
+    }
+    .wrapper {
+        margin-top:200px;
+        perspective:1000px;
+    }
+    .cube {
+        height:200px;
+        width:200px;
+        position:relative;
+        margin:auto;
+        transform-style:preserve-3d;
+        -webkit-animation:rotate 15s infinite;
+        -o-animation:rotate 15s infinite;
+        animation:rotate 15s infinite 2s;
+    }
+    @keyframes rotate {
+        from {
+        transform:rotateY(0deg) rotateX(0deg);
+    }
+    to {
+        transform:rotateY(360deg) rotateX(360deg);
+    }
+    }.cube>div {
+        height:100%;
+        width:100%;
+        opacity:0.9;
+        position:absolute;
+        text-align:center;
+        background:#333;
+        color:#fff;
+        line-height:200px;
+        font-size:30px;
+    }
+    .plane-front {
+        transition: 0.5s;
+        transform:translateZ(100px);
+    }
+    .plane-back {
+        transition: 0.5s;
+        transform:rotateY(180deg) translateZ(100px);
+    }
+    .plane-left {
+        transition: 0.5s;
+        transform:rotateY(270deg) translateZ(100px);
+    }
+    .plane-right {
+        transition: 0.5s;
+        transform:rotateY(90deg) translateZ(100px);
+    }
+    .plane-top {
+        transition: 0.5s;
+        transform:rotateX(90deg) translateZ(100px);
+    }
+    .plane-bottom {
+        transition: 0.5s;
+        transform:rotateX(270deg) translateZ(100px);
+    }
+    .cube:hover .plane-front {
+        transform:translateZ(200px);
+    }
+    .cube:hover .plane-back {
+        transform:rotateY(180deg) translateZ(200px);
+    }
+    .cube:hover .plane-left {
+        transform:rotateY(270deg) translateZ(200px);
+    }
+    .cube:hover .plane-right {
+        transform:rotateY(90deg) translateZ(200px);
+    }
+    .cube:hover .plane-top {
+        transform:rotateX(90deg) translateZ(200px);
+    }
+    .cube:hover .plane-bottom {
+        transform:rotateX(270deg) translateZ(200px);
+    }
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="cube">
+            <div class="plane-front">前面</div>
+            <div class="plane-back">后面</div>
+            <div class="plane-right">右面</div>
+            <div class="plane-left">左面</div>
+            <div class="plane-top">上面</div>
+            <div class="plane-bottom">下面</div>
+        </div>
+    </div> -->
+
+
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/CSS-cube.html">https://sdq3.link/CSS-cube.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

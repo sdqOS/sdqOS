@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>爬虫 报文(吃牢饭集合)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%8A%A5%E6%96%87"><span class="toc-text">查看报文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F"><span class="toc-text">报文格式</span></a></li></ol>
+      </div>
+      <p><strong>每天一个入狱小技巧</strong></p>
+<span id="more"></span>
+
+<h1 id="查看报文"><a href="#查看报文" class="headerlink" title="查看报文"></a>查看报文</h1><p><strong>点击Request Headers旁边的view parsed</strong></p>
+<p><strong>注意: view parsed没点之前其实是给你优化过的</strong></p>
+<h1 id="报文格式"><a href="#报文格式" class="headerlink" title="报文格式"></a>报文格式</h1><table>
+<thead>
+<tr>
+<th>GET</th>
+<th>HTTP</th>
+<th>1.1</th>
+<th>Host</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>方法</td>
+<td>路径</td>
+<td>协议版本</td>
+<td>发送请求的域名</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Content-Type</li>
+<li>Host (主机和端口号)</li>
+<li>Connection (链接类型/常链接)</li>
+<li>UPgrade-Insecure-Requests (升级为HTTPS请求)</li>
+<li>User-Agent (用户代理 提供系统信息和浏览器信息)</li>
+<li>Referer (页面跳转处)</li>
+<li>Cookie (Cookie数据非常重要,)</li>
+<li>Authorization (表示HTTP协议中需要认证资源的认证信息, 例如用于jwt认证)</li>
+</ul>
+
+<p><strong>请求头表格形式</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">特别关注</th>
+<th align="center">以下几个请求头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Host</td>
+<td align="center">域名</td>
+</tr>
+<tr>
+<td align="center">Connection</td>
+<td align="center">常链接</td>
+</tr>
+<tr>
+<td align="center">UPgrade-Insecure-Requests</td>
+<td align="center">升级为HTTPS请求</td>
+</tr>
+<tr>
+<td align="center">User-Agent</td>
+<td align="center">用户代理</td>
+</tr>
+<tr>
+<td align="center">Refrer</td>
+<td align="center">页面跳转处, 防盗链</td>
+</tr>
+<tr>
+<td align="center">Cookie</td>
+<td align="center">保持状态, 用于跳过账号密码</td>
+</tr>
+</tbody></table>
+<p><strong>响应头表格形式</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">特别关注</th>
+<th align="center">以下几个请求头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">HTTP/1.1</td>
+<td align="center">协议</td>
+</tr>
+<tr>
+<td align="center">200</td>
+<td align="center">状态码</td>
+</tr>
+<tr>
+<td align="center">Set-Cookie</td>
+<td align="center">cookie到用户浏览器的缓存非常重要用于跳过账号密码</td>
+</tr>
+</tbody></table>
+<br>
+
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/reptile-message.html">https://sdq3.link/reptile-message.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

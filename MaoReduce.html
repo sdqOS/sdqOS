@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>大数据 MaoReduce</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MaoReduce-%E5%AE%9A%E4%B9%89"><span class="toc-text">MaoReduce 定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MaoReduce%E8%BF%90%E7%AE%97%E7%A8%8B%E5%BA%8F%E4%B8%80%E8%88%AC%E5%88%86Map%E9%98%B6%E6%AE%B5%E5%92%8CReduce%E9%98%B6%E6%AE%B5-%E4%B8%A4%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="toc-text">MaoReduce运算程序一般分Map阶段和Reduce阶段 两个阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MapReduce%E8%BF%9B%E7%A8%8B"><span class="toc-text">MapReduce进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97%E5%8C%96%E7%B1%BB%E5%9E%8B"><span class="toc-text">常用数据序列化类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1-%E6%AC%A1%E6%95%B0%E4%BF%A1%E6%81%AF"><span class="toc-text">统计 次数信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mapper"><span class="toc-text">Mapper</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reducer"><span class="toc-text">Reducer</span></a></li></ol></li></ol>
+      </div>
+      <p><strong>MaoReduce个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="MaoReduce-定义"><a href="#MaoReduce-定义" class="headerlink" title="MaoReduce 定义"></a>MaoReduce 定义</h1><ul>
+<li><p>分布式运算程序的编程框,用于开发基于 Hadoop的数据分析的核心框架</p>
+</li>
+<li><p>使用: 用户编写的业务逻辑代码和自带默认组件一个完整的分布式运算程序, 并发运行在一个 Hadoop集群上</p>
+</li>
+</ul>
+<ul>
+<li><p>优点: </p>
+<ul>
+<li><p>易于编写: 用户只关心, 业务逻辑 实现框架的接口</p>
+</li>
+<li><p>良好的扩展性: 可以动态增加服务器, 解决动态资源不够的问题</p>
+</li>
+<li><p>高容错性: 任何一台机器挂掉, 可以将任意转移到其它节点上</p>
+</li>
+<li><p>适合海量数据计算 (TB/PB) 几千台服务器共同计算</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>缺点: </p>
+<ul>
+<li><p>不擅长实时计算 Mysql</p>
+</li>
+<li><p>不擅长流式计算 Sparkstreaming flink</p>
+</li>
+<li><p>不擅长DAG有向无环图计算 spark</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="MaoReduce运算程序一般分Map阶段和Reduce阶段-两个阶段"><a href="#MaoReduce运算程序一般分Map阶段和Reduce阶段-两个阶段" class="headerlink" title="MaoReduce运算程序一般分Map阶段和Reduce阶段 两个阶段"></a>MaoReduce运算程序一般分Map阶段和Reduce阶段 两个阶段</h2><ul>
+<li><p>Map阶段的并发MapTask, 完全并发运行, 互不相干</p>
+</li>
+<li><p>Reduce阶段的并发ReduceTask, 完全互不相干, 但是它们的数据依赖于上一个阶段的所有MapTask并发实例的输出</p>
+</li>
+<li><p>MaoReduce编程模型只能包含一个Map阶段和Reduce阶段, 如果用户的业务逻辑非常复杂, 那就只能多个MaoReduce程序, 串行运行</p>
+</li>
+</ul>
+<h2 id="MapReduce进程"><a href="#MapReduce进程" class="headerlink" title="MapReduce进程"></a>MapReduce进程</h2><ul>
+<li><p>MrAppMaster: 负责整个程序的过程调度及状态协调</p>
+</li>
+<li><p>MapTask: 负责Map阶段的整个数据处理流程</p>
+</li>
+<li><p>ReduceTask: 负责Reduce阶段的整个数据处理流程</p>
+</li>
+</ul>
+<h2 id="常用数据序列化类型"><a href="#常用数据序列化类型" class="headerlink" title="常用数据序列化类型"></a>常用数据序列化类型</h2><table>
+<thead>
+<tr>
+<th>Java类型</th>
+<th>Hadoop Writable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Boolean</td>
+<td>BooleanWritable</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td>ByteWritable</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>IntWritable</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>FloatWritable</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>LongWritable</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>DoubleWritable</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Text</td>
+</tr>
+<tr>
+<td>Map</td>
+<td>MapWritable</td>
+</tr>
+<tr>
+<td>Array</td>
+<td>ArrayWritable</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>NullWritable</td>
+</tr>
+</tbody></table>
+<h2 id="统计-次数信息"><a href="#统计-次数信息" class="headerlink" title="统计 次数信息"></a>统计 次数信息</h2><p><strong>用到的txt数据</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Stitch</span> Stitch Stitch <br><span class="hljs-number">626</span><br>Angel Angel Angel Angel Angel Angel<br><span class="hljs-number">624</span><br>Reuben Reuben <br><span class="hljs-number">625</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h2><p><strong>(1). 将MapTask传给我们的文本内容先转换成String</strong></p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Stitch Stitch Stitch</span> <br></code></pre></td></tr></table></figure>
+
+<p><strong>(2). 根据空格将一行切分成单词</strong></p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Stitch </span><br><span class="hljs-attribute">Stitch </span><br><span class="hljs-attribute">Stitch</span> <br></code></pre></td></tr></table></figure>
+
+<p><strong>(3). 将单词输入为&lt;单词, 1&gt;</strong></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Stitch</span>, <span class="hljs-number">1</span><br><span class="hljs-attribute">Stitch</span>, <span class="hljs-number">1</span><br><span class="hljs-attribute">Stitch</span>, <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h2><p><strong>(1). 汇总各个key的个数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># value  key</span><br><br>Stitch, <span class="hljs-number">1</span><br>Stitch, <span class="hljs-number">1</span><br>Stitch, <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(2). 输出该key的总次数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># value  key</span><br><br>Stitch, <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+
+<p><strong>Driver</strong></p>
+<p><strong>(1). 获取配置信息, 获取job对象实例</strong></p>
+<p><strong>(2). 指定本程序的jar保所在的本地路径</strong></p>
+<p><strong>(3). 关联Mapper/Reducer业务类</strong></p>
+<p><strong>(4). 指定Mapper输出数据的kv类型</strong></p>
+<p><strong>(5). 指定最终输出的数据的kv类型</strong></p>
+<p><strong>(6). 指定job的输入原始文件所在目录</strong></p>
+<p><strong>(7). 指定job的输出结果所在目录</strong></p>
+<p><strong>(8). 提交作业</strong></p>
+<br>
+
+
+
+    
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/MaoReduce.html">https://sdq3.link/MaoReduce.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>第一个Vue.js</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#view%E5%92%8CModel%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A"><span class="toc-text">view和Model双向绑定</span></a></li></ol>
+      </div>
+      <p><strong>Vue.js个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;!DOCTYPE html&gt;<br>&lt;html lang=<span class="hljs-string">&quot;en&quot;</span>&gt;<br>&lt;<span class="hljs-built_in">head</span>&gt;<br>    &lt;meta charset=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;<br>    &lt;meta name=<span class="hljs-string">&quot;viewport&quot;</span> content=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;<br>    &lt;title&gt;Vue学习&lt;/title&gt;<br>    &lt;script src=<span class="hljs-string">&quot;js/vue.min.js&quot;</span>&gt;&lt;/script&gt; <br>    &lt;!-- 导入Vue.js --&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div <span class="hljs-built_in">id</span> = <span class="hljs-string">&quot;app&quot;</span>&gt;<br>        &lt;button @click=<span class="hljs-string">&quot;showInfo&quot;</span>&gt;请点击&lt;/button&gt;<br>        &lt;p&gt;&#123;&#123;ms&#125;&#125;&lt;/p&gt;<br>        &lt;!-- &#123;&#123;massage&#125;&#125; --&gt;<br>    &lt;/div&gt;<br>    <br>        &lt;script&gt;<br>            var app = new Vue(&#123;<br>            el:<span class="hljs-string">&#x27;#app&#x27;</span>,<br>            Model : 数据<br>             data:&#123;<br>                 ms: <span class="hljs-string">&quot;hello,vue!&quot;</span>,<br>             &#125;,<br>             methods:&#123;<br>                 <span class="hljs-function"><span class="hljs-title">showInfo</span></span>()&#123;<br>                        this.ms = <span class="hljs-string">&quot;你好666999, Vue&quot;</span><br>                 &#125;<br>             &#125;<br>        &#125;);<br>        &lt;/script&gt;<br>    &lt;/script&gt;<br>    <br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<h1 id="view和Model双向绑定"><a href="#view和Model双向绑定" class="headerlink" title="view和Model双向绑定"></a>view和Model双向绑定</h1><br>
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/Vue-one.html">https://sdq3.link/Vue-one.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

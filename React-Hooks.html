@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>React Hooks</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hooks"><span class="toc-text">Hooks</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E5%B8%B8%E7%94%A8Hook"><span class="toc-text">三个常用Hook</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#State-Hook"><span class="toc-text">State Hook</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0%E5%9B%9E%E8%B0%83%E6%9D%A5%E5%AE%9E%E7%8E%B0%E5%A2%9E%E5%8A%A0"><span class="toc-text">嵌套函数回调来实现增加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0%E5%9B%9E%E8%B0%83%E6%9D%A5%E5%AE%9E%E7%8E%B0%E5%A2%9E%E5%8A%A0%E5%92%8C%E6%94%B9%E5%90%8D"><span class="toc-text">嵌套函数回调来实现增加和改名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Effect-Hook"><span class="toc-text">Effect Hook</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ref-Hook"><span class="toc-text">Ref Hook</span></a></li></ol>
+      </div>
+      <p><strong>React笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h1><p><strong>作用: 让函数式组件用 state, props, refs的属性</strong></p>
+<h1 id="三个常用Hook"><a href="#三个常用Hook" class="headerlink" title="三个常用Hook"></a>三个常用Hook</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-title class_">State</span> <span class="hljs-title class_">Hook</span>: <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useState</span>()<br><span class="hljs-title class_">Effect</span> <span class="hljs-title class_">Hook</span>: <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useEffect</span>()<br><span class="hljs-title class_">Ref</span> <span class="hljs-title class_">Hook</span>: <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useRef</span>()<br></code></pre></td></tr></table></figure>
+
+<h1 id="State-Hook"><a href="#State-Hook" class="headerlink" title="State Hook"></a>State Hook</h1><h3 id="嵌套函数回调来实现增加"><a href="#嵌套函数回调来实现增加" class="headerlink" title="嵌套函数回调来实现增加"></a>嵌套函数回调来实现增加</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, &#123; useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Dome</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-params"><span class="hljs-string">&quot;我是Dome&quot;</span></span>)<br><br>  &#123;<span class="hljs-comment">/*  随便起名[count, setCount] = [状态, 更新状态的方法]  */</span>&#125;  <br>  <span class="hljs-keyword">const</span> [count, setCount] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);<br><br>    &#123;<span class="hljs-comment">/*  加了回调  */</span>&#125;  <br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-title function_">setCount</span>(<span class="hljs-function"><span class="hljs-params">count</span> =&gt;</span> count+<span class="hljs-number">1</span>)<br>  &#125;<br><br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>点了&#123;count&#125;次<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;(add)</span> =&gt;</span></span><br><span class="language-xml">        点我+1</span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="嵌套函数回调来实现增加和改名"><a href="#嵌套函数回调来实现增加和改名" class="headerlink" title="嵌套函数回调来实现增加和改名"></a>嵌套函数回调来实现增加和改名</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, &#123; useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Dome</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-params"><span class="hljs-string">&quot;我是Dome&quot;</span></span>)<br><br>  &#123;<span class="hljs-comment">/*  随便起名[count, setCount] = [状态, 更新状态的方法]  */</span>&#125;  <br>  <span class="hljs-keyword">const</span> [count, setCount] = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);<br>  <span class="hljs-keyword">const</span> [count, setName] = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useState</span>(<span class="hljs-string">&quot;史迪奇&quot;</span>);<br><br>  &#123;<span class="hljs-comment">/*  加了回调  */</span>&#125;  <br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-title function_">setCount</span>(<span class="hljs-function"><span class="hljs-params">count</span> =&gt;</span> count+<span class="hljs-number">1</span>)<br>  &#125;<br>  <br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">changeName</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-title function_">setName</span>(<span class="hljs-string">&quot;史迪仔&quot;</span>)<br>  &#125;<br><br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>点了&#123;count&#125;次<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;(add)</span> =&gt;</span></span><br><span class="language-xml">        点我+1</span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;(changeName)</span> =&gt;</span></span><br><span class="language-xml">        点我改名</span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Effect-Hook"><a href="#Effect-Hook" class="headerlink" title="Effect Hook"></a>Effect Hook</h1><ul>
+<li>Effect Hook 可以让你在函数组中执行副作用操作(用于模拟类组件中的生命钩子) 说白了就是使用生命周期钩</li>
+</ul>
+<p><strong>React中的副作用操作:</strong></p>
+<ul>
+<li>发ajax请求数据获取</li>
+<li>设置订阅 / 启动定时器</li>
+<li>手动更改真实DOM</li>
+</ul>
+<p><strong>语法和说明:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&#123;<span class="hljs-comment">/*  在此可以执行任何带副作用操作  */</span>&#125;  <br>useEffect (<span class="hljs-function">() =&gt;</span> &#123;<br>    &#123;<span class="hljs-comment">/*  在组件卸载前执行  */</span>&#125;  <br>    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;<br>      &#123;<span class="hljs-comment">/*  在此做一些收尾工作, 比如清除定时器/取消订阅等  */</span>&#125;  <br>    &#125;<br>&#123;<span class="hljs-comment">/*  如果指定的是[], 回调函数只会在第一次render()后执行  */</span>&#125;  <br>&#125;, [stateValue])<br></code></pre></td></tr></table></figure>
+
+<p><strong>可以把useEffect Hook 看做这三个函数的组合</strong></p>
+<ul>
+<li>componentDidMount() </li>
+<li>componzentDidUpdate() </li>
+<li>componentWillUnmount()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">ReactDOM</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-dom&#x27;</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Demo</span>(<span class="hljs-params"></span>)&#123;<br>	<span class="hljs-comment">//console.log(&#x27;Demo&#x27;);</span><br><br>	<span class="hljs-keyword">const</span> [count,setCount] = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useState</span>(<span class="hljs-params"><span class="hljs-number">0</span></span>)<br>  &#123;<span class="hljs-comment">/*  Ref Hook  */</span>&#125;<br>	<span class="hljs-keyword">const</span> myRef = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useRef</span>()<br><br>	<span class="hljs-title class_">React</span>.<span class="hljs-title function_">useEffect</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>		<span class="hljs-keyword">let</span> timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>			<span class="hljs-title function_">setCount</span>(<span class="hljs-function"><span class="hljs-params">count</span> =&gt;</span> count+<span class="hljs-number">1</span> )<br>		&#125;,<span class="hljs-number">1000</span>)<br>		<span class="hljs-keyword">return</span> <span class="hljs-function">()=&gt;</span>&#123;<br>			<span class="hljs-built_in">clearInterval</span>(timer)<br>		&#125;<br>	&#125;,[])<br><br>	<span class="hljs-comment">//加的回调</span><br>	<span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-comment">//setCount(count+1) //第一种写法</span><br>		<span class="hljs-title function_">setCount</span>(<span class="hljs-function"><span class="hljs-params">count</span> =&gt;</span> count+<span class="hljs-number">1</span> )<br>	&#125;<br><br>	<span class="hljs-comment">//提示输入的回调</span><br>	<span class="hljs-keyword">function</span> <span class="hljs-title function_">show</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-title function_">alert</span>(myRef.<span class="hljs-property">current</span>.<span class="hljs-property">value</span>)<br>	&#125;<br><br>	<span class="hljs-comment">//卸载组件的回调</span><br>	<span class="hljs-keyword">function</span> <span class="hljs-title function_">unmount</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">unmountComponentAtNode</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;root&#x27;</span>))<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> (<br>		<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&#123;myRef&#125;/</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>当前求和为：&#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;add&#125;</span>&gt;</span>点我+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;unmount&#125;</span>&gt;</span>卸载组件<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;show&#125;</span>&gt;</span>点我提示数据<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>	)<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">Demo</span><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="Ref-Hook"><a href="#Ref-Hook" class="headerlink" title="Ref Hook"></a>Ref Hook</h1><ul>
+<li>可以在函数组件中储存/查找组件内的标签或任意其它数据</li>
+<li>语法: const refContainer = useRef()</li>
+<li>作用: 保存标签对象, 功能与React.createRef()一样</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">ReactDOM</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-dom&#x27;</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Demo</span>(<span class="hljs-params"></span>)&#123;<br>	<span class="hljs-comment">//console.log(&#x27;Demo&#x27;);</span><br><br>	<span class="hljs-keyword">const</span> [count,setCount] = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useState</span>(<span class="hljs-params"><span class="hljs-number">0</span></span>)<br>  &#123;<span class="hljs-comment">/*  Ref Hook  */</span>&#125;<br>	<span class="hljs-keyword">const</span> myRef = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useRef</span>()<br><br>	<span class="hljs-title class_">React</span>.<span class="hljs-title function_">useEffect</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>		<span class="hljs-keyword">let</span> timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>			<span class="hljs-title function_">setCount</span>(<span class="hljs-function"><span class="hljs-params">count</span> =&gt;</span> count+<span class="hljs-number">1</span> )<br>		&#125;,<span class="hljs-number">1000</span>)<br>		<span class="hljs-keyword">return</span> <span class="hljs-function">()=&gt;</span>&#123;<br>			<span class="hljs-built_in">clearInterval</span>(timer)<br>		&#125;<br>	&#125;,[])<br><br>	<span class="hljs-comment">//加的回调</span><br>	<span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-comment">//setCount(count+1) //第一种写法</span><br>		<span class="hljs-title function_">setCount</span>(<span class="hljs-function"><span class="hljs-params">count</span> =&gt;</span> count+<span class="hljs-number">1</span> )<br>	&#125;<br><br>	<span class="hljs-comment">//提示输入的回调</span><br>	<span class="hljs-keyword">function</span> <span class="hljs-title function_">show</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-title function_">alert</span>(myRef.<span class="hljs-property">current</span>.<span class="hljs-property">value</span>)<br>	&#125;<br><br>	<span class="hljs-comment">//卸载组件的回调</span><br>	<span class="hljs-keyword">function</span> <span class="hljs-title function_">unmount</span>(<span class="hljs-params"></span>)&#123;<br>		<span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">unmountComponentAtNode</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;root&#x27;</span>))<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> (<br>		<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&#123;myRef&#125;/</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>当前求和为：&#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;add&#125;</span>&gt;</span>点我+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;unmount&#125;</span>&gt;</span>卸载组件<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;show&#125;</span>&gt;</span>点我提示数据<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>	)<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">Demo</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/React-Hooks.html">https://sdq3.link/React-Hooks.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

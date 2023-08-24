@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>React 组件</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E7%BB%84%E4%BB%B6"><span class="toc-text">封装组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%BB%84%E4%BB%B6"><span class="toc-text">复合组件</span></a></li></ol>
+      </div>
+      <p><strong>React笔记</strong></p>
+<span id="more"></span>
+
+
+<h1 id="封装组件"><a href="#封装组件" class="headerlink" title="封装组件"></a>封装组件</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Name</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">	<span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>网站名称：&#123;props.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Url</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">	<span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>网站地址：&#123;props.url&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Nickname</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">	<span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>网站小名：&#123;props.nickname&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">	<span class="hljs-keyword">return</span> (</span><br><span class="language-javascript">	<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">		<span class="hljs-tag">&lt;<span class="hljs-name">Name</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;史迪奇的博客&quot;</span> /&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">		<span class="hljs-tag">&lt;<span class="hljs-name">Url</span> <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;https://sdq3.gitee.io&quot;</span> /&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">		<span class="hljs-tag">&lt;<span class="hljs-name">Nickname</span> <span class="hljs-attr">nickname</span>=<span class="hljs-string">&quot;我叫史迪奇&quot;</span> /&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-javascript">	);</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(</span><br><span class="language-javascript">	 <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>,</span><br><span class="language-javascript">	<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;example&#x27;</span>)</span><br><span class="language-javascript">);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>正常定义组件</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs HTML">function MyNameIsStitch(props) &#123;<br>    return <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>我叫史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>ES6 class 来定义组件</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs HTML">class MyNameIsStitch extends React.Component &#123;<br>  render() &#123;<br>    return <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>我叫史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>用户自定义组件</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">MyNameIsStitch</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">  &#123;<span class="hljs-comment">/*  name 属性通过 props.name 来获取  */</span>&#125;</span><br><span class="language-javascript">	<span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>我叫&#123;props.name&#125;!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">const</span> element = <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyNameIsStitch</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;史迪奇&quot;</span>/&gt;</span></span>;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(</span><br><span class="language-javascript">	element,</span><br><span class="language-javascript">	<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;example&#x27;</span>)</span><br><span class="language-javascript">);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="复合组件"><a href="#复合组件" class="headerlink" title="复合组件"></a>复合组件</h1><p><strong>解析: 就是可以通过创建多个组件来合成一个组件</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Name</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">	<span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>网站名称：&#123;props.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Url</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">	<span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>网站地址：&#123;props.url&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Nickname</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">	<span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>网站小名：&#123;props.nickname&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">	<span class="hljs-keyword">return</span> (</span><br><span class="language-javascript">	<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">		<span class="hljs-tag">&lt;<span class="hljs-name">Name</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;史迪奇的博客&quot;</span> /&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">		<span class="hljs-tag">&lt;<span class="hljs-name">Url</span> <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;https://sdq3.gitee.io&quot;</span> /&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">		<span class="hljs-tag">&lt;<span class="hljs-name">Nickname</span> <span class="hljs-attr">nickname</span>=<span class="hljs-string">&quot;我叫史迪奇&quot;</span> /&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-javascript">	);</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(</span><br><span class="language-javascript">	 <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>,</span><br><span class="language-javascript">	<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;example&#x27;</span>)</span><br><span class="language-javascript">);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/React-subassembly.html">https://sdq3.link/React-subassembly.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

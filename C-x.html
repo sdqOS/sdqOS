@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Text</title>
-    <!-- 导入网络js -->
-    <link rel="stylesheet" href="/bulma.min.css">
-
+    <link rel="icon" href="/text.png">
     <!-- 导入css -->
     <link rel="stylesheet" href="/style.css"/>
-  
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
   <meta name="generator" content="Hexo 5.4.2"></head>
   <body>
 
@@ -23,8 +26,8 @@
     <div id="content-wrap">
         <div class="container">
           <!-- 点击文章 -->
-<div class="wenzhang-container">
-  <h1 class="title is-3 is-4-mobile">C语 填空题</h1>
+<div>
+  <h1>C语 填空题</h1>
   <wenzhang>
       <div class="contents">
         
@@ -37,23 +40,72 @@
 <p>函数体的范围是 最外层的一对大括弧内的部分    </p>
 <p>函数体一般包括  变量定义部分  和  执行部分   </p>
 <p>C语言是通过  输入和输出函数   来进行输入输出的</p>
-<p>在C语言中, 凡在一个标识符后面紧跟着一对圆括弧，就表明它是一个  函数 </p>
+<p>在C语言中, 凡在一个标识符后面紧跟着一对圆括弧, 就表明它是一个  函数 </p>
 <p>主函数名后面的一对圆括号中间可以为空, 但一对圆括号不能 省略      </p>
 <p>在ASCII码表中可以看到每个小写字母的ASCII码比相应的大写字母 大32</p>
 <p>%d   int类型变量的值<br>%c   char类型变量的值<br>%f   float类型变量的值<br>%lf  double类型变量的值</p>
 
-      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/C-x.html">https://sdq3.gitee.io/C-x.html</a></strong></p>
-  </wenzhang>
-</div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
         </div>
     </div>
     
 <footer id="footer" >
     <span class="konga">
         <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
         <a class="jiao"  href=".">></a>
     </span>
+    <div id="text_output"></div>
+    </div>
+
 </footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/C-x.html">https://sdq3.link/C-x.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
   </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
   </body>
 </html>

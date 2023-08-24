@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>JavaScript 数据类型之(字符串类型)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8"><span class="toc-text">字符串常用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E5%86%99"><span class="toc-text">多行字符串编写</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">模板字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6"><span class="toc-text">字符串长度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2"><span class="toc-text">大小写转换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96"><span class="toc-text">字符串截取</span></a></li></ol>
+      </div>
+      <p><strong>JavaScript个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="字符串常用"><a href="#字符串常用" class="headerlink" title="字符串常用"></a>字符串常用</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-string">&quot;字符串&quot;</span>     <span class="hljs-comment">/*双引号包裹*/</span><br><span class="hljs-string">&#x27;字符串&#x27;</span>     <span class="hljs-comment">/*单引号包裹*/</span><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">\<span class="hljs-string">&#x27;           /*代表它是一个字符串*/</span><br><span class="hljs-string">\n           /*换行*/</span><br><span class="hljs-string">\t           /*tab*/</span><br><span class="hljs-string">\u5d3d       /*Unicode字符*/</span><br><span class="hljs-string">\x45         /*Asll字符*/</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="多行字符串编写"><a href="#多行字符串编写" class="headerlink" title="多行字符串编写"></a>多行字符串编写</h1><p><strong>例子</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">/*tab键上面  esc键下面*/</span><br>  <span class="hljs-keyword">var</span> msg =<br>      haha<br> 哈哈<br> 蛤蛤  <br></code></pre></td></tr></table></figure>
+
+<h1 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h1><p><strong>例子</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">/*tab键上面  esc键下面*/</span><br>  <span class="hljs-keyword">let</span> sdq = <span class="hljs-string">&quot;史迪奇&quot;</span>;<br>  <span class="hljs-keyword">let</span> sdz = <span class="hljs-string">&quot;史迪仔&quot;</span>;<br>  <span class="hljs-keyword">let</span> age = <span class="hljs-number">119</span>;<br>  <span class="hljs-keyword">let</span> sdqz = <span class="hljs-string">&#x27;我叫.$&#123;sdq&#125;&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h1 id="字符串长度"><a href="#字符串长度" class="headerlink" title="字符串长度"></a>字符串长度</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">str.<span class="hljs-property">length</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">/*是方法不是属性*/</span><br>sdq.<span class="hljs-title function_">toUpperCase</span>()          <span class="hljs-comment">/*大写*/</span><br>sdq.<span class="hljs-title class_">LowerCase</span>()          <span class="hljs-comment">/*小写*/</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h1><p><strong>subsrting</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">sdq.<span class="hljs-title function_">subsrting</span>(<span class="hljs-number">1</span>)          <span class="hljs-comment">/*从第一个字符串截取到最后一个字符串*/</span><br>sdq.<span class="hljs-title class_">LowerCase</span>(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>)          <span class="hljs-comment">/*包头不包尾*/</span><br></code></pre></td></tr></table></figure>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/JavaScript-string.html">https://sdq3.link/JavaScript-string.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>ES6 let知识</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#let%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F"><span class="toc-text">let声明变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#let%E5%8F%98%E9%87%8F%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E5%88%A9%E7%94%A8"><span class="toc-text">let变量不可重复利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">块级作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%AD%98%E5%9C%A8%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="toc-text">不存在变量提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%BD%B1%E5%93%8D%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-text">不影响作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E5%8F%98%E8%89%B2%E7%9A%84%E6%A1%88%E4%BE%8B"><span class="toc-text">点击变色的案例</span></a></li></ol>
+      </div>
+      <p><strong>ES6学习笔记</strong></p>
+<span id="more"></span>
+
+<h2 id="let声明变量"><a href="#let声明变量" class="headerlink" title="let声明变量"></a>let声明变量</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;script&gt;<br>    <span class="hljs-comment">// 声明变量</span><br>    <span class="hljs-keyword">let</span> a;<br>    <span class="hljs-keyword">let</span> b, c, d;<br>    <span class="hljs-keyword">let</span> e = <span class="hljs-number">333</span>;<br>    <span class="hljs-comment">// 变量可以是数字 字符串 数组</span><br>    <span class="hljs-keyword">let</span> f = <span class="hljs-number">521</span>,g = <span class="hljs-string">&quot;我叫史迪奇&quot;</span>,h = [];<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="let变量不可重复利用"><a href="#let变量不可重复利用" class="headerlink" title="let变量不可重复利用"></a>let变量不可重复利用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;script&gt;<br>    <span class="hljs-comment">// 声明变量</span><br>    <span class="hljs-keyword">let</span> sdq = <span class="hljs-string">&quot;史迪奇&quot;</span>;<br>    <span class="hljs-comment">// let sdq = &quot;史迪仔&quot;</span><br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;script&gt;<br>    <span class="hljs-comment">//  全局 函数 eval都属于块级作用域</span><br>    <span class="hljs-comment">// 像if else while for 都属于块级 都不支持let</span><br>    &#123;<br>        <span class="hljs-comment">// &#123;&#125;也是块级</span><br>        <span class="hljs-keyword">let</span> sdq = <span class="hljs-string">&#x27;史迪奇&#x27;</span>;<br>    &#125;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sdq);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;script&gt;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sdz);<br>    <span class="hljs-keyword">let</span> sdz = <span class="hljs-string">&#x27;史迪仔&#x27;</span>; <br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="不影响作用域链"><a href="#不影响作用域链" class="headerlink" title="不影响作用域链"></a>不影响作用域链</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;script&gt;<br>    <span class="hljs-keyword">let</span> sdq = <span class="hljs-string">&#x27;史迪奇&#x27;</span>;<br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">SDQ</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sdq);<br>    &#125;<br>    <span class="hljs-title function_">SDQ</span>()<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="点击变色的案例"><a href="#点击变色的案例" class="headerlink" title="点击变色的案例"></a>点击变色的案例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;body&gt;<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-header&quot;</span>&gt;</span>变色<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;Stitch&quot;</span>&gt;</span>史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;Reuben&quot;</span>&gt;</span>鲁本<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;Angel &quot;</span>&gt;</span>安琪<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">//获取div元素对象</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">let</span> sdqs = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByClassName</span>(<span class="hljs-string">&#x27;sdq&#x27;</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-comment">//遍历并绑定事件</span></span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;sdqs.<span class="hljs-property">length</span>;i++)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">            sdqs[i].<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-comment">//修改当前元素的背景颜色</span></span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-comment">// this.style.background = &#x27;#F08080&#x27;;</span></span></span><br><span class="language-javascript"><span class="language-xml">                sdqs[i].<span class="hljs-property">style</span>.<span class="hljs-property">background</span> = <span class="hljs-string">&#x27;#F08080&#x27;</span>;</span></span><br><span class="language-javascript"><span class="language-xml">            &#125;</span></span><br><span class="language-javascript"><span class="language-xml">        &#125;</span></span><br><span class="language-javascript"><span class="language-xml">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<iframe id="iframe" scrolling=no src="/html/let案例.html"></iframe>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/ES6-let.html">https://sdq3.link/ES6-let.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

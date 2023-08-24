@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>大数据分析师 (比赛)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85%E6%95%B0%E6%8D%AE%E5%BA%93-0-4%E5%88%86"><span class="toc-text">1. 安装数据库(0&#x2F;4分)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Hive%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-0-6%E5%88%86"><span class="toc-text">2. Hive基础环境配置(0&#x2F;6分)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AEHIVE%E5%85%83%E6%95%B0%E6%8D%AE%E8%87%B3MySQL-0-6%E5%88%86"><span class="toc-text">3. 配置HIVE元数据至MySQL(0&#x2F;6分)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AEHIVE%E5%AE%A2%E6%88%B7%E7%AB%AF-0-3%E5%88%86"><span class="toc-text">4. 配置HIVE客户端(0&#x2F;3分)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%90%AF%E5%8A%A8Hive-0-2%E5%88%86"><span class="toc-text">5. 启动Hive(0&#x2F;2分)</span></a></li></ol>
+      </div>
+      <p><strong>大数据比赛文档</strong></p>
+<span id="more"></span>
+
+<h1 id="1-安装数据库-0-4分"><a href="#1-安装数据库-0-4分" class="headerlink" title="1. 安装数据库(0/4分)"></a>1. 安装数据库(0/4分)</h1><p><strong><a target="_blank" rel="noopener" href="https://download.csdn.net/download/qq_44948696/28206428">安装mysql的链接</a></strong>,把它放在home或者你知道的地方, 指行以下代码</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># tar -tzvf解压文件到当前文件夹 -f解压 v日志</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># tar -zxvf mysql-8.0.26-el7-x86_64.tar.gz </span><br><br> <span class="hljs-comment"># 进入root目录下  </span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /root/</span><br><br> <span class="hljs-comment"># 查看隐藏</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># ls -a</span><br><br> <span class="hljs-comment"># 用vim或者vi编辑这个目录</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim .bash_profile</span><br><br> <span class="hljs-comment"># 编辑成这样 MYSQL_HOME是自定义名字</span><br> export MYSQL_HOME=/home/sdq/Music/mysql<span class="hljs-literal">-8</span>.<span class="hljs-number">0.26</span><span class="hljs-literal">-el7-x86_64</span>/<br> <span class="hljs-comment"># 在PATH=$PATH:$HOME后面加 /bin:$MYSQL_HOME/bin/</span><br> PATH=<span class="hljs-variable">$PATH:</span><span class="hljs-variable">$HOME</span>/bin:<span class="hljs-variable">$MYSQL_BIN</span>/bin/<br><br> <span class="hljs-comment"># 初始化</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mysqld --initialize </span><br><br> <span class="hljs-comment"># 安装</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mysqld install Mysql </span><br><br> <span class="hljs-comment"># 启动</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># service Mysql start </span><br><br> <span class="hljs-comment"># 登陆mysql</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mysql -u root -p </span><br></code></pre></td></tr></table></figure>
+
+<p>考核条件如下：<br><strong>(1) 环境中已经安装mysql-community-server, 关闭mysql开机自启服务(0/1)分</strong></p>
+<ul>
+<li>解释: 这里是已经安装 mysql-community-server 只需要关闭mysql开机自启就行了</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 关闭MySql启动服务</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># systemctl disable mysqld </span><br><br> <span class="hljs-comment"># 一定要重启才生效</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># reboot</span><br><br> <span class="hljs-comment"># 这是验证mysql的 显示ERROR 2002 (HY000)说明已关闭</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mysql</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(2) 开启MySQL服务(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 关闭MySql启动服务</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># service mysqld start </span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(3) 判断mysqld.log日志下是否生成初临时密码(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 判断mysqld.log日志下是否生成初临时密码</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># grep &#x27;temporary password&#x27; /var/log/mysqld.log </span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(4) 设置mysql数据库本地root用户密码为123456(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 为root用户设置密码</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mysqladmin -u root password 123456 </span><br></code></pre></td></tr></table></figure>
+
+<h1 id="2-Hive基础环境配置-0-6分"><a href="#2-Hive基础环境配置-0-6分" class="headerlink" title="2. Hive基础环境配置(0/6分)"></a>2. Hive基础环境配置(0/6分)</h1><p>考核条件如下：<br><strong>(1) 将Hive安装包解压到指定路径/usr/hive (安装包存放于/usr/package277/) (0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 打开 /usr/package277/ 没有路径就新建文件夹</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /usr/package277/</span><br><br> <span class="hljs-comment"># 安装包存放于/usr/package277/只需要到这里找到 然后解压到指定路径/usr/hive 联系的话</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># tar -zxvf apache-hive-3.1.2-bin.tar.gz -C /usr/hive</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(2) 配置环境变量$HIVE_HOME,将bin目录加入PATH系统变量, 注意生效变量(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 为root用户设置密码</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mysqladmin -u root password 123456</span><br><br> <span class="hljs-comment"># 配置环境变量HIVE_HOME</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim /root/.bash_profile</span><br><br> <span class="hljs-comment"># 编辑成这样 HIVE_HOME是自定义名字</span><br> export HIVE_HOME=/usr/hive/apache<span class="hljs-literal">-hive-3</span>.<span class="hljs-number">1.2</span><span class="hljs-literal">-bin</span>/<br> <span class="hljs-comment"># 在PATH=$PATH:$HOME后面加 :$HIVE_HOME/bin/</span><br> PATH=<span class="hljs-variable">$PATH:</span><span class="hljs-variable">$HOME</span>/bin:<span class="hljs-variable">$MYSQL_BIN</span>/bin/:<span class="hljs-variable">$HIVE_HOME</span>/bin/<br><br> <span class="hljs-comment"># 生效变量</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># source /root/.bash_profiles</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(3) 修改HIVE运行环境, 配置Hadoop安装路径HADOOP_HOME(0/1)分</strong></p>
+<p>要安装Hadoop首先配个<a href="">jdk8</a></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 配置hadoop 首先配jdk8</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># tar -zxvf jdk-8u301-linux-aarch64.tar.gz</span><br><br> <span class="hljs-comment"># 配置环境变量JAVA_HOME</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim /root/.bash_profile</span><br><br> <span class="hljs-comment"># 编辑成这样 JAVA_HOME是自定义名字</span><br> export JAVA_HOME=/home/sdq/Music/jdk1.<span class="hljs-number">8.0</span>_301/<span class="hljs-number">26</span><span class="hljs-literal">-el7-x86_64</span>/<br> <span class="hljs-comment"># 在PATH=$PATH:$HOME后面加 /bin:$JAVA_HOME/bin/</span><br> PATH=<span class="hljs-variable">$PATH:</span><span class="hljs-variable">$HOME</span>/bin:<span class="hljs-variable">$MYSQL_BIN</span>/bin/:<span class="hljs-variable">$HIVE_HOME</span>/bin/:<span class="hljs-variable">$JAVA_HOME</span>/bin/<br><br> <span class="hljs-comment"># 生效变量</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># source /root/.bash_profiles</span><br><br> <span class="hljs-comment"># 验证</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># java</span><br></code></pre></td></tr></table></figure>
+
+<p>然后再安装Hadoop</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 安装hadoop</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># tar -zxvf hadoop-3.3.1.tar.gz</span><br><br> <span class="hljs-comment"># 配置环境变量HADOOP_HOME</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim /root/.bash_profile</span><br><br> <span class="hljs-comment"># 编辑成这样 JAVA_HOME是自定义名字</span><br> export HADOOP_HOME=/home/sdq/Music/hadoop<span class="hljs-literal">-3</span>.<span class="hljs-number">3.1</span>/<br> <span class="hljs-comment"># 在PATH=$PATH:$HOME后面加 /bin:$JAVA_HOME/bin/</span><br> PATH=<span class="hljs-variable">$PATH:</span><span class="hljs-variable">$HOME</span>/bin:<span class="hljs-variable">$MYSQL_BIN</span>/bin/:<span class="hljs-variable">$HIVE_HOME</span>/bin/:<span class="hljs-variable">$JAVA_HOME</span>/bin/:<span class="hljs-variable">$HADOOP_HOME</span>/bin/:<span class="hljs-variable">$HADOOP_HOME</span>/sbin/<br><br> <span class="hljs-comment"># 生效变量</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># source /root/.bash_profiles</span><br><br> <span class="hljs-comment"># 验证</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># hadoop</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(4) 修改HIVE运行环境, 配置Hive配置文件存放路径HIVE_CONF_DIR(0/1)分</strong></p>
+<p>重新解压apache-hive-3.1.2-bin.tar.gz最好改个名字再解压</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 改名为再解压 或者解压后改名</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># tar -zxvf apache-hive-3.1.2-bin.tar.gz</span><br> <span class="hljs-comment"># 改名为hive</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mv apache-hive-3.1.2-bin/ hive</span><br><br> <span class="hljs-comment"># [二选一] 然后查看一下有没有 没有再自己用vim建 用cp复制一个hive-env.sh.template 取名字为hive-env.sh</span><br> [<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cp hive-env.sh.template hive-env.sh</span><br><br> <span class="hljs-comment"># [二选一] 然后cd到conf 改hive-env.sh.template为hive-env.sh</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mv hive-env.sh.template hive-env.sh</span><br><br> <span class="hljs-comment"># 配置环境变量HIVE_CONF_DIR</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim hive-env.sh</span><br><br> <span class="hljs-comment"># 配置hive-env.sh文件 编辑 HIVE_CONF_DIR</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># export HIVE_CONF_DIR=/home/sdq/Music/hive/conf/</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(5) 修改HIVE运行环境, 配置Hive运行资源库路径HIVE_AUX_JARS_PATH(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># cd进入conf文件夹</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /usr/hive/apache-hive-3.1.2-bin/conf/</span><br><br> <span class="hljs-comment"># 找到hive-site.xml进行修改 </span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim hive-site.xml</span><br> <span class="hljs-comment"># 里面有 # export HIVE_AUX_JARS_PATH= 把注释解了 然后加上$HIVE_HOME/lib/</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># export HIVE_AUX_JARS_PATH=$HIVE_HOME/lib/</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(6) 解决jline的版本冲突, 将$HIVE_HOME/lib/jline-1.12.jar同步至$HOADOOP_HOME/lib下(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 复制到$HOADOOP_HOME/lib</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># scp -r $HIVE_HOME/lib/jline-2.12.jar $HOADOOP_HOME/lib/   </span><br></code></pre></td></tr></table></figure>
+
+<h1 id="3-配置HIVE元数据至MySQL-0-6分"><a href="#3-配置HIVE元数据至MySQL-0-6分" class="headerlink" title="3. 配置HIVE元数据至MySQL(0/6分)"></a>3. 配置HIVE元数据至MySQL(0/6分)</h1><p>考核条件如下：<br><strong>(1) 驱动JDBC拷贝至hive安装目录对应lib下 (依赖包存放于/usr/package277/) (0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 因为依赖包不是存放于/usr/package277/ 只需要拷贝到hive安装目录的lib下</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># scp -r /home/sdq/Music/hive/lib/jline-2.12.jar ./lib/    </span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(2) 配置元数据数据存储位置为/user/hive_remote/warehouse(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 没有该目录就自己mkdir创建一个 -p是递归建立目录</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mkdir -p /user/hive_remote/warehouse/</span><br><br> <span class="hljs-comment"># 检查目录</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /user/hive_remote/warehouse/</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(3) 配置数据库连接为MySQL(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># cd进入conf文件夹</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /home/sdq/Music/hive/conf</span><br><br> <span class="hljs-comment"># 找到hive-env.sh进行修改 </span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim hive-env.sh </span><br><br></code></pre></td></tr></table></figure>
+
+<p><strong>(4) 配置连接JDBC的URL地址主机名及默认端口号3306, 数据库为hive, 如不存在自行创建, ssl连接方式为false(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># cd进入conf文件夹</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /usr/hive/apache-hive-3.1.2-bin/conf/</span><br><br> <span class="hljs-comment"># 找到hive-site.xml进行修改 </span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim hive-site.xml</span><br>   &lt;property&gt;<br>        &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;<br>        &lt;<span class="hljs-literal">--</span> 配置连接JDBC的URL地址主机名及默认端口号<span class="hljs-number">3306</span> ssl连接方式为false <span class="hljs-literal">--</span>&gt;<br>        &lt;value&gt;jdbc:mysql://[<span class="hljs-type">IP</span>地址]:<span class="hljs-number">3306</span>/hive?useSSL=false&lt;/value&gt;<br>    &lt;/property&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>(5) 配置数据库连接用户(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># cd进入conf文件夹</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /usr/hive/apache-hive-3.1.2-bin/conf/</span><br><br> <span class="hljs-comment"># 找到hive-site.xml进行修改 </span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim hive-site.xml</span><br>    &lt;property&gt;<br>        &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;<br>        &lt;value&gt;用户名&lt;/value&gt;<br>    &lt;/property&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>(6) 配置数据库连接密码(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># cd进入conf文件夹</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /usr/hive/apache-hive-3.1.2-bin/conf/</span><br><br> <span class="hljs-comment"># 找到hive-site.xml进行修改 </span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim hive-site.xml</span><br>    &lt;property&gt;<br>        &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;<br>        &lt;value&gt;密码&lt;/value&gt;<br>    &lt;/property&gt;<br></code></pre></td></tr></table></figure>
+
+<h1 id="4-配置HIVE客户端-0-3分"><a href="#4-配置HIVE客户端-0-3分" class="headerlink" title="4. 配置HIVE客户端(0/3分)"></a>4. 配置HIVE客户端(0/3分)</h1><p>考核条件如下：<br><strong>(1) 配置元数据存储位置为/user/hive_remote/warehouse(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 没有该目录就自己mkdir创建一个 -p是递归建立目录</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mkdir -p /user/hive_remote/warehouse/</span><br><br> <span class="hljs-comment"># 检查目录</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /user/hive_remote/warehouse/</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(2) 关闭本地metastore模式(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># </span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># </span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(3) 配置指向metastore服务的主机为slave1, 端口为9083(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># cd进入conf文件夹</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># cd /usr/hive/apache-hive-3.1.2-bin/conf/</span><br><br> <span class="hljs-comment"># 找到hive-site.xml进行修改 </span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># vim hive-site.xml</span><br>            &lt;property&gt;<br>                &lt;name&gt;hive.metastore.uris&lt;/name&gt;<br>                &lt;value&gt;thrift://[<span class="hljs-type">IP</span>地址]:<span class="hljs-number">9083</span>&lt;/value&gt;<br>            &lt;/property&gt;<br></code></pre></td></tr></table></figure>
+
+<h1 id="5-启动Hive-0-2分"><a href="#5-启动Hive-0-2分" class="headerlink" title="5. 启动Hive(0/2分)"></a>5. 启动Hive(0/2分)</h1><p>考核条件如下：<br><strong>(1) 服务器端初始化数据库, 启动metastore服务(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 启动metastore服务并且指定端口</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># hive --service metastore -p 9083 &amp;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>(2) 客户端开启进入hive, 创建hive数据库(0/1)分</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell"> <span class="hljs-comment"># 为root用户设置密码</span><br>[<span class="hljs-type">root</span>@<span class="hljs-type">localhost</span> ~]<span class="hljs-comment"># mysqladmin -u root password 123456 </span><br></code></pre></td></tr></table></figure>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/Big-data-analyst.html">https://sdq3.link/Big-data-analyst.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

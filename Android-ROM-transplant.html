@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>Android ROM移植</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%BB%E6%A4%8D-%E5%88%B7%E6%9C%BA%E5%8C%85-ROM-%E5%BB%BA%E8%AE%AE%E5%9C%A8Linux%E7%9A%84%E5%B9%B3%E5%8F%B0%E6%98%AF-%E4%B8%8B%E8%BD%BD%E4%B8%AA%E8%A7%A3%E5%8E%8B%E8%BD%AF%E4%BB%B6"><span class="toc-text">移植 刷机包&#x2F;ROM 建议在Linux的平台是 下载个解压软件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E6%A4%8Dboot-img"><span class="toc-text">移植boot.img</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC%E4%BF%AE%E6%94%B9"><span class="toc-text">刷机脚本修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WIFI%E4%BF%AE%E5%A4%8D"><span class="toc-text">WIFI修复</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%8D%A1%E4%BD%BF%E7%94%A8%E4%BF%AE%E5%A4%8D"><span class="toc-text">内存卡使用修复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D%E6%8C%89%E9%94%AE"><span class="toc-text">修复按键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D%E5%A3%B0%E9%9F%B3"><span class="toc-text">修复声音</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%9E%8B%E5%8F%B7"><span class="toc-text">修改型号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D%E7%9B%B8%E6%9C%BA"><span class="toc-text">修复相机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D%E4%BC%A0%E6%84%9F%E5%99%A8"><span class="toc-text">修复传感器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">移植有风险, 不保证无bug</span></a></li></ol>
+      </div>
+      <p><strong>本人是用Arch, 顺便来传一下教</strong> </p>
+<!-- 添加图片 -->
+<img src="https://img-oss.langs.ink/2023/07/14/64b0cc88e6bc2.webp" style="width: 200px; height: 200px;" >
+<span id="more"></span>
+
+<p><strong>此教程针对 高通和联发科 64位就多替换lib64 等有64字眼的</strong></p>
+<h1 id="移植-刷机包-ROM-建议在Linux的平台是-下载个解压软件"><a href="#移植-刷机包-ROM-建议在Linux的平台是-下载个解压软件" class="headerlink" title="移植 刷机包/ROM 建议在Linux的平台是 下载个解压软件"></a>移植 刷机包/ROM 建议在Linux的平台是 下载个解压软件</h1><ul>
+<li>推荐sdat2</li>
+</ul>
+<h2 id="移植boot-img"><a href="#移植boot-img" class="headerlink" title="移植boot.img"></a>移植boot.img</h2><ul>
+<li>步骤: 解压出官方booT和要移植包的boot, 替换进入官方<ul>
+<li>替换文件: dt.img和zlmagewe 没有这个文件的话就无视</li>
+</ul>
+</li>
+</ul>
+<p><strong>可以开机之后 再进行以下操作</strong></p>
+<ul>
+<li>开机失败就替换fstab.qcom为官方</li>
+</ul>
+<h2 id="刷机脚本修改"><a href="#刷机脚本修改" class="headerlink" title="刷机脚本修改"></a>刷机脚本修改</h2><ul>
+<li>1.机型验证<ul>
+<li>getprop开头的那行删除, 如果安装中断的话就是这行没删完,</li>
+</ul>
+</li>
+<li>2.分区挂卸<ul>
+<li>分区注意mmcblk0p字眼的记得改成官方的</li>
+</ul>
+</li>
+<li>3.删除底层文件刷入<ul>
+<li>底层文件一般在包里面, 正常的包有system(system.dat…), boot.img,META—INF, data其他多余的未知文件和文件夹就是底层文件, 这些必须删除, 不然就可能会黑砖</li>
+</ul>
+</li>
+</ul>
+<p><strong>参考脚本 一般放在META-INF里面</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">ui_print(&quot;Patching firmware images...&quot;);<br>ifelse(msm.boot_update(&quot;main&quot;), (<br>package_extract_file(&quot;firmware-update/tz.mbn&quot;, &quot;/dev/block/bootdevice/by-name/tz&quot;);<br>package_extract_file(&quot;firmware-update/hyp.mbn&quot;, &quot;/dev/block/bootdevice/by-name/hyp&quot;);<br>package_extract_file(&quot;firmware-update/sbl1.mbn&quot;, &quot;/dev/block/bootdevice/by-name/sbl1&quot;);<br>package_extract_file(&quot;firmware-update/rpm.mbn&quot;, &quot;/dev/block/bootdevice/by-name/rpm&quot;);<br>package_extract_file(&quot;firmware-update/emmc_appsboot.mbn&quot;, &quot;/dev/block/bootdevice/by-name/aboot&quot;);<br>), &quot;&quot;);<br>ifelse(msm.boot_update(&quot;backup&quot;), (<br>package_extract_file(&quot;firmware-update/tz.mbn&quot;, &quot;/dev/block/bootdevice/by-name/tzbak&quot;);<br>package_extract_file(&quot;firmware-update/hyp.mbn&quot;, &quot;/dev/block/bootdevice/by-name/hypbak&quot;);<br>package_extract_file(&quot;firmware-update/sbl1.mbn&quot;, &quot;/dev/block/bootdevice/by-name/sbl1bak&quot;);<br>package_extract_file(&quot;firmware-update/rpm.mbn&quot;, &quot;/dev/block/bootdevice/by-name/rpmbak&quot;);<br>package_extract_file(&quot;firmware-update/emmc_appsboot.mbn&quot;, &quot;/dev/block/bootdevice/by-name/abootbak&quot;);<br>), &quot;&quot;);<br>msm.boot_update(&quot;finalize&quot;);<br>package_extract_file(&quot;firmware-update/NON-HLOS.bin&quot;, &quot;/dev/block/bootdevice/by-name/modem&quot;);<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="WIFI修复"><a href="#WIFI修复" class="headerlink" title="WIFI修复"></a>WIFI修复</h2><ul>
+<li>步骤: 以下文件或文件夹替换为官方 没有就不替换</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">system/etc/firmware/wlan<br>system/etc/wifi<br>system/lib/modules/pronto<br>system/lib/modules/wlan.ko<br></code></pre></td></tr></table></figure>
+
+<p><strong>可以用WIFI之后 再进行以下操作</strong></p>
+<ul>
+<li>还是不行再看看boot.img里面的init.qcom.rc对比官方boot里面的init.qcom.rc修改 还不行就看刷机脚本, 改里面的wifi软链接</li>
+</ul>
+<h3 id="内存卡使用修复"><a href="#内存卡使用修复" class="headerlink" title="内存卡使用修复"></a>内存卡使用修复</h3><ul>
+<li>以下文件替换或修改为官方</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">system/etc/permissions/platform.xml<br></code></pre></td></tr></table></figure>
+
+<h3 id="修复按键"><a href="#修复按键" class="headerlink" title="修复按键"></a>修复按键</h3><ul>
+<li>以下文件替换或修改为官方</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">system/usr/icu<br>system/usr/idc<br><br>//不行再多替换 <br>system/usr/keylayout/Generic.kl<br></code></pre></td></tr></table></figure>
+
+<h3 id="修复声音"><a href="#修复声音" class="headerlink" title="修复声音"></a>修复声音</h3><p><strong>以下文件替换为官方</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">    方法1:对比system里面的bin、etc、lib、vendor/lib (64位多对比lib64、vendor/lib64) , 把官方包多余的加进去, 再替换etc/mixer开头的<br><br>    方法2:对比system里面的bin、etc、lib、vendor/lib (64位多对比lib64、vendor/lib64) , 把官方包多余的加进去, 再替换system/hw/audio.primary.msmxxxx.so(64位多替换system/lib64/hw/audio.primary.msmxxxx.so)<br><br>    方法3:对比system里面的bin、etc、lib、vendor/lib (64位多对比lib64、vendor/lib64) , 把官方包多余的加进去, 再替换system/lib/hw/audio开头的 (64位多替换system/lib64/hw/audio) <br><br>    方法4:对比system里面的bin、etc、lib、vendor/lib (64位多对比lib64、vendor/lib64) , 把官方包多余的加进去, 再替换以下:<br>    system/etc/mixer开头的<br>    system/lib/hw/audio.primary.msmxxxx.so<br>    (64位多替换system/lib64/hw/audio.primary.msmxxxx.so)<br><br>    方法5:对比system里面的bin、etc、lib、vendor/lib (64位多对比lib64、vendor/lib64) , 把官方包多余的加进去, 再替换以下:<br>    system/etc/audio和mixer开头的<br>    system/lib/hw/audio开头的<br>    (64位多替换system/lib64/hw/audio开头的)<br><br>注: lib和lib64文件夹里面的audio开头(不包括hw文件夹)64位替换了不卡屏, 但32位可能会卡屏<br></code></pre></td></tr></table></figure>
+
+<h3 id="修改型号"><a href="#修改型号" class="headerlink" title="修改型号"></a>修改型号</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell">// 品牌<br>ro.product.brand=xiaomi<br>// 型号<br>ro.product.name=2<br>// 关于手机显示的型号<br>ro.product.model=redmi 2<br>// 分辨率<br>ro.sf.lcd_density=320 <br>// 这个也是有关型号的<br>ro.build.product=2<br>// 虚拟按键  1是关0是开, 没有这行的就加进去<br>qemu.hw.mainkeys=0 <br></code></pre></td></tr></table></figure>
+
+<h3 id="修复相机"><a href="#修复相机" class="headerlink" title="修复相机"></a>修复相机</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell">// 把System/lib文件夹里面的文件替换成官方包的文件, 可以解决相机打开停止的BUG问题<br>libcamalgo.so<br>libcamera_client.so<br>libcameracustom.so<br>libcameraservice.so<br>libmhal.so<br>libmhalcontent.so<br>libmhaldrv.so<br>libmhalmdp.so<br>libmhalpipe.so<br>libmhalscenario.so<br>libmhalutility.so<br></code></pre></td></tr></table></figure>
+
+<h3 id="修复传感器"><a href="#修复传感器" class="headerlink" title="修复传感器"></a>修复传感器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">// 替换System/lib/hw  文件夹里面<br>sensors.default.so<br></code></pre></td></tr></table></figure>
+
+
+<h1>移植有风险, 不保证无bug</h1>
+
+<br>
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/Android-ROM-transplant.html">https://sdq3.link/Android-ROM-transplant.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

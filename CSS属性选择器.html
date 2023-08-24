@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>CSS 属性选择器(常用)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol>
+      </div>
+      <p><strong>CSS个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs CSS">&lt;style&gt;<br><br><span class="hljs-selector-class">.sdq1</span> <span class="hljs-selector-tag">a</span>&#123; <br>     <span class="hljs-attribute">float</span>: left;  //<span class="hljs-attribute">left</span>往左<span class="hljs-attribute">float</span>浮动<br>     dispay: block;  //dispay规定元素应该生成的框的类型block此元素将显示为块级元素, 此元素前后会带有换行符<br>     heigh: <span class="hljs-number">50px</span>;  //heigh高度<br>     <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;  //<span class="hljs-attribute">width</span>宽度<br>     <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span>;  //<span class="hljs-attribute">border-radius</span>圆角边框<br>     <br>     <span class="hljs-attribute">text-align</span>: center;   //<span class="hljs-attribute">text-align</span>对齐center剧中<br>     <span class="hljs-attribute">color</span>: yellow;  //<span class="hljs-attribute">color</span>文字颜色<br>     <span class="hljs-attribute">text-decoration</span>: none;  //<span class="hljs-attribute">text-decoration</span>下划线<span class="hljs-attribute">none</span>不显示<br>     <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">5px</span>;    //<span class="hljs-attribute">margin-right</span>外边距向右<br>     <span class="hljs-attribute">font</span>: bold <span class="hljs-number">20px</span>/<span class="hljs-number">50px</span> Arial;   //<span class="hljs-attribute">font</span>设置文字的字体bold字体大小<span class="hljs-number">20px</span>字体的大小<span class="hljs-number">50px</span>行高Arial是一种字体<br> &#125;<br>  //格式<span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[]</span>&#123;&#125;  存在id的属性的元素  <br> <span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[class*=first]</span>&#123;        //=是绝对等于  *=是包含这个元素<br>     <span class="hljs-attribute">background</span>: yellow;<br> &#125;<br> <span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href^=xxy]</span>&#123;          //^=表示以什么开头     <br>     <span class="hljs-attribute">background</span>: green;<br> &#125;<br> <span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href=ghfgh]</span>&#123;          //=表示以什么结尾     <br>     <span class="hljs-attribute">background</span>: powder;<br> &#125;<br>  <br>&lt;/style&gt;<br>&lt;<span class="hljs-selector-tag">body</span>&gt;<br>&lt;<span class="hljs-selector-tag">p</span>&gt;<br>&lt;<span class="hljs-selector-tag">a</span> href=&quot;xxy<span class="hljs-selector-class">.fgdhrth</span>&quot; class=&quot;links item first&quot; id=&quot;first&quot;&gt;史迪奇&lt;<span class="hljs-selector-tag">a</span>&gt;<br>&lt;<span class="hljs-selector-tag">a</span> href=&quot;xxx&quot; class=&quot;links item&quot;&gt;史迪仔&lt;<span class="hljs-selector-tag">a</span>&gt;<br>&lt;<span class="hljs-selector-tag">a</span> href=&quot;xxx&quot; class=&quot;links item&quot;&gt;史迪奇骑士&lt;<span class="hljs-selector-tag">a</span>&gt;<br>&lt;<span class="hljs-selector-tag">a</span> href=&quot;xxx&quot; class=&quot;links item&quot;&gt;史迪奇国王&lt;<span class="hljs-selector-tag">a</span>&gt;<br>&lt;<span class="hljs-selector-tag">a</span> href=&quot;xxx&quot; class=&quot;links item&quot;&gt;史迪奇勇士&lt;<span class="hljs-selector-tag">a</span>&gt;<br>&lt;<span class="hljs-selector-tag">a</span> href=&quot;hh<span class="hljs-selector-class">.ghfgh</span>&quot; class=&quot;links item&quot;&gt;史迪奇巫师&lt;<span class="hljs-selector-tag">a</span>&gt;<br>&lt;/<span class="hljs-selector-tag">p</span>&gt;<br>&lt;/<span class="hljs-selector-tag">body</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/CSS%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.html">https://sdq3.link/CSS%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>TypeScript 泛型</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-text">函数中使用泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E5%87%BD%E6%95%B0%E4%B8%AD%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">泛型函数中基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E4%B8%AD%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">泛型中数组的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E6%B3%9B%E5%9E%8B%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">多个泛型的定义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B1%BB%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-text">类中使用泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB%E4%B8%AD%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">泛型类中基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="toc-text">泛型中的继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%BA%A6%E6%9D%9F"><span class="toc-text">泛型的约束</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <p><strong>TypeScript学习笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="函数中使用泛型"><a href="#函数中使用泛型" class="headerlink" title="函数中使用泛型"></a>函数中使用泛型</h1><h3 id="泛型函数中基本使用"><a href="#泛型函数中基本使用" class="headerlink" title="泛型函数中基本使用"></a>泛型函数中基本使用</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">function</span> join&lt;sdq&gt;(<span class="hljs-attr">one</span>: sdq, <span class="hljs-attr">two</span>: sdq) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;one&#125;</span><span class="hljs-subst">$&#123;two&#125;</span>`</span>;<br>&#125;<br>join &lt;<span class="hljs-built_in">string</span>&gt; (<span class="hljs-string">&quot;我叫&quot;</span>, <span class="hljs-string">&quot;史迪奇&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="泛型中数组的使用"><a href="#泛型中数组的使用" class="headerlink" title="泛型中数组的使用"></a>泛型中数组的使用</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-comment">// 定义数组</span><br><span class="hljs-keyword">function</span> <span class="hljs-title class_">MyName</span>&lt;<span class="hljs-variable constant_">SDQ</span>&gt;(<span class="hljs-attr">params</span>: <span class="hljs-title class_">Array</span>&lt;<span class="hljs-variable constant_">SDQ</span>&gt;) &#123;<br>  <span class="hljs-keyword">return</span> params;<br>&#125;<br><span class="hljs-title class_">MyName</span> &lt;<span class="hljs-built_in">string</span>&gt; ([<span class="hljs-string">&quot;626&quot;</span>, <span class="hljs-string">&quot;626&quot;</span>]);<br></code></pre></td></tr></table></figure>
+
+<h3 id="多个泛型的定义"><a href="#多个泛型的定义" class="headerlink" title="多个泛型的定义"></a>多个泛型的定义</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-comment">// 定义多个泛型</span><br><span class="hljs-keyword">function</span> join&lt;sdq, sdz&gt;(<span class="hljs-attr">one</span>: sdq, <span class="hljs-attr">two</span>: sdz) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;one&#125;</span><span class="hljs-subst">$&#123;two&#125;</span>`</span>;<br>&#125;<br>join &lt; <span class="hljs-built_in">number</span>, <span class="hljs-built_in">string</span> &gt; (<span class="hljs-number">626</span>, <span class="hljs-string">&quot;626&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h1 id="类中使用泛型"><a href="#类中使用泛型" class="headerlink" title="类中使用泛型"></a>类中使用泛型</h1><h3 id="泛型类中基本使用"><a href="#泛型类中基本使用" class="headerlink" title="泛型类中基本使用"></a>泛型类中基本使用</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Syp</span> &lt;sdq&gt; &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> syps: sdq[]</span>) &#123;&#125;<br>  <span class="hljs-title function_">getSyp</span>(<span class="hljs-attr">index</span>: <span class="hljs-built_in">number</span>): sdq &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">syps</span>[index];<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> syp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Syp</span>([<span class="hljs-string">&quot;史迪奇&quot;</span>, <span class="hljs-string">&quot;鲁本&quot;</span>, <span class="hljs-string">&quot;安琪&quot;</span>]);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(syp.<span class="hljs-title function_">getSyp</span>(<span class="hljs-number">1</span>));<br></code></pre></td></tr></table></figure>
+
+<h3 id="泛型中的继承"><a href="#泛型中的继承" class="headerlink" title="泛型中的继承"></a>泛型中的继承</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">interface</span> SDQ&#123;<br>  <span class="hljs-attr">name</span>:<span class="hljs-built_in">string</span>;<br>&#125;<br><br><span class="hljs-comment">// 继承SDQ</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Syp</span> &lt;sdq <span class="hljs-keyword">extends</span> <span class="hljs-variable constant_">SDQ</span>&gt; &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> syps: sdq[]</span>) &#123;&#125;<br>  <span class="hljs-title function_">getSyp</span>(<span class="hljs-attr">index</span>: <span class="hljs-built_in">number</span>): <span class="hljs-built_in">string</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">syps</span>[index].<span class="hljs-property">name</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> syp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Syp</span>([<br>  &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;史迪奇&quot;</span>&#125;,<br>  &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;鲁本&quot;</span>&#125;,<br>  &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;安琪&quot;</span>&#125;<br>]);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(syp.<span class="hljs-title function_">getSyp</span>(<span class="hljs-number">0</span>));<br></code></pre></td></tr></table></figure>
+
+<h3 id="泛型的约束"><a href="#泛型的约束" class="headerlink" title="泛型的约束"></a>泛型的约束</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-comment">// 约束: 要么是number要么是string</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Syp</span> &lt;sdq <span class="hljs-keyword">extends</span> <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span>&gt; &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> syps: sdq[]</span>) &#123;&#125;<br>  <span class="hljs-title function_">getSyp</span>(<span class="hljs-attr">index</span>: <span class="hljs-built_in">number</span>): sdq &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">syps</span>[index];<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> syp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Syp</span> &lt;<span class="hljs-built_in">string</span>&gt;([<span class="hljs-string">&quot;史迪奇&quot;</span>, <span class="hljs-string">&quot;鲁本&quot;</span>, <span class="hljs-string">&quot;安琪&quot;</span>]);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(syp.<span class="hljs-title function_">getSyp</span>(<span class="hljs-number">1</span>));<br></code></pre></td></tr></table></figure>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/TypeScript-genericity.html">https://sdq3.link/TypeScript-genericity.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

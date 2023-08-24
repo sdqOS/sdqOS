@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>C语 循环结构程序设计</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#for-%E8%AF%AD%E5%8F%A5"><span class="toc-text">for 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#for-%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%B8%80%E8%88%AC%E5%BD%A2%E5%BC%8F%E5%92%8C%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">for 语句的一般形式和执行过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">for 语句一般形式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">for 循环流程图</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#while-%E8%AF%AD%E5%8F%A5%E4%B8%80%E8%88%AC%E5%BD%A2%E5%BC%8F%E5%92%8C%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">while 语句一般形式和执行过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">while 语句一般形式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">while 循环流程图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-while-%E8%AF%AD%E5%8F%A5%E5%BA%94%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">使用 while 语句应注意的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#do-while-%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%B8%80%E8%88%AC%E5%BD%A2%E5%BC%8F%E5%92%8C%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">do-while 语句的一般形式和执行过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">do-while 语句一般形式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">while 循环流程图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-do-while-%E8%AF%AD%E5%8F%A5%E5%BA%94%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">使用 do-while 语句应注意的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E9%87%8D%E5%BE%AA%E7%8E%AF"><span class="toc-text">多重循环</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#break-%E8%AF%AD%E5%8F%A5%E5%92%8C-continue-%E8%AF%AD%E5%8F%A5"><span class="toc-text">break 语句和 continue 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#break-%E8%AF%AD%E5%8F%A5"><span class="toc-text">break 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">break 语句一般形式:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#continue-%E8%AF%AD%E5%8F%A5"><span class="toc-text">continue 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">continue 语句一般形式:</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <p><strong>C语学习笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h1><h2 id="for-语句的一般形式和执行过程"><a href="#for-语句的一般形式和执行过程" class="headerlink" title="for 语句的一般形式和执行过程"></a>for 语句的一般形式和执行过程</h2><h4>for 语句一般形式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">for</span> ( 表达式 <span class="hljs-number">1</span>;  表达式 <span class="hljs-number">2</span>;  表达式 <span class="hljs-number">3</span>; )<br>    语句;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>for 循环流程图</h4>
+
+<br>
+
+<div class="mermaid">
+    graph TB
+
+<pre><code>A([&quot; 求解表达式 1 &quot;])--&gt;K((&quot; &quot;))
+E[&quot; 求解表达式 3 &quot;]--&gt;K((&quot; &quot;))
+K((&quot; &quot;))--&gt;B&#123;&quot; 表达式 2 &quot;&#125;
+B&#123;&quot; 表达式 2 &quot;&#125;--真--&gt;D[&quot; 语句 &quot;]
+D[&quot; 语句 &quot;]--&gt;E[&quot; 求解表达式 3 &quot;]
+B&#123;&quot; 表达式 2 &quot;&#125;--假--&gt;F[&quot; for 语句的下一语句 &quot;]
+F[&quot; for 语句的下一语句 &quot;]----&gt;Y[&quot; 跳出循环 &quot;]
+</code></pre>
+</div>
+
+<br>
+
+<h1 id="while-语句一般形式和执行过程"><a href="#while-语句一般形式和执行过程" class="headerlink" title="while 语句一般形式和执行过程"></a>while 语句一般形式和执行过程</h1><h4>while 语句一般形式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">while</span> ( 表达式 ) 语句;  <span class="hljs-comment">// 其中表达式是循环条件, 语句为循环体</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>while 循环流程图</h4>
+
+<br>
+
+<div class="mermaid">
+    graph TB
+
+<pre><code>A([&quot; 开始 &quot;])--&gt;B&#123;&quot; 表达式 &quot;&#125;
+B&#123;&quot; 表达式 &quot;&#125;--非0/真--&gt;C[&quot; 语句 &quot;]
+C[&quot; 语句 &quot;]--&gt;B&#123;&quot; 表达式 &quot;&#125;
+B&#123;&quot; 表达式 &quot;&#125;--0/假--&gt;Y[&quot; 跳出循环 &quot;]
+</code></pre>
+</div>
+
+<br>
+
+<h2 id="使用-while-语句应注意的问题"><a href="#使用-while-语句应注意的问题" class="headerlink" title="使用 while 语句应注意的问题"></a>使用 while 语句应注意的问题</h2><ol>
+<li><p>while 语句中表达式一般是关系表达式或逻辑表达式, 只要表达式的值为真(非0), 即可继续循环</p>
+</li>
+<li><p>循环体如果包括一个以上的语句, 则必须用 {} 括起来, 组成复合语句, 否则循环时只执行循环体的第一条语句</p>
+</li>
+<li><p>应注意循环条件的选择以避免死循环的产生</p>
+</li>
+<li><p>允许 while 语句的循环体又是 while 语句, 从而形成双重循环</p>
+</li>
+</ol>
+<h1 id="do-while-语句的一般形式和执行过程"><a href="#do-while-语句的一般形式和执行过程" class="headerlink" title="do-while 语句的一般形式和执行过程"></a>do-while 语句的一般形式和执行过程</h1><ul>
+<li>执行过程: 先执行循环体语句一次, 再判断表达式的值, 若为真 ( 非0 ) 则继续循环, 否则如果表达式的值为假 ( 值为0 ), 则结束循环</li>
+</ul>
+<ul>
+<li>与 while 的区别:  do-while 是先执行循环条后再判断条件, 因此 do-while 至少要执行一次循环体, 而 while 是先判断条件后执行循环体, 如果条件不满足, 则一次循环体语句也不执行</li>
+</ul>
+<h4>do-while 语句一般形式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">do</span> <br>    语句;<br><span class="hljs-keyword">while</span> ( 表达式 );<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h4>while 循环流程图</h4>
+
+<br>
+
+<div class="mermaid">
+    graph TB
+
+<pre><code>A([&quot; 开始 &quot;])--&gt;B&#123;&quot; 表达式 &quot;&#125;
+B&#123;&quot; 表达式 &quot;&#125;--非0/真--&gt;C[&quot; 语句 &quot;]
+C[&quot; 语句 &quot;]--&gt;B&#123;&quot; 表达式 &quot;&#125;
+B&#123;&quot; 表达式 &quot;&#125;--0/假--&gt;Y[&quot; 跳出循环 &quot;]
+</code></pre>
+</div>
+
+<br>
+
+<h2 id="使用-do-while-语句应注意的问题"><a href="#使用-do-while-语句应注意的问题" class="headerlink" title="使用 do-while 语句应注意的问题"></a>使用 do-while 语句应注意的问题</h2><ol>
+<li><p>在 if 语句, while 语句中, 表达式后面都不能加分号, 而在 do-while 语句的表达式后面则必须加分号</p>
+</li>
+<li><p>do-while 语句也可以组成多重循环, 而且也可以与 while 语句相互嵌套</p>
+</li>
+<li><p>当 do 和 while 之间的循环体由多个语句组成时, 也必须用 {} 括起来组成一个复合语句</p>
+</li>
+<li><p>do-while 语句和 while 语句相互替换时, 要注意修改循环控制条件</p>
+</li>
+<li><p>for 语句, while 语句, do-while 语句可以相互嵌套, 构成多重循环</p>
+</li>
+</ol>
+<h2 id="多重循环"><a href="#多重循环" class="headerlink" title="多重循环"></a>多重循环</h2><ul>
+<li>概念: 在 for 语句, while 语句, do-while 语句的循环体中还可以是任何一个完整的循环语句, 形成循环的嵌套, 称为多重循环 </li>
+</ul>
+<h1 id="break-语句和-continue-语句"><a href="#break-语句和-continue-语句" class="headerlink" title="break 语句和 continue 语句"></a>break 语句和 continue 语句</h1><h2 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h2><ul>
+<li>作用范围: break 语句只能用在 switch 语句或循环语句中, 起作用是跳出 switch 语句或跳出本层循环, 转去执行后面的程序, 由于 break 语句的转移方向是明确的, 所以不需要语句标号与之配合</li>
+</ul>
+<h4>break 语句一般形式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">break</span>;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句"></a>continue 语句</h2><ul>
+<li>其意义是: 结束本次循环, 即不再执行循环条中 continue 语句之后的语句, 转入下一次循环条件的判断与执行</li>
+</ul>
+<ul>
+<li>注意: 本语句只结束本次的循环, 并不跳出循环体, 而执行 break 语句则跳出循环</li>
+</ul>
+<h4>continue 语句一般形式:</h4>
+
+<br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">continue</span>;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/C-for-while-do-while-break-continue.html">https://sdq3.link/C-for-while-do-while-break-continue.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

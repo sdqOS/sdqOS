@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>ES6 箭头函数</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%B8%B8%E5%87%BD%E6%95%B0"><span class="toc-text">正常函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-text">区别</span></a></li></ol>
+      </div>
+      <p><strong>ES6学习笔记</strong></p>
+<span id="more"></span>
+
+<h2 id="正常函数"><a href="#正常函数" class="headerlink" title="正常函数"></a>正常函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fun</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;史迪奇&quot;</span>;<br>&#125;<br><br><span class="hljs-comment">// 或者</span><br><span class="hljs-keyword">const</span> fun = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;史迪奇&quot;</span>;<br>&#125;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">fun</span>());<br></code></pre></td></tr></table></figure>
+
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p><strong>箭头函数相当于return</strong></p>
+<ul>
+<li>()中定义参数, 如果只有一个参数, 可以不写括号()</li>
+<li>{}中写函数体, 如果函数体中只有返回值, 可以不写return</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">fun</span>() = <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;史迪奇&quot;</span>;<br>&#125;<br><br><span class="hljs-comment">// 一个返回值</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">fun</span>() = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">&quot;史迪奇&quot;</span><br><br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">fun</span>());<br></code></pre></td></tr></table></figure>
+
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li>this指向不同</li>
+<li>普通函数 哪里调用 this指向哪里</li>
+<li>箭头函数 哪里定义 this指向哪里</li>
+</ul>
+<p><strong>正常函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">let</span> sdq = &#123;<br>    <span class="hljs-attr">name</span>:<span class="hljs-string">&quot;史迪奇&quot;</span>,<br>    <span class="hljs-attr">species</span>:<span class="hljs-string">&quot;外星生物&quot;</span>, <br>    <span class="hljs-title function_">myName</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-comment">// 模板字符串 $&#123;this.name&#125;</span><br>        <span class="hljs-comment">// console.log(`我叫$&#123;this.name&#125;`);</span><br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;我叫&quot;</span>+ <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>正常函数 this指向</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">let</span> sdq = &#123;<br>    <span class="hljs-attr">name</span>:<span class="hljs-string">&quot;史迪奇&quot;</span>,<br>    <span class="hljs-attr">species</span>:<span class="hljs-string">&quot;外星生物&quot;</span>, <br>    <span class="hljs-title function_">myName</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">let</span> self = <span class="hljs-variable language_">this</span>;<br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>           <span class="hljs-comment">// 指向windous对象</span><br>           <span class="hljs-comment">// console.log(this); </span><br>           <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(self.<span class="hljs-property">name</span>); <br>        &#125;,<span class="hljs-number">500</span>)<br>    &#125;<br>&#125;<br>sdq.<span class="hljs-title function_">myName</span>();<br></code></pre></td></tr></table></figure>
+
+<p><strong>箭头函数 this指向</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">let</span> sdq = &#123;<br>    <span class="hljs-attr">name</span>:<span class="hljs-string">&quot;史迪奇&quot;</span>,<br>    <span class="hljs-attr">species</span>:<span class="hljs-string">&quot;外星生物&quot;</span>, <br>    <span class="hljs-title function_">myName</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">let</span> self = <span class="hljs-variable language_">this</span>;<br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>           <span class="hljs-comment">// 指向sdq对象</span><br>           <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;我是&quot;</span>+<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);     <br>        &#125;,<span class="hljs-number">500</span>)<br>    &#125;<br>&#125;<br>sdq.<span class="hljs-title function_">myName</span>();<br></code></pre></td></tr></table></figure>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/ES6-Arrow-function.html">https://sdq3.link/ES6-Arrow-function.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

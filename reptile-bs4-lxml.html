@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>爬虫 Beautiful Soup(牢饭吃到饱)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Beautiful Soup4
+
+安装bs4打开cmd 输入以下内容
+1pip install lxml
+
+find用法12find(&quot;标签&quot;, 属性:id class) find(&quot;p&quot;, id&#x3D;&quot;sdq&quot;)
+
+find_all用法12find(&quot;标签&quot;, 属性:id class).find_all(&quot;标签&quot;)find(&quot;p&quot;, id&#x3D;&quot;sdq&quot;).find_all(&quot;a&quot;)
+
+综合练习打开这个网址
+12345678910111213141516171819202122232425262728293031323334353637# 导入requests和bs4库import requestsfrom bs4 import BeautifulSoupimport timeurl &#x3D; &quot;https:&#x2F;&#x2F;www.umei.cc&#x2F;bizhitupian&#x2F;weimeibizhi&#x2F;&quot;resp &#x3D; requests.get(url)resp.encoding &#x3D; &#39;utf-8&#39;  # 处理乱码# print(resp.text)# 把源代码交给bsmain_page &#x3D; BeautifulSoup(resp.text, &quot;html.parser&quot;)alist &#x3D; main_page.find(&quot;div&quot;, class_&#x3D;&quot;TypeList&quot;).find_all(&quot;a&quot;)# print(alist)for a in alist:    href &#x3D; a.get(&#39;href&#39;)  # 直接通过get就可以拿到属性的值    # 子页面的源代码    child_resp &#x3D; requests.get(href)    child_resp.encoding &#x3D; &#39;utf-8&#39;    child_text &#x3D; child_resp.text    # 从子页面中拿到图片的下载路径    child &#x3D; BeautifulSoup(child_text, &quot;html.parser&quot;)    p &#x3D; child.find(&quot;p&quot;, align&#x3D;&quot;center&quot;)    img &#x3D; p.find(&quot;img&quot;)    src &#x3D; img.get(&quot;src&quot;)    # 下载图片    img_resp &#x3D; requests.get(src)    # img_resp.content  # 这里拿到的是字节    img_name &#x3D; src.split(&quot;&#x2F;&quot;)[-1]  # 拿到url中的最后一个 &#x2F; 以后的内容-1代表最后一个    with open(&quot;img&#x2F;&quot;+img_name, mode&#x3D;&quot;wb&quot;) as f:        f.write(img_resp.content)  # 图片内容写入文件    print(&quot;正在下载&quot;, img_name)    time.sleep(1) #停1秒print(&quot;下载完了&quot;)
+
+lxml模块的使用导入lxml的etree库1from lxml import etree
+
+利用etree.HTML 将HTML字符串(bytes类型活str类型) 转化为Element对象 Element对象具有xpath的方法 返回结果列表
+12html &#x3D; etree.HTML(text)     # text为文本内容ret_list &#x3D; html.xpath(&quot;xpath语法规则字符串&quot;)     # 用xpath来解析
+
+导入lxml的etree.tostring函数的使用1234567891011121314from lxml import etreehtml_str &#x3D; &#39;&#39;&#39; &lt;div&gt;&lt;ul&gt;                &lt;li class&#x3D;&quot;itrm-1&quot;&gt;&lt;a href&#x3D;&quot;;link1.html&quot;&gt;first item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;li class&#x3D;&quot;itrm-1&quot;&gt;&lt;a href&#x3D;&quot;;link2.html&quot;&gt;second item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;li class&#x3D;&quot;itrm-inactive&quot;&gt;&lt;a href&#x3D;&quot;;link3.html&quot;&gt;third item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;li class&#x3D;&quot;itrm-1&quot;&gt;&lt;a href&#x3D;&quot;;link1.html&quot;&gt;fourth item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;li class&#x3D;&quot;itrm-0&quot;&gt;&lt;a href&#x3D;&quot;;link5.html&quot;&gt;fifth item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;ul&gt;&lt;div&gt; &#39;&#39;&#39;         # 将html源码转换成element对象   etree.HTML()能够自动补全html缺失的标签html &#x3D; etree.HTML(html_str)# 转换成String类型的数据        handeled_html_str &#x3D; etree.toString(html).decode()print(handeled_html_str)
+
+</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">
+
+安装bs4打开cmd 输入以下内容
+1pip install lxml
+
+find用法12find(&quot;标签&quot;, 属性:id class) find(&quot;p&quot;, id&#x3D;&quot;sdq&quot;)
+
+find_all用法12find(&quot;标签&quot;, 属性:id class).find_all(&quot;标签&quot;)find(&quot;p&quot;, id&#x3D;&quot;sdq&quot;).find_all(&quot;a&quot;)
+
+综合练习打开这个网址
+12345678910111213141516171819202122232425262728293031323334353637# 导入requests和bs4库import requestsfrom bs4 import BeautifulSoupimport timeurl &#x3D; &quot;https:&#x2F;&#x2F;www.umei.cc&#x2F;bizhitupian&#x2F;weimeibizhi&#x2F;&quot;resp &#x3D; requests.get(url)resp.encoding &#x3D; &#39;utf-8&#39;  # 处理乱码# print(resp.text)# 把源代码交给bsmain_page &#x3D; BeautifulSoup(resp.text, &quot;html.parser&quot;)alist &#x3D; main_page.find(&quot;div&quot;, class_&#x3D;&quot;TypeList&quot;).find_all(&quot;a&quot;)# print(alist)for a in alist:    href &#x3D; a.get(&#39;href&#39;)  # 直接通过get就可以拿到属性的值    # 子页面的源代码    child_resp &#x3D; requests.get(href)    child_resp.encoding &#x3D; &#39;utf-8&#39;    child_text &#x3D; child_resp.text    # 从子页面中拿到图片的下载路径    child &#x3D; BeautifulSoup(child_text, &quot;html.parser&quot;)    p &#x3D; child.find(&quot;p&quot;, align&#x3D;&quot;center&quot;)    img &#x3D; p.find(&quot;img&quot;)    src &#x3D; img.get(&quot;src&quot;)    # 下载图片    img_resp &#x3D; requests.get(src)    # img_resp.content  # 这里拿到的是字节    img_name &#x3D; src.split(&quot;&#x2F;&quot;)[-1]  # 拿到url中的最后一个 &#x2F; 以后的内容-1代表最后一个    with open(&quot;img&#x2F;&quot;+img_name, mode&#x3D;&quot;wb&quot;) as f:        f.write(img_resp.content)  # 图片内容写入文件    print(&quot;正在下载&quot;, img_name)    time.sleep(1) #停1秒print(&quot;下载完了&quot;)
+
+lxml模块的使用导入lxml的etree库1from lxml import etree
+
+利用etree.HTML 将HTML字符串(bytes类型活str类型) 转化为Element对象 Element对象具有xpath的方法 返回结果列表
+12html &#x3D; etree.HTML(text)     # text为文本内容ret_list &#x3D; html.xpath(&quot;xpath语法规则字符串&quot;)     # 用xpath来解析
+
+导入lxml的etree.tostring函数的使用1234567891011121314from lxml import etreehtml_str &#x3D; &#39;&#39;&#39; &lt;div&gt;&lt;ul&gt;                &lt;li class&#x3D;&quot;itrm-1&quot;&gt;&lt;a href&#x3D;&quot;;link1.html&quot;&gt;first item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;li class&#x3D;&quot;itrm-1&quot;&gt;&lt;a href&#x3D;&quot;;link2.html&quot;&gt;second item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;li class&#x3D;&quot;itrm-inactive&quot;&gt;&lt;a href&#x3D;&quot;;link3.html&quot;&gt;third item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;li class&#x3D;&quot;itrm-1&quot;&gt;&lt;a href&#x3D;&quot;;link1.html&quot;&gt;fourth item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;li class&#x3D;&quot;itrm-0&quot;&gt;&lt;a href&#x3D;&quot;;link5.html&quot;&gt;fifth item&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;                &lt;ul&gt;&lt;div&gt; &#39;&#39;&#39;         # 将html源码转换成element对象   etree.HTML()能够自动补全html缺失的标签html &#x3D; etree.HTML(html_str)# 转换成String类型的数据        handeled_html_str &#x3D; etree.toString(html).decode()print(handeled_html_str)
+
+</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85bs4"><span class="toc-text">安装bs4</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find%E7%94%A8%E6%B3%95"><span class="toc-text">find用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find-all%E7%94%A8%E6%B3%95"><span class="toc-text">find_all用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0"><span class="toc-text">综合练习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lxml%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">lxml模块的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5lxml%E7%9A%84etree%E5%BA%93"><span class="toc-text">导入lxml的etree库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5lxml%E7%9A%84etree-tostring%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">导入lxml的etree.tostring函数的使用</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <p><strong>每天一个入狱小技巧</strong></p>
+<span id="more"></span>
+
+<h1>Beautiful Soup4<h1>
+
+<h1 id="安装bs4"><a href="#安装bs4" class="headerlink" title="安装bs4"></a>安装bs4</h1><p><strong>打开cmd 输入以下内容</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell">pip install lxml<br></code></pre></td></tr></table></figure>
+
+<h1 id="find用法"><a href="#find用法" class="headerlink" title="find用法"></a>find用法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Python">find(<span class="hljs-string">&quot;标签&quot;</span>, 属性:<span class="hljs-built_in">id</span> <span class="hljs-keyword">class</span>) <br>find(<span class="hljs-string">&quot;p&quot;</span>, <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;sdq&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="find-all用法"><a href="#find-all用法" class="headerlink" title="find_all用法"></a>find_all用法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Python">find(<span class="hljs-string">&quot;标签&quot;</span>, 属性:<span class="hljs-built_in">id</span> <span class="hljs-keyword">class</span>).find_all(<span class="hljs-string">&quot;标签&quot;</span>)<br>find(<span class="hljs-string">&quot;p&quot;</span>, <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;sdq&quot;</span>).find_all(<span class="hljs-string">&quot;a&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="综合练习"><a href="#综合练习" class="headerlink" title="综合练习"></a>综合练习</h1><p><strong>打开这个<a target="_blank" rel="noopener" href="https://www.umei.cc/bizhitupian/weimeibizhi/">网址</a></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 导入requests和bs4库</span><br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><span class="hljs-keyword">import</span> time<br><br>url = <span class="hljs-string">&quot;https://www.umei.cc/bizhitupian/weimeibizhi/&quot;</span><br>resp = requests.get(url)<br>resp.encoding = <span class="hljs-string">&#x27;utf-8&#x27;</span>  <span class="hljs-comment"># 处理乱码</span><br><br><span class="hljs-comment"># print(resp.text)</span><br><span class="hljs-comment"># 把源代码交给bs</span><br>main_page = BeautifulSoup(resp.text, <span class="hljs-string">&quot;html.parser&quot;</span>)<br>alist = main_page.find(<span class="hljs-string">&quot;div&quot;</span>, class_=<span class="hljs-string">&quot;TypeList&quot;</span>).find_all(<span class="hljs-string">&quot;a&quot;</span>)<br><span class="hljs-comment"># print(alist)</span><br><span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> alist:<br>    href = a.get(<span class="hljs-string">&#x27;href&#x27;</span>)  <span class="hljs-comment"># 直接通过get就可以拿到属性的值</span><br>    <span class="hljs-comment"># 子页面的源代码</span><br>    child_resp = requests.get(href)<br>    child_resp.encoding = <span class="hljs-string">&#x27;utf-8&#x27;</span><br>    child_text = child_resp.text<br>    <span class="hljs-comment"># 从子页面中拿到图片的下载路径</span><br>    child = BeautifulSoup(child_text, <span class="hljs-string">&quot;html.parser&quot;</span>)<br>    p = child.find(<span class="hljs-string">&quot;p&quot;</span>, align=<span class="hljs-string">&quot;center&quot;</span>)<br>    img = p.find(<span class="hljs-string">&quot;img&quot;</span>)<br>    src = img.get(<span class="hljs-string">&quot;src&quot;</span>)<br>    <span class="hljs-comment"># 下载图片</span><br>    img_resp = requests.get(src)<br>    <span class="hljs-comment"># img_resp.content  # 这里拿到的是字节</span><br>    img_name = src.split(<span class="hljs-string">&quot;/&quot;</span>)[-<span class="hljs-number">1</span>]  <span class="hljs-comment"># 拿到url中的最后一个 / 以后的内容-1代表最后一个</span><br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;img/&quot;</span>+img_name, mode=<span class="hljs-string">&quot;wb&quot;</span>) <span class="hljs-keyword">as</span> f:<br>        f.write(img_resp.content)  <span class="hljs-comment"># 图片内容写入文件</span><br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;正在下载&quot;</span>, img_name)<br>    time.sleep(<span class="hljs-number">1</span>) <span class="hljs-comment">#停1秒</span><br><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;下载完了&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="lxml模块的使用"><a href="#lxml模块的使用" class="headerlink" title="lxml模块的使用"></a>lxml模块的使用</h1><h3 id="导入lxml的etree库"><a href="#导入lxml的etree库" class="headerlink" title="导入lxml的etree库"></a>导入lxml的etree库</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree<br></code></pre></td></tr></table></figure>
+
+<p>利用etree.HTML 将HTML字符串(bytes类型活str类型) 转化为Element对象 Element对象具有xpath的方法 返回结果列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Python">html = etree.HTML(text)     <span class="hljs-comment"># text为文本内容</span><br>ret_list = html.xpath(<span class="hljs-string">&quot;xpath语法规则字符串&quot;</span>)     <span class="hljs-comment"># 用xpath来解析</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="导入lxml的etree-tostring函数的使用"><a href="#导入lxml的etree-tostring函数的使用" class="headerlink" title="导入lxml的etree.tostring函数的使用"></a>导入lxml的etree.tostring函数的使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree<br><br>html_str = <span class="hljs-string">&#x27;&#x27;&#x27; &lt;div&gt;&lt;ul&gt;</span><br><span class="hljs-string">                &lt;li class=&quot;itrm-1&quot;&gt;&lt;a href=&quot;;link1.html&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;</span><br><span class="hljs-string">                &lt;li class=&quot;itrm-1&quot;&gt;&lt;a href=&quot;;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span><br><span class="hljs-string">                &lt;li class=&quot;itrm-inactive&quot;&gt;&lt;a href=&quot;;link3.html&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;</span><br><span class="hljs-string">                &lt;li class=&quot;itrm-1&quot;&gt;&lt;a href=&quot;;link1.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span><br><span class="hljs-string">                &lt;li class=&quot;itrm-0&quot;&gt;&lt;a href=&quot;;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span><br><span class="hljs-string">                &lt;ul&gt;&lt;div&gt; &#x27;&#x27;&#x27;</span>         <br><span class="hljs-comment"># 将html源码转换成element对象   etree.HTML()能够自动补全html缺失的标签</span><br>html = etree.HTML(html_str)<br><span class="hljs-comment"># 转换成String类型的数据        </span><br>handeled_html_str = etree.toString(html).decode()<br><span class="hljs-built_in">print</span>(handeled_html_str)<br></code></pre></td></tr></table></figure>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/reptile-bs4-lxml.html">https://sdq3.link/reptile-bs4-lxml.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

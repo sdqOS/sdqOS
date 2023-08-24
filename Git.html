@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>Git 知识</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE"><span class="toc-text">Git 全局设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-git-%E4%BB%93%E5%BA%93"><span class="toc-text">创建 git 仓库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-%E5%88%86%E6%94%AF%E6%9F%A5%E7%9C%8B%E4%B8%8E%E5%88%87%E6%8D%A2"><span class="toc-text">git 分支查看与切换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text">常用基本步骤</span></a></li></ol>
+      </div>
+      <p><strong>Git学习笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="Git-全局设置"><a href="#Git-全局设置" class="headerlink" title="Git 全局设置"></a>Git 全局设置</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">名称</span><br>git config --global user.name &quot;名称&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">邮箱</span><br>git config --global user.email &quot;邮箱&quot;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="创建-git-仓库"><a href="#创建-git-仓库" class="headerlink" title="创建 git 仓库"></a>创建 git 仓库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs Shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建sdq文件夹</span><br>mkdir sdq<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">打开sdq文件夹</span><br>cd sdq<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">初始化</span><br>git init<br><span class="hljs-meta prompt_"># </span><span class="language-bash">创建说明文档</span><br>touch README.md<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">添加说明文档</span><br>git add README.md<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">添加说明内容</span><br>git commit -m &quot;史迪奇&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">关联远程存储库 sdz为存储库名</span><br>git remote add sdz https:#gitee.com/sdq3/web.git<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">开始上传 master分支名称</span><br>git push -u sdz master<br></code></pre></td></tr></table></figure>
+
+<h1 id="git-分支查看与切换"><a href="#git-分支查看与切换" class="headerlink" title="git 分支查看与切换"></a>git 分支查看与切换</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看所有分支</span><br>git branch -a<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看当前使用分支(结果列表中前面标*号的表示当前使用分支)</span><br>git branch<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">切换分支</span><br>git checkout [分支名]<br></code></pre></td></tr></table></figure>
+
+<h1 id="常用基本步骤"><a href="#常用基本步骤" class="headerlink" title="常用基本步骤"></a>常用基本步骤</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs Shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">先把仓库拷贝下来</span><br>git clone https://github.com/xxx/xxx.git<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">改完代码后</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">写备注</span><br>git add .<br><br>git commit -m 第N次提交<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">上传代码</span><br>git push<br></code></pre></td></tr></table></figure>
+
+<br>
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/Git.html">https://sdq3.link/Git.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

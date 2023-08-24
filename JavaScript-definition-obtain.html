@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>JavaScript (函数之定义和获取)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E5%80%BC%E5%87%BD%E6%95%B0"><span class="toc-text">绝对值函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-text">调用函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#arguments-%E4%BC%A0%E9%80%92%E8%BF%9B%E6%9D%A5%E7%9A%84%E6%89%80%E6%9C%89%E7%9A%84%E5%8F%82%E6%95%B0%E6%98%AF%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84"><span class="toc-text">arguments 传递进来的所有的参数是一个数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rest"><span class="toc-text">rest</span></a></li></ol>
+      </div>
+      <p><strong>JavaScript个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="绝对值函数"><a href="#绝对值函数" class="headerlink" title="绝对值函数"></a>绝对值函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">abs</span>(<span class="hljs-params">x</span>) &#123;&#125;<br>    <span class="hljs-keyword">if</span>(x&gt;=<span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-keyword">return</span> x;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> -x;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>一旦执行return 代表函数结束,返回结果 没有执行return, 函数执行完也会返回结果 undefined</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> abs = <span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) &#123;&#125;<br>    <span class="hljs-keyword">if</span>(x&gt;=<span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-keyword">return</span> x;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> -x;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>function(x){….}是匿名函数, 可以把结果赋值给abs, 可以调用函数</strong></p>
+<h1 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h1><p><strong>可以传任意个参数, 也可以不传递参数 假设不传递参数, 如何规避</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> abs = <span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) &#123;&#125;<br>    <span class="hljs-comment">//手动抛出异常来判断</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> x!== <span class="hljs-string">&quot;number&quot;</span>) &#123;<br>        thow <span class="hljs-string">&quot;Not a Number&quot;</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(x&gt;=<span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-keyword">return</span> x;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> -x;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="arguments-传递进来的所有的参数是一个数组"><a href="#arguments-传递进来的所有的参数是一个数组" class="headerlink" title="arguments 传递进来的所有的参数是一个数组"></a>arguments 传递进来的所有的参数是一个数组</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> abs = <span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) &#123;&#125;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;x=&gt;&quot;</span>+x)<br>        thow <span class="hljs-string">&quot;Not a Number&quot;</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i&lt;<span class="hljs-variable language_">arguments</span>.<span class="hljs-property">length</span>;i++)&#123;<br>        <span class="hljs-variable language_">console</span>,<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">arguments</span>[i]);<br>    &#125;<br>    <span class="hljs-keyword">if</span>(x&gt;=<span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-keyword">return</span> x;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> -x;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="rest"><a href="#rest" class="headerlink" title="rest"></a>rest</h1><p><strong>以前:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">if</span> (<span class="hljs-variable language_">arguments</span>.;length&gt;<span class="hljs-number">2</span>) &#123;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">2</span>;i&lt;<span class="hljs-variable language_">arguments</span>.<span class="hljs-property">length</span>;i++) &#123;<br>     &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>ES6的引入的新特性, 获取除了已经定义的参数之外的所有参数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">sdq</span>(<span class="hljs-params">s,d,q,... rest</span>) &#123;&#125;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;s=&gt;&quot;</span>+s);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;d=&gt;&quot;</span>+d);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;q=&gt;&quot;</span>+q);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(rest);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>rest参数只能写在最后面, 必须用…标识</strong></p>
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/JavaScript-definition-obtain.html">https://sdq3.link/JavaScript-definition-obtain.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

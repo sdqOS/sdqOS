@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>Android同步源码和编译ROM傻瓜式 (有手就行)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%98%AF-%E5%AE%89%E8%A3%85Linux-%E6%88%91%E4%BB%A5Ubuntu%E5%92%8Cdeepin%E4%B8%BA%E4%BE%8B%E5%AD%90-%E5%BB%BA%E8%AE%AE%E6%96%B0%E6%89%8B%E7%94%A8deepin"><span class="toc-text">第一是 安装Linux 我以Ubuntu和deepin为例子, 建议新手用deepin</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%98%AF-%E7%8E%AF%E5%A2%83%E6%90%AD%E8%BD%BD"><span class="toc-text">第二是 环境搭载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%98%AF-%E5%AE%89%E8%A3%85repo"><span class="toc-text">第三是 安装repo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%98%AF-%E5%90%8C%E6%AD%A5%E6%BA%90%E7%A0%81"><span class="toc-text">第四是 同步源码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%98%AF-%E6%8B%89%E5%8F%96%E6%BA%90%E7%A0%81"><span class="toc-text">第五是 拉取源码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E6%98%AF-%E8%8E%B7%E5%8F%96%E6%9C%BA%E5%9E%8Bdevice"><span class="toc-text">第六是 获取机型device</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E6%98%AF-%E6%89%A7%E8%A1%8C%E7%BC%96%E8%AF%91"><span class="toc-text">第七是 执行编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%A6%E5%A4%96%E8%AE%BE%E7%BD%AEccache%E6%8F%90%E9%AB%98%E7%BC%96%E8%AF%91%E9%80%9F%E5%BA%A6"><span class="toc-text">另外设置ccache提高编译速度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9D%E7%A6%8F%E5%A4%A7%E5%AE%B6%E8%83%BD%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%81%9A%E5%87%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84ROM"><span class="toc-text">祝福大家能自己动手做出属于自己的ROM</span></a></li></ol>
+      </div>
+      <p><strong>本人是用Arch, 顺便来传一下教</strong></p>
+<!-- 添加图片 -->
+<img src="https://img-oss.langs.ink/2023/07/14/64b0cc88e6bc2.webp" style="width: 200px; height: 200px;" >
+<span id="more"></span>
+
+<h1 id="第一是-安装Linux-我以Ubuntu和deepin为例子-建议新手用deepin"><a href="#第一是-安装Linux-我以Ubuntu和deepin为例子-建议新手用deepin" class="headerlink" title="第一是 安装Linux 我以Ubuntu和deepin为例子, 建议新手用deepin"></a>第一是 安装Linux 我以Ubuntu和deepin为例子, 建议新手用deepin</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1aW411C7NR">Ubantu的安装视频</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1HW411Y73e">Deepin的安装视频</a></p>
+<h1 id="第二是-环境搭载"><a href="#第二是-环境搭载" class="headerlink" title="第二是 环境搭载"></a>第二是 环境搭载</h1><p><strong>1.明确自己要开发的android版本 参考 <a target="_blank" rel="noopener" href="https://wiki.lineageos.org/">lineageos官方的wiki</a>选择合适的linux发行版(推荐ubuntu 16)推荐而已, 你可以是别的shell,都没问题</strong></p>
+<p><strong>2.更新自身ubuntu的软件源  替换到etc/apt/sources.list替换完毕后执行</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get update //如果自身网速不好建议换国内源(清华 中科大 阿里)<br></code></pre></td></tr></table></figure>
+
+<p><strong><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">个人建议清华</a></strong><br><strong>deepin就更简单, 直接设置里面换</strong></p>
+<p><strong>3.安装jdk, 需要根据开发的android版本选择</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get update<br></code></pre></td></tr></table></figure>
+
+<p><strong>4.安装 软件依赖</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev<br></code></pre></td></tr></table></figure>
+
+<p><strong>4.安装jdk, 需要根据开发的android版本选择</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install openjdk-x-jdk    //x 为jdk版本数字<br></code></pre></td></tr></table></figure>
+
+<p><strong>LineageOS 14.1-15.1: OpenJDK 1.8</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">install openjdk-8-jdk<br></code></pre></td></tr></table></figure>
+
+<p><strong>LineageOS 11.0-13.0: OpenJDK 1.7</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">install openjdk-7-jdk<br></code></pre></td></tr></table></figure>
+
+<h1 id="第三是-安装repo"><a href="#第三是-安装repo" class="headerlink" title="第三是 安装repo"></a>第三是 安装repo</h1><p><strong>(1) 推荐使用mokee开源的 <a target="_blank" rel="noopener" href="https://bbs.mokeedev.com/t/topic/21">mokee repo1</a> 或者 <a target="_blank" rel="noopener" href="https://tacke.wodemo.com/entry/466371">mokee repo2</a></strong></p>
+<p><strong>(2)在终端中输入以下内容, 新建bin文件夹</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir ~/bin<br></code></pre></td></tr></table></figure>
+
+<p><strong>(3)输入以下内容, 将bin文件夹添加到环境变量中</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">PATH=~/bin:$PATH<br></code></pre></td></tr></table></figure>
+
+<p><strong>(4)接着输入以下内容, 下载repo文件到bin文件夹 输入这个请省略下面那一步</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo &gt; ~/bin/repo<br></code></pre></td></tr></table></figure>
+
+<p><strong>如果你是欧洲人, 有钱买梯子 就省略上步直接输入以下命令</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl http://commondatastorage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo<br></code></pre></td></tr></table></figure>
+
+<p><strong>(5)最后输入以下内容, 为repo文件添加运行权限</strong></p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">chmod a+x ~<span class="hljs-regexp">/bin/</span>repo<br></code></pre></td></tr></table></figure>
+
+<h1 id="第四是-同步源码"><a href="#第四是-同步源码" class="headerlink" title="第四是 同步源码"></a>第四是 同步源码</h1><p><strong>(1) win+alt+t打开终端, 输入如下, 创建一个文件夹</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir ~/los      //例如: los  名字你可以顺便起<br></code></pre></td></tr></table></figure>
+
+<p><strong>(2) 进入(自己起好名字的文件夹)的文件夹, 输入如下</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd ~/los         //例如: los 你随便起名字的文件夹<br></code></pre></td></tr></table></figure>
+
+<p><strong>(3) 由于使用repo拉取源码时, 会尝试访问官方的git源更新自己, 但由于是谷歌, 就无法正常访问, 所以在正式拉取前, 我们需要先做点修改打开主目录, 按组合键ctrl+H, 在显示的隐藏文件中, 打开.bashrc文件, 将如下内容复制到你的~/.bashrc最后一行, 保存退出</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">export REPO_URL=&#x27;https://mirrors.tuna.tsinghua.edu.cn/git/git-repo&#x27;<br></code></pre></td></tr></table></figure>
+
+<p><strong>(4) 获取源码拉取地址</strong><br>访问<a target="_blank" rel="noopener" href="https://github.com/LineageOS">lineage的开源地址库</a>点击android, 进入如下界面, 这里就看到了拉取lineage-x.x的命令</p>
+<p><strong>(5) 获取源码default</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">repo init -u git://github.com/los/android.git -b lineage-x.x       //例如: los 你随便起名字的文件夹和lineage版本<br></code></pre></td></tr></table></figure>
+
+<p><strong>(6) 输入邮箱和昵称</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git config --global user.email xxxxxx@xxxx   //你的邮箱<br>git config --global user.name xxxxxxxxx     //随便起一个英文昵称<br></code></pre></td></tr></table></figure>
+
+<p><strong>打开lineageOS文件夹 (如果是空的按组合键ctrl+H, 显示隐藏内容)</strong></p>
+<!-- 添加图片 -->
+<p><img src="https://img-oss.langs.ink/2023/07/14/64b0dcfd7ad4a.webp"></p>
+<p>然后更改<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/lineageOS/">链接</a></p>
+<h1 id="第五是-拉取源码"><a href="#第五是-拉取源码" class="headerlink" title="第五是 拉取源码"></a>第五是 拉取源码</h1><p><strong>输入</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">repo sync<br></code></pre></td></tr></table></figure>
+
+<p><strong>或者</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">repo sync -c -f -j8 --force-sync --no-clone-bundle<br></code></pre></td></tr></table></figure>
+
+<h1 id="第六是-获取机型device"><a href="#第六是-获取机型device" class="headerlink" title="第六是 获取机型device"></a>第六是 获取机型device</h1><p><strong>(1) 我们进入<a target="_blank" rel="noopener" href="https://github.com/LineageOS">lineage的开源项目网站</a></strong></p>
+<p><strong>(2) 在搜索框中输入(设备代号), 会看到android_device_(品牌)_(设备代号)这一项</strong></p>
+<p><strong>(3) 点击android_device_(品牌)_(设备代号), 就可以看到device的所有内容</strong></p>
+<p><strong>(4) 点击右边的Clone or download, 然后复制如图中的蓝色内容, 这就是此device的下载地址</strong></p>
+<p><strong>(5) 组合键ctrl+alt+t, 打开终端</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd ~/los             //例如: los  你随便起名字的文件夹<br></code></pre></td></tr></table></figure>
+
+<p><strong>(6) 输入如下命令, 回车开始同步</strong></p>
+<p>解释一下:git clone就是拷贝到本地的命令, 那段网址就是我们上面复制的地址, -b后面的lineage-x.x,表示lineage-x.x的分支；device/(品牌)/(设备代号)就是要下载到地方的路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/LineageOS/android_device_(品牌)_(设备代号).git -b lineage-x.x device/(品牌)/(设备代号) depth=1(可加可不加, 加入同步源码会小点)<br></code></pre></td></tr></table></figure>
+<p><strong>(7) 我们需要拉取的项目如下</strong></p>
+<!-- 添加图片 -->
+<p><img src="https://img-oss.langs.ink/2023/07/14/64b0dd0ea8760.webp"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">android_device_(品牌)_(设备代号)<br><br>android_device_(品牌)_(处理器代号)-common<br><br>android_device_(品牌)_(厂家)_common<br><br>android_kernel_(品牌)_(处理器代号)<br><br>proprietary_vendor_(品牌) <br></code></pre></td></tr></table></figure>
+
+<p><strong>(8) <a target="_blank" rel="noopener" href="https://github.com/TheMuppets">vendor需要访问地址</a>然后搜索(你的品牌)就可以找到</strong></p>
+<p><strong>(9) 同样和同步其他项目一样</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/TheMuppets/proprietary_vendor_(品牌).git -b lineage-x.x vendor/(品牌)<br></code></pre></td></tr></table></figure>
+
+<h1 id="第七是-执行编译"><a href="#第七是-执行编译" class="headerlink" title="第七是 执行编译"></a>第七是 执行编译</h1><p><strong>(1)如果你退出了, 你就按组合键ctrl+alt+t, 打开终端, 输入以下命令, 回车, 进入los             //你随便起名字的文件夹, 没有的话跳过这个环节</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd ~/los    //例如: los 你随便起名字的文件夹<br></code></pre></td></tr></table></figure>
+
+<p><strong>(2) 初始化</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">. build/envsetup.sh<br></code></pre></td></tr></table></figure>
+
+<p><strong>(3) 输入如下命令, 回车</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">breakfast xxx  //自己的机型<br></code></pre></td></tr></table></figure>
+
+<p>如果有错误, 就根据错误提示到lineageOS目录检查device, kernel和vendor等是否正确</p>
+<p><strong>(4) 输入, 回车, 进行编译</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">brunch xxx    //自己的机型<br></code></pre></td></tr></table></figure>
+<p>编译耗费的时间取决于你的电脑配置情况, 所以我不建议用虚拟机, 如果你电脑配置相当牛逼, 当我没说</p>
+<p><strong>(5)在我编译时出现了 fatal error: openssl/opensslv.h: No such file or directory 原因是libssl-dev没有安装</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install libssl-dev<br></code></pre></td></tr></table></figure>
+
+<p><strong>(6) 回到正在编译的终端中, 重新输入如下命令, 等待编译的完成</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">brunch //自己的机型<br></code></pre></td></tr></table></figure>
+
+<p><strong>(7) 编译完成后</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">进入主目录\(你随便起名字的文件夹)\out\target\product\(设备代号)中就可以看到我们编译好的ROM了, 可以复制到手机刷入了<br></code></pre></td></tr></table></figure>
+
+<h1 id="另外设置ccache提高编译速度"><a href="#另外设置ccache提高编译速度" class="headerlink" title="另外设置ccache提高编译速度"></a>另外设置ccache提高编译速度</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">export USE_CCACHE=1 <br>export CCACHE_COMPRESS=1<br>ccache -M 50G 或者100G<br></code></pre></td></tr></table></figure>
+
+<p><strong>防止低内存编译出错 设置大小为</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">export ANDROID_JACK_VM_ARGS=&quot;-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G&quot;<br></code></pre></td></tr></table></figure>
+
+<h1 id="祝福大家能自己动手做出属于自己的ROM"><a href="#祝福大家能自己动手做出属于自己的ROM" class="headerlink" title="祝福大家能自己动手做出属于自己的ROM"></a>祝福大家能自己动手做出属于自己的ROM</h1><br>
+
+
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/Android-compile.html">https://sdq3.link/Android-compile.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

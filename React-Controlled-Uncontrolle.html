@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>React 受控组件与非受控组件</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6-%E6%8E%A8%E8%8D%90"><span class="toc-text">受控组件 (推荐)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6"><span class="toc-text">非受控组件</span></a></li></ol>
+      </div>
+      <p><strong>React笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="受控组件-推荐"><a href="#受控组件-推荐" class="headerlink" title="受控组件 (推荐)"></a>受控组件 (推荐)</h1><p><strong>特点: 现用现取</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-comment">//创建组件</span></span><br><span class="language-javascript">		<span class="hljs-keyword">class</span> <span class="hljs-title class_">Login</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span>&#123;</span><br><span class="language-javascript">			handleSubmit = <span class="hljs-function">(<span class="hljs-params">event</span>)=&gt;</span>&#123;</span><br><span class="language-javascript">				event.<span class="hljs-title function_">preventDefault</span>() <span class="hljs-comment">//阻止表单提交</span></span><br><span class="language-javascript">				<span class="hljs-keyword">const</span> &#123;username,password&#125; = <span class="hljs-variable language_">this</span></span><br><span class="language-javascript">				<span class="hljs-title function_">alert</span>(<span class="hljs-string">`你输入的用户名是：<span class="hljs-subst">$&#123;username.value&#125;</span>,你输入的密码是：<span class="hljs-subst">$&#123;password.value&#125;</span>`</span>)</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">			<span class="hljs-title function_">render</span>(<span class="hljs-params"></span>)&#123;</span><br><span class="language-javascript">				<span class="hljs-keyword">return</span>(</span><br><span class="language-javascript">					<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">onSubmit</span>=<span class="hljs-string">&#123;this.handleSubmit&#125;</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">						用户名：<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&#123;c</span> =&gt;</span> this.username = c&#125; type=&quot;text&quot; name=&quot;username&quot;/&gt;</span></span><br><span class="language-xml"><span class="language-javascript">						密码：<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&#123;c</span> =&gt;</span> this.password = c&#125; type=&quot;password&quot; name=&quot;password&quot;/&gt;</span></span><br><span class="language-xml"><span class="language-javascript">						<span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>登录<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">					<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></span><br><span class="language-javascript">				)</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		&#125;</span><br><span class="language-javascript">		<span class="hljs-comment">//渲染组件</span></span><br><span class="language-javascript">		<span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Login</span>/&gt;</span></span>,<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;test&#x27;</span>))</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="非受控组件"><a href="#非受控组件" class="headerlink" title="非受控组件"></a>非受控组件</h1><p><strong>特点: 随着输入维护状态就是受控</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;body&gt;<br>	<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-comment">//创建组件</span></span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-keyword">class</span> <span class="hljs-title class_">Login</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span>&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			handleSubmit = <span class="hljs-function">(<span class="hljs-params">event</span>)=&gt;</span>&#123;</span></span><br><span class="language-javascript"><span class="language-xml">				event.<span class="hljs-title function_">preventDefault</span>() <span class="hljs-comment">//阻止表单提交</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">const</span> &#123;username,password&#125; = <span class="hljs-variable language_">this</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-title function_">alert</span>(<span class="hljs-string">`你输入的用户名是：<span class="hljs-subst">$&#123;username.value&#125;</span>,你输入的密码是：<span class="hljs-subst">$&#123;password.value&#125;</span>`</span>)</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-title function_">render</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">return</span>(</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">onSubmit</span>=<span class="hljs-string">&#123;this.handleSubmit&#125;</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-javascript"><span class="language-xml">						用户名：<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&#123;c</span> =&gt;</span> this.username = c&#125; type=&quot;text&quot; name=&quot;username&quot;/&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript"><span class="language-xml">						密码：<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&#123;c</span> =&gt;</span> this.password = c&#125; type=&quot;password&quot; name=&quot;password&quot;/&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript"><span class="language-xml">						<span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>登录<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-javascript"><span class="language-xml">					<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></span></span><br><span class="language-javascript"><span class="language-xml">				)</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-comment">//渲染组件</span></span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Login</span>/&gt;</span></span>,<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;test&#x27;</span>))</span></span><br><span class="language-javascript"><span class="language-xml">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br>&lt;/body&gt;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/React-Controlled-Uncontrolle.html">https://sdq3.link/React-Controlled-Uncontrolle.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

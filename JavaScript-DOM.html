@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>JavaScript DOM</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9CDOM%E5%AF%B9%E8%B1%A1"><span class="toc-text">操作DOM对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97DOM%E8%8A%82%E7%82%B9"><span class="toc-text">获得DOM节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0DOM%E8%8A%82%E7%82%B9"><span class="toc-text">更新DOM节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%96%87%E6%9C%AC"><span class="toc-text">操作文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9Ccss"><span class="toc-text">操作css</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="toc-text">删除节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5DOM%E8%8A%82%E7%82%B9"><span class="toc-text">插入DOM节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BADOM%E6%96%B0%E8%8A%82%E7%82%B9"><span class="toc-text">创建DOM新节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAscript%E6%A0%87%E7%AD%BE%E8%8A%82%E7%82%B9"><span class="toc-text">创建一个script标签节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAscript%E6%A0%87%E7%AD%BE%E8%8A%82%E7%82%B9-1"><span class="toc-text">创建一个script标签节点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E8%A1%A8%E5%8D%95-%E9%AA%8C%E8%AF%81"><span class="toc-text">操作表单 (验证)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E6%8F%90%E4%BA%A4%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-text">获得提交的信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%A1%A8%E5%8D%95"><span class="toc-text">提交表单</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">加强版</span></a></li></ol>
+      </div>
+      <p><strong>JavaScript个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="操作DOM对象"><a href="#操作DOM对象" class="headerlink" title="操作DOM对象"></a>操作DOM对象</h1><h2 id="获得DOM节点"><a href="#获得DOM节点" class="headerlink" title="获得DOM节点"></a>获得DOM节点</h2><p><strong>浏览器网页就是一个DOM树形结构</strong><br>    + 更新: 更新DOM节点<br>    + 遍历DOM节点: 得到DOM节点<br>    + 删除: 删除一个DOM节点<br>    + 添加: 添加一个新的节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">// 要操作一个DOM节点就必须先获得这个DOM节点</span><br><span class="hljs-comment">// 获得DOM节点</span><br>&lt;div id=<span class="hljs-string">&quot;Syp&quot;</span>&gt;<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>实验品<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Reuben&quot;</span>&gt;</span>鲁本<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;Angel&quot;</span>&gt;</span>安琪<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Stitch&quot;</span>&gt;</span>史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>&lt;/div&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 对应 css选择器</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> h1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&quot;h1&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Reuben</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;Reuben&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Angel</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementByclassName</span>(<span class="hljs-string">&quot;Angel&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Stitch</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;Stitch&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 获取父节点下的所有子节点</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> childrens = <span class="hljs-title class_">Syp</span>.<span class="hljs-property">hildrens</span>;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// Syp.firstChild</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// Syp.LastChild</span></span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="更新DOM节点"><a href="#更新DOM节点" class="headerlink" title="更新DOM节点"></a>更新DOM节点</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">// 要操作一个DOM节点就必须先获得这个DOM节点</span><br><span class="hljs-comment">// 获得DOM节点</span><br>&lt;div id=<span class="hljs-string">&quot;Syp&quot;</span>&gt;<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>实验品<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Reuben&quot;</span>&gt;</span>鲁本<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;Angel&quot;</span>&gt;</span>安琪<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Stitch&quot;</span>&gt;</span>史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>&lt;/div&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Syp</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;Syp&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<h3 id="操作文本"><a href="#操作文本" class="headerlink" title="操作文本"></a>操作文本</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">// 修改文本的值</span><br><span class="hljs-title class_">Syp</span>.<span class="hljs-property">innerText</span> = <span class="hljs-string">&#x27;我叫史迪奇&#x27;</span>;<br><span class="hljs-comment">// 可以解析HTML文本标签</span><br><span class="hljs-title class_">Syp</span>.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27;&lt;strong&gt;我叫史迪奇&lt;/strong&gt;&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="操作css"><a href="#操作css" class="headerlink" title="操作css"></a>操作css</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">// 属性使用 字符串 包起来</span><br><span class="hljs-title class_">Syp</span>.<span class="hljs-property">style</span>.<span class="hljs-property">color</span> = <span class="hljs-string">&#x27;blue&#x27;</span>;<br><span class="hljs-comment">// fontSize是驼峰命名</span><br><span class="hljs-title class_">Syp</span>.<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = <span class="hljs-string">&#x27;333px&#x27;</span>;<br><span class="hljs-title class_">Syp</span>.<span class="hljs-property">style</span>.<span class="hljs-property">padding</span> = <span class="hljs-string">&#x27;3em&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h2><p><strong>步骤: 先获取父节点, 再获取子节点, 然后通过父节点删除子节点</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;div id=<span class="hljs-string">&quot;Syp&quot;</span>&gt;<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>实验品<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Reuben&quot;</span>&gt;</span>鲁本<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;Angel&quot;</span>&gt;</span>安琪<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Stitch&quot;</span>&gt;</span>史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>&lt;/div&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 先获取父节点</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Syp</span> = <span class="hljs-title class_">Reuben</span>.<span class="hljs-property">parentElement</span>;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 再获取子节点</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Reuben</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;Reuben&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 然后通过父节点删除子节点</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-title class_">Syp</span>.<span class="hljs-title function_">removeChild</span>(<span class="hljs-title class_">Reuben</span>)</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 删除是一个动态过程 一删除其余的也跟着删除</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-title class_">Syp</span>.<span class="hljs-title function_">removeChild</span>(<span class="hljs-title class_">Syp</span>.<span class="hljs-property">children</span>[<span class="hljs-number">0</span>])</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<h2 id="插入DOM节点"><a href="#插入DOM节点" class="headerlink" title="插入DOM节点"></a>插入DOM节点</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;p id=<span class="hljs-string">&quot;Syp&quot;</span>&gt;实验品&lt;/p&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Reuben&quot;</span>&gt;</span>鲁本<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Angel&quot;</span>&gt;</span>安琪<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Stitch&quot;</span>&gt;</span>史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Syp</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;Syp&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;list&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p><strong>然后浏览器输入来实现 追加效果</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs HTML">// 追加<br>list.appendChild(Stitch);<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="创建DOM新节点"><a href="#创建DOM新节点" class="headerlink" title="创建DOM新节点"></a>创建DOM新节点</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;p id=<span class="hljs-string">&quot;Syp&quot;</span>&gt;实验品&lt;/p&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Reuben&quot;</span>&gt;</span>鲁本<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Angel&quot;</span>&gt;</span>安琪<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Stitch&quot;</span>&gt;</span>史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Syp</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;Syp&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;list&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 通过 JS 创建新的p节点</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> sdq = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createRlement</span>(<span class="hljs-string">&quot;p&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 给它创建id</span></span></span><br><span class="language-javascript"><span class="language-xml">    sdq.<span class="hljs-property">id</span> = <span class="hljs-string">&quot;sdq&quot;</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 内容</span></span></span><br><span class="language-javascript"><span class="language-xml">    sdq.<span class="hljs-property">innerText</span> = <span class="hljs-string">&quot;我叫史迪奇&quot;</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    list.<span class="hljs-property">appendChild</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p><strong>然后浏览器输入来实现 创建效果</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs HTML">// 创建<br>list.appendChild(sdq);<br></code></pre></td></tr></table></figure>
+
+<h3 id="创建一个script标签节点"><a href="#创建一个script标签节点" class="headerlink" title="创建一个script标签节点"></a>创建一个script标签节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;p id=<span class="hljs-string">&quot;Syp&quot;</span>&gt;实验品&lt;/p&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Reuben&quot;</span>&gt;</span>鲁本<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Angel&quot;</span>&gt;</span>安琪<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Stitch&quot;</span>&gt;</span>史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Syp</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;Syp&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;list&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> sdq = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createRlement</span>(<span class="hljs-string">&quot;p&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    sdq.<span class="hljs-property">id</span> = <span class="hljs-string">&quot;sdq&quot;</span></span></span><br><span class="language-javascript"><span class="language-xml">    sdq.<span class="hljs-property">innerText</span> = <span class="hljs-string">&quot;我叫史迪奇&quot;</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 通过这个属性, 可以设置任意的值</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> script = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createRlement</span>(<span class="hljs-string">&quot;script&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">    script.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;type&#x27;</span>,<span class="hljs-string">&#x27;text/javascript&#x27;</span>)</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p><strong>然后浏览器输入来实现 创建效果</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs HTML">// 创建<br>list.appendChild(script);<br></code></pre></td></tr></table></figure>
+
+<h3 id="创建一个script标签节点-1"><a href="#创建一个script标签节点-1" class="headerlink" title="创建一个script标签节点"></a>创建一个script标签节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;p id=<span class="hljs-string">&quot;Syp&quot;</span>&gt;实验品&lt;/p&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Reuben&quot;</span>&gt;</span>鲁本<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Angel&quot;</span>&gt;</span>安琪<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Stitch&quot;</span>&gt;</span>史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> <span class="hljs-title class_">Syp</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;Syp&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;list&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> sdq = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createRlement</span>(<span class="hljs-string">&quot;p&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    sdq.<span class="hljs-property">id</span> = <span class="hljs-string">&quot;sdq&quot;</span></span></span><br><span class="language-javascript"><span class="language-xml">    sdq.<span class="hljs-property">innerText</span> = <span class="hljs-string">&quot;我叫史迪奇&quot;</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 创建空style标签</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> style = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createRlement</span>(<span class="hljs-string">&quot;style&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">    style.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;type&#x27;</span>,<span class="hljs-string">&#x27;text/css&#x27;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 标签内容</span></span></span><br><span class="language-javascript"><span class="language-xml">    style.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27;body&#123;background-color: chartreuse;&#125;&#x27;</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// document.getElementsByTagName(&#x27;head&#x27;)[0].appendChild(style)</span></span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p><strong>然后浏览器输入来实现 创建效果</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs HTML">// 创建style<br>document.getElementsByTagName(&#x27;head&#x27;)[0].appendChild(style)<br></code></pre></td></tr></table></figure>
+
+<h2 id="操作表单-验证"><a href="#操作表单-验证" class="headerlink" title="操作表单 (验证)"></a>操作表单 (验证)</h2><ul>
+<li>文本框 text</li>
+<li>下拉框 <select></li>
+<li>单选框 radio</li>
+<li>多选框 checkbox</li>
+<li>隐藏域 hidden</li>
+<li>密码框  password</li>
+</ul>
+<h3 id="获得提交的信息"><a href="#获得提交的信息" class="headerlink" title="获得提交的信息"></a>获得提交的信息</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;form action=<span class="hljs-string">&quot;list&quot;</span>&gt;<br>&lt;p&gt;<br>    &lt;span&gt;实验品编号: &lt;/span&gt;&lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;<br>&lt;/p&gt;<br>    &lt;!-- 多选框的值, 就是定义好value --&gt;<br>    &lt;p&gt;<br>        &lt;span&gt;实验品编号: &lt;/span&gt;<br>        &lt;input type=&quot;radio&quot; name=&quot;See&quot; vlaue=&quot;Yes&quot; id=&quot;Yes&quot;&gt;有看过<br>        &lt;input type=&quot;radio&quot; name=&quot;See&quot; vlaue=&quot;No&quot; id=&quot;No&quot;&gt;没看过<br>    &lt;/p&gt;<br><br>&lt;/div&gt;<br><br>&lt;script&gt;<br>    var See = document.getElementById(&quot;name&quot;)<br>    var Yes = document.getElementById(&quot;Yes&quot;)<br>    var NO = document.createRlement(&quot;No&quot;)<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>然后浏览器输入来实现 创建效果</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs HTML">// 得到输入框的值<br>See.value<br>// 修改输入框的值<br>See.value = &#x27;333&#x27;<br></code></pre></td></tr></table></figure>
+
+
+<p><font  color=#DC143C> 以下为效果</font></p>
+<p>
+    <span>实验品编号: </span><input type="text" id="name">
+</p>
+    <!-- 多选框的值, 就是定义好value -->
+    <p>
+        <span>实验品编号: </span>
+        <input type="radio" name="See" vlaue="Yes" id="Yes">有看过
+        <input type="radio" name="See" vlaue="No" id="No">没看过
+    </p>
+
+</div>
+
+<script>
+    var See = document.getElementById("name")
+    var Yes = document.getElementById("Yes")
+    var NO = document.createRlement("No")
+</script>
+
+
+<h2 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a>提交表单</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;!-- <span class="hljs-title class_">MD5</span> 工具类 --&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https:cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br>&lt;form action=&quot;#&quot; method=&quot;post&quot;&gt;<br>&lt;p&gt;<br>    &lt;span&gt;实验品编号: &lt;/span&gt;&lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;<br>&lt;/p&gt;<br>&lt;p&gt;<br>    &lt;span&gt;密&amp;emsp;&amp;emsp;&amp;emsp;码: &lt;/span&gt;&lt;input type=&quot;password&quot; id=&quot;input-pwd&quot;&gt;<br>&lt;/p&gt;<br>    &lt;input type=&quot;hidden&quot; id=&quot;md5-pwd&quot; name=&quot;password&quot;&gt;<br>    &lt;!-- 绑定事件 onclick 被点击 --&gt;<br>    &lt;button type=&quot;submit&quot; onclick=&quot;dianji()&quot;&gt;登陆&lt;/button&gt;<br><br>&lt;script&gt;<br>    function dianji()<br>        var name = document.getElementById(&quot;name&quot;);<br>        var pwd = document.getElementById(&quot;pwd&quot;);<br>        var md5pwd = document.getElementById(&quot;md5-pwd&quot;);<br>        console.log(name.value);<br>        console.log(pwd.value);<br><br>        // MD5 算法<br>        pwd.value = md5(pwd.value)<br>        console.log(pwd.value);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C> 以下为效果</font></p>
+<!-- MD5 工具类 -->
+<script src="https:cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<form action="#" method="post">
+<p>
+    <span>实验品编号: </span><input type="text" id="name">
+</p>
+<p>
+    <span>密&emsp;&emsp;&emsp;码: </span><input type="password" id="input-pwd">
+</p>
+    <input type="hidden" id="md5-pwd" name="password">
+    <!-- 绑定事件 onclick 被点击 -->
+    <button type="submit" onclick="dianji()">登陆</button>
+
+<script>
+    function dianji()
+        var name = document.getElementById("name");
+        var pwd = document.getElementById("pwd");
+        var md5pwd = document.getElementById("md5-pwd");
+        console.log(name.value);
+        console.log(pwd.value);
+
+        // MD5 算法
+        md5pwd.value = md5(pwd.value)
+        console.log(pwd.value);
+</script>
+
+<h1>加强版</h1>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;!-- <span class="hljs-title class_">MD5</span> 工具类 --&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https:cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><br>&lt;!-- 表单绑定提交事件onsubmit= 绑定应该提交检查的函数 trur和<span class="hljs-literal">false</span>将结果返回给表单用 --&gt;<br>&lt;form action=&quot;http://www.baidu.com/&quot; method=&quot;post&quot; onsubit=&quot;dianji()&quot;&gt;<br>&lt;p&gt;<br>    &lt;span&gt;实验品编号: &lt;/span&gt;&lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;<br>&lt;/p&gt;<br>&lt;p&gt;<br>    &lt;span&gt;密&amp;emsp;&amp;emsp;&amp;emsp;码: &lt;/span&gt;&lt;input type=&quot;password&quot; id=&quot;input-pwd&quot;&gt;<br>&lt;/p&gt;<br>    &lt;input type=&quot;hidden&quot; id=&quot;md5-pwd&quot; name=&quot;password&quot;&gt;<br>    &lt;!-- 绑定事件 onclick 被点击 --&gt;<br>    &lt;button type=&quot;submit&quot;&gt;登陆&lt;/button&gt;<br><br>&lt;script&gt;<br>    function dianji()&#123;<br>        alert(1);<br>        var name = document.getElementById(&quot;name&quot;);<br>        var pwd = document.getElementById(&quot;pwd&quot;);<br>        var md5pwd = document.getElementById(&quot;md5-pwd&quot;);<br>        // MD5 算法<br>        md5pwd.value = md5(pwd.value);<br>        // 可以判断表单内容 true 通过提交 false 阻止提交<br>        return true;<br>    &#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C> 以下为效果</font></p>
+<!-- MD5 工具类 -->
+<script src="https:cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<!-- 表单绑定提交事件onsubmit= 绑定应该提交检查的函数 trur和false将结果返回给表单用 -->
+<form action="http://www.baidu.com/" method="post" onsubit="dianji()">
+<p>
+    <span>实验品编号: </span><input type="text" id="name">
+</p>
+<p>
+    <span>密&emsp;&emsp;&emsp;码: </span><input type="password" id="input-pwd">
+</p>
+    <input type="hidden" id="md5-pwd" name="password">
+    <!-- 绑定事件 onclick 被点击 -->
+    <button type="submit">登陆</button>
+
+<script>
+    function dianji(){
+        alert(1);
+        var name = document.getElementById("name");
+        var pwd = document.getElementById("pwd");
+        var md5pwd = document.getElementById("md5-pwd");
+        // MD5 算法
+        md5pwd.value = md5(pwd.value);
+        // 可以判断表单内容 true 通过提交 false 阻止提交
+        return true;
+    }
+</script>
+
+<br>
+
+
+
+
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/JavaScript-DOM.html">https://sdq3.link/JavaScript-DOM.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

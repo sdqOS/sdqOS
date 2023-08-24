@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>React State(状态)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%86%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%96%B9%E6%B3%95%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%B1%BB%E4%B8%AD"><span class="toc-text">将生命周期方法添加到类中</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%88%96%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="toc-text">自顶向下或单向数据流</span></a></li></ol>
+      </div>
+      <p><strong>React笔记</strong></p>
+<span id="more"></span>
+
+
+<h1 id="将生命周期方法添加到类中"><a href="#将生命周期方法添加到类中" class="headerlink" title="将生命周期方法添加到类中"></a>将生命周期方法添加到类中</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyNameIsStitch</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">super</span>(props);</span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span> = &#123;<span class="hljs-attr">date</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()&#125;;</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript">  &#123;<span class="hljs-comment">/*  生命周期钩子 钩子上设置一个定时器  */</span>&#125;</span><br><span class="language-javascript">  <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-property">timerID</span> = <span class="hljs-built_in">setInterval</span>(</span><br><span class="language-javascript">      <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">tick</span>(),</span><br><span class="language-javascript">      <span class="hljs-number">1000</span></span><br><span class="language-javascript">    );</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript">  &#123;<span class="hljs-comment">/*  生命周期钩子 钩子中卸载定时器  */</span>&#125;</span><br><span class="language-javascript">  <span class="hljs-title function_">componentWillUnmount</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-built_in">clearInterval</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">timerID</span>);</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-title function_">tick</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123;</span><br><span class="language-javascript">      <span class="hljs-attr">date</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> (</span><br><span class="language-javascript">      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>你浪费的时间 &#123;this.state.date.toLocaleTimeString()&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-javascript">    );</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(</span><br><span class="language-javascript">  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyNameIsStitch</span> /&gt;</span></span>,</span><br><span class="language-javascript">  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;example&#x27;</span>)</span><br><span class="language-javascript">);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="自顶向下或单向数据流"><a href="#自顶向下或单向数据流" class="headerlink" title="自顶向下或单向数据流"></a>自顶向下或单向数据流</h1><p><strong>解析: 所有组件都是真正隔离的</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">FormattedDate</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>你浪费的时间 &#123;props.date.toLocaleTimeString()&#125;.<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyNameIsStitch</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">super</span>(props);</span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span> = &#123;<span class="hljs-attr">date</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()&#125;;</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-property">timerID</span> = <span class="hljs-built_in">setInterval</span>(</span><br><span class="language-javascript">      <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">tick</span>(),</span><br><span class="language-javascript">      <span class="hljs-number">1000</span></span><br><span class="language-javascript">    );</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-title function_">componentWillUnmount</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-built_in">clearInterval</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">timerID</span>);</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-title function_">tick</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123;</span><br><span class="language-javascript">      <span class="hljs-attr">date</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> (</span><br><span class="language-javascript">      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">        <span class="hljs-tag">&lt;<span class="hljs-name">FormattedDate</span> <span class="hljs-attr">date</span>=<span class="hljs-string">&#123;this.state.date&#125;</span> /&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-javascript">    );</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">  <span class="hljs-keyword">return</span> (</span><br><span class="language-javascript">    &#123;<span class="hljs-comment">/*  创建App 组件 它渲染三个  */</span>&#125;</span><br><span class="language-javascript">    &lt;div&gt;</span><br><span class="language-javascript">      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyNameIsStitch</span> /&gt;</span></span></span><br><span class="language-javascript">      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyNameIsStitch</span> /&gt;</span></span></span><br><span class="language-javascript">      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyNameIsStitch</span> /&gt;</span></span></span><br><span class="language-javascript">    &lt;/div&gt;</span><br><span class="language-javascript">  );</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>, <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;example&#x27;</span>));</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+<p><strong>有状态组件中使用无状态组件   也可以在无状态组件中使用有状态组件</strong></p>
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/React-State.html">https://sdq3.link/React-State.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

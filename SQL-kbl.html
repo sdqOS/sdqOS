@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>SQL Server T-SQL 从创建数据库到创建数据表到插入数据</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">创建数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-text">创建数据表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%86%85%E5%AE%B9"><span class="toc-text">插入数据表内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-text">查看数据表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-text">删除数据表</span></a></li></ol>
+      </div>
+      <p><strong>SQL Server个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> DATABASE 数据库名;<br></code></pre></td></tr></table></figure>
+
+<p><strong>例子</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> DATABASE sdz;<br></code></pre></td></tr></table></figure>
+
+<h1 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> 表名(<br>	参数 类型(位数),<br>	参数 类型(位数),<br>	参数 类型(位数),<br>	参数 类型(位数)<br>);<br></code></pre></td></tr></table></figure>
+
+<p><strong>例子在sdz数据库创建sdq这个表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL">use sdq;<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> bbs (<br>  id <span class="hljs-type">int</span>(<span class="hljs-number">11</span>) ,<br>  name <span class="hljs-type">varchar</span>(<span class="hljs-number">200</span>) ,<br>  sex <span class="hljs-type">varchar</span>(<span class="hljs-number">200</span>) ,<br>  age <span class="hljs-type">int</span>(<span class="hljs-number">11</span>)  ,<br>  classid <span class="hljs-type">int</span>(<span class="hljs-number">11</span>) <br>);<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="插入数据表内容"><a href="#插入数据表内容" class="headerlink" title="插入数据表内容"></a>插入数据表内容</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> 数据表 (参数, 参数, 参数)<br><span class="hljs-keyword">VALUES</span> (参数, 参数, 参数); <br></code></pre></td></tr></table></figure>
+
+<p><strong>例子</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> bbs (id,name,sex,age,classid) <span class="hljs-keyword">VALUES</span><br>(<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;sdqz&#x27;</span>, <span class="hljs-keyword">NULL</span>, <span class="hljs-keyword">NULL</span>, <span class="hljs-number">2</span>),<br>(<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;sdq&#x27;</span>, <span class="hljs-keyword">NULL</span>,  <span class="hljs-keyword">NULL</span>,  <span class="hljs-number">3</span>),<br>(<span class="hljs-number">3</span>, <span class="hljs-string">&#x27;sdz&#x27;</span>, <span class="hljs-keyword">NULL</span>,  <span class="hljs-keyword">NULL</span>,  <span class="hljs-number">4</span>);<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="查看数据表"><a href="#查看数据表" class="headerlink" title="查看数据表"></a>查看数据表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL">elect <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> sdq<br></code></pre></td></tr></table></figure>
+<h1 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> 表名;<br></code></pre></td></tr></table></figure>
+
+<p><strong>例子</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> sdq;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/SQL-kbl.html">https://sdq3.link/SQL-kbl.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

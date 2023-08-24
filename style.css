@@ -3,8 +3,17 @@
 /* kong = 空 */
 /* jiao = 脚 */
 
-#footer {
-    height: 5rem;
+/* 主页框框 */
+#content-wrap > div  {
+    margin: 0 auto;
+}
+
+/* 框框位置 */
+#content-wrap > div > div > p{
+    display: flex;    
+    width: 100%; 
+    height: 100%;
+    justify-content: space-around;
 }
 
 .Text>a{
@@ -51,20 +60,41 @@ h1>a, h2>a, h3>a, h4>a {
     border-width:medium;
 }
 
-.jiao{
+/* 换页 */
+
+/* .jiao{
     color:#000;
     margin: 0px 0px 0px 0px;
-}
+} */
 
 .konga {
         display: flex;    
         width: 100%;
         justify-content: space-around;
-        font-size: 50px;
-        margin: 60px 0px 0px 0px;
+        margin: 5% 0px 0px 0px;
         color:#000;
 }
 
+#content-wrap > div > div > h1{
+    display: flex;    
+    width: 100%;
+    justify-content: space-around;
+    font-size: 25px;
+    /* margin: 30px 30px 40px 0px; */
+}
+#content-wrap > div > div > h3{
+    display: flex;    
+    width: 100%;
+    justify-content: space-around;
+    font-size: 25px;
+
+}
+
+img{
+    width: 100%;  
+}
+
+/* 日期框框 */
 .bx{
     border-style:solid;
     border-width:medium;
@@ -90,66 +120,241 @@ p > a{
 }
 
 /* 表格 */
-
-table > thead > tr {
+#content-wrap > div > div > wenzhang > table > tbody > tr > td{
     border: 1px solid;
     border-spacing: 2px;
     border-color: #000;
 }
 
-#content-wrap > div > div > wenzhang > table:nth-child(13) > tbody > tr{
-    border: 1px solid;
+/* 分类中间对其 */
+#content-wrap > div > span > h2 > ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#content-wrap > div > span > h2 > ul > li{
+    /* 阴影 */
+    box-shadow: 0 .5em 1em -.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
+    /* margin-bottom: 1.6rem; */
+    /* border-style:solid; */
+    /* color:#000; */
+    /* overflow-wrap: break-word; */
+    /* word-break: break-word; */
+    font-size: larger;
+    /* 长度 */
+    margin-bottom: 1.6rem;
+    /* 边框 */
+    border: 2px solid #000000;
+    padding: 10px 10px 10px 10px;
+    background: #fffefe;
+    border-radius: 10px;
+
+    border-style:solid;
+    border-width:medium;
+    display: inline-block;
+    margin: 10px 10px 10px 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+
+/* 关于框框 */
+#text1{
     border-spacing: 2px;
+    border: 3px solid;
+    background: #fffefe;
     border-color: #000;
+    border-radius: 10px;
+    padding: 30px;
+
+
+}
+/* 框框文字 */
+#text2{
+    margin: 0 auto;
+    text-align: center;
+    font-weight:900;
+    font-size: 2rem;;
+}
+/* 分类框框 */
+#text3{
+    min-width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/* 分页字体 */
+#text4{
+    /* font-size: 75%;
+    margin: 10px 10px 10px 10px; */
+        /* 阴影 */
+        display: flex;   
+        justify-content: center;
+        box-shadow: 0 .5em 1em -.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
+        /* margin-bottom: 1.6rem; */
+        /* border-style:solid; */
+        /* color:#000; */
+        /* overflow-wrap: break-word; */
+        /* word-break: break-word; */
+        font-size: larger;
+        /* 长度 */
+        margin-bottom: 1.6rem;
+        /* 边框 */
+        border: 2px solid #000000;
+        padding: 10px 10px 10px 10px;
+        background: #fffefe;
+        border-radius: 10px;
+    
+        border-style:solid;
+        border-width:medium;
+        display: inline-block;
+        margin: 10px 10px 10px 10px;
+        text-decoration: none;
+        color: #000;
 }
 
-#content-wrap > div > div > wenzhang > table:nth-child(11) > tbody > tr{
-    border: 1px solid;
-    border-spacing: 2px;
-    border-color: #000;
+/* 搜索 */
+/* 换页 */
+#text_input, .jiao {
+    /* 边框 */
+    border: 3px solid #000000;
+    background: #fffefe;
+    border-radius: 10px;
+    color: #000;
+    text-align: center;
+    margin: 0 auto;
+    display:flex;
+      
 }
 
-#content-wrap > div > div > wenzhang > table:nth-child(7) > tbody > tr{
-    border: 1px solid;
-    border-spacing: 2px;
-    border-color: #000;
+#footer > span > a{
+  font-size: 2.1875rem;  
 }
 
-#content-wrap > div > div > ul > li{
-    display: flex;    
-    width: 100%;
-    justify-content: space-around;
+/* 输出 */
+#text_output{
+    text-align: center;
 }
 
-#content-wrap > div > div > p{
-    display: flex;    
-    width: 100%;
-    justify-content: space-around;
+#text_output > div > div{
+    border: 2px solid #000000;
+    color: #000;
+    font-size:25px;
+    border-radius: 10px;
+    margin: 10px 10px 10px 10px;
+    padding: 1px 1px 1px 1px;
 }
 
-wenzhang h1 {
-    font-size: 1.7em
+
+/* 框框位置上下位置 */
+.box:not(:last-child){
+    margin-bottom: 1.6rem;
 }
 
-wenzhang h2 {
-    font-size: 1.6em
-}
-
-wenzhang h3 {
-    font-size: 1.45em
-}
-
-wenzhang h4 {
-    font-size: 1.25em;
-}
-
-wenzhang h5 {
-    font-size: 1.1em;
-}
-wenzhang h6 {
+body {
+    color: #4a4a4a;
     font-size: 1em;
-    font-weight: bold
+    font-weight: 500px;
+    line-height: 1.5
 }
+
+a {
+    cursor: pointer;
+    text-decoration: none
+}
+
+
+.box {
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 .5em 1em -.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem
+}
+
+/* 框框宽度 */
+
+@media screen and (min-width:64.0625rem) {
+    .container {
+        max-width: 64.0625rem;
+    }
+}
+
+
+/* 代码框背景颜色 */
+
+/* #content-wrap > div > div > wenzhang > figure{
+    background-color: rgb(249, 249, 249);
+
+
+} */
+
+/* 文章分类 */
+#content-wrap > div > div > ul > li > a{
+    border-style:solid;
+    border-width:medium;
+    -webkit-text-stroke: 0.3px !important;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 .5em 1em -.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+    margin: 1rem;
+}
+
+/* 文章分类文字加深 */
+#content-wrap > div > div > ul > li > a{
+    color: #000;
+    font-size: 20px;
+}
+
+/* 文章时间 */
+#content-wrap > div > div > wenzhang > div > div > a{
+    padding: 1px !important;
+    margin-bottom: 4px !important;
+    border-radius: 4px;
+}
+
+
+
+
+
+/* 关于的框框 */
+#content-wrap > div > div > wenzhang > kuankuan {
+    border-style:solid;
+    border-width:medium;
+    background-color: #ffffff;
+    border-radius: 6px;
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+} 
+
+/* 博客版权 */
+
+body > bokebangquan,#content-wrap > bokebangquan > p{
+    background-color: #ffffff;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#content-wrap > div > div > wenzhang > figure > table{
+    border-style:solid;
+    border-width:medium;
+    background-color: #ffffff;
+    border-radius: 6px;
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+}
+
+
 
 
 

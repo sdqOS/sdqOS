@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Text</title>
-    <!-- 导入网络js -->
-    <link rel="stylesheet" href="/bulma.min.css">
-
+    <link rel="icon" href="/text.png">
     <!-- 导入css -->
     <link rel="stylesheet" href="/style.css"/>
-  
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
   <meta name="generator" content="Hexo 5.4.2"></head>
   <body>
 
@@ -23,8 +26,8 @@
     <div id="content-wrap">
         <div class="container">
           <!-- 点击文章 -->
-<div class="wenzhang-container">
-  <h1 class="title is-3 is-4-mobile">C语 指针</h1>
+<div>
+  <h1>C语 指针</h1>
   <wenzhang>
       <div class="contents">
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80-%E6%8C%87%E9%92%88%E5%92%8C%E5%8F%98%E9%87%8F"><span class="toc-text">地址 指针和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">地址和指针的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="toc-text">变量的地址</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-text">指针</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">指针的声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">相应的意思说明</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="toc-text">函数指针</span></a></li></ol>
@@ -33,7 +36,7 @@
 <span id="more"></span>
 
 <h1 id="地址-指针和变量"><a href="#地址-指针和变量" class="headerlink" title="地址 指针和变量"></a>地址 指针和变量</h1><h2 id="地址和指针的基本概念"><a href="#地址和指针的基本概念" class="headerlink" title="地址和指针的基本概念"></a>地址和指针的基本概念</h2><ul>
-<li><p>在程序中定义每一个变量, 当编译时系统就会根据程序中定义的变量的类型, 分配定字节数的存储空间。内存中的每一个字节都有一个编号,也就是地址,它相当于旅馆中的房间号, 在地址所标志的单元存储数据, 这相当于旅馆中的房间住一个旅客一样</p>
+<li><p>在程序中定义每一个变量, 当编译时系统就会根据程序中定义的变量的类型, 分配定字节数的存储空间内存中的每一个字节都有一个编号,也就是地址,它相当于旅馆中的房间号, 在地址所标志的单元存储数据, 这相当于旅馆中的房间住一个旅客一样</p>
 <ul>
 <li>变量: 命名的内存空间, 变量在内存中占有一定空间,用于存放各种类型的数据</li>
 </ul>
@@ -164,18 +167,67 @@ datatype *varname
 <li>函数指针有两个用途: 调用函数和做函数的参数</li>
 </ul>
 <br>
-      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/C-Pointer.html">https://sdq3.gitee.io/C-Pointer.html</a></strong></p>
-  </wenzhang>
-</div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
         </div>
     </div>
     
 <footer id="footer" >
     <span class="konga">
         <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
         <a class="jiao"  href=".">></a>
     </span>
+    <div id="text_output"></div>
+    </div>
+
 </footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/C-Pointer.html">https://sdq3.link/C-Pointer.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
   </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
   </body>
 </html>

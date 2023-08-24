@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>React 元素渲染</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93"><span class="toc-text">元素渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E6%98%AF%E6%9E%84%E6%88%90-React-%E5%BA%94%E7%94%A8%E7%9A%84%E6%9C%80%E5%B0%8F%E5%8D%95%E4%BD%8D-%E7%94%A8%E4%BA%8E%E6%8F%8F%E8%BF%B0%E5%B1%8F%E5%B9%95%E4%B8%8A%E8%BE%93%E5%87%BA%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">元素是构成 React 应用的最小单位   用于描述屏幕上输出的内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93"><span class="toc-text">更新元素渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%87%BD%E6%95%B0%E6%9D%A5%E8%A1%A8%E7%A4%BA"><span class="toc-text">用函数来表示</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <p><strong>React笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="元素渲染"><a href="#元素渲染" class="headerlink" title="元素渲染"></a>元素渲染</h1><h2 id="元素是构成-React-应用的最小单位-用于描述屏幕上输出的内容"><a href="#元素是构成-React-应用的最小单位-用于描述屏幕上输出的内容" class="headerlink" title="元素是构成 React 应用的最小单位   用于描述屏幕上输出的内容"></a>元素是构成 React 应用的最小单位   用于描述屏幕上输出的内容</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-comment">&lt;!-- eact 的核心库 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/react/16.4.0/umd/react.development.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 提供与 DOM 相关的功能 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-comment">&lt;!-- Babel 可以将 ES6 代码转为 ES5 代码 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- 将元素渲染到 DOM 中 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-comment">// 要将React元素渲染到根DOM节点中 通过把它们都传递给 ReactDOM.render()的方法来将其渲染到页面上</span></span><br><span class="language-javascript"><span class="hljs-keyword">const</span> element =<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>我叫史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;</span><br><span class="language-javascript"><span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(</span><br><span class="language-javascript">    element,</span><br><span class="language-javascript">    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;example&#x27;</span>)</span><br><span class="language-javascript">);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="更新元素渲染"><a href="#更新元素渲染" class="headerlink" title="更新元素渲染"></a>更新元素渲染</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/react/16.4.0/umd/react.development.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">tick</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">  <span class="hljs-keyword">const</span> element = (</span><br><span class="language-javascript">    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>我叫史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>你已经浪费了的时间 &#123;new Date().toLocaleTimeString()&#125;秒<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-javascript">  );</span><br><span class="language-javascript">  <span class="hljs-comment">// 当前更新界面的唯一办法</span></span><br><span class="language-javascript">  <span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(</span><br><span class="language-javascript">    element,</span><br><span class="language-javascript">    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;example&#x27;</span>)</span><br><span class="language-javascript">  );</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"> </span><br><span class="language-javascript"><span class="hljs-built_in">setInterval</span>(tick, <span class="hljs-number">1000</span>);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="用函数来表示"><a href="#用函数来表示" class="headerlink" title="用函数来表示"></a>用函数来表示</h3><p><strong>React 只会更新必要的部分</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/react/16.4.0/umd/react.development.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Clock</span>(<span class="hljs-params">props</span>) &#123;</span><br><span class="language-javascript">  <span class="hljs-keyword">return</span> (</span><br><span class="language-javascript">    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>我叫史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">    // this当前对象</span></span><br><span class="language-xml"><span class="language-javascript">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>现在是 &#123;this.props.date.toLocaleTimeString()&#125;你又在这浪费时间<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">    // <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>现在是 &#123;props.date.toLocaleTimeString()&#125;你又在这浪费时间<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-javascript">  );</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">tick</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">  <span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">render</span>(</span><br><span class="language-javascript">    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Clock</span> <span class="hljs-attr">date</span>=<span class="hljs-string">&#123;new</span> <span class="hljs-attr">Date</span>()&#125; /&gt;</span></span>,</span><br><span class="language-javascript">    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;example&#x27;</span>)</span><br><span class="language-javascript">  );</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-built_in">setInterval</span>(tick, <span class="hljs-number">1000</span>);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/React-Render-Elements.html">https://sdq3.link/React-Render-Elements.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

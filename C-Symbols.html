@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>C语 符号</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">C语言系统定义了32个专用名字</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <p><strong>C语学习笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h1><ul>
+<li><p>只能由英文字母, 数字和下划线构成, 长度 1 ~ 32</p>
+</li>
+<li><p>必须以字母或者下划线开头</p>
+</li>
+<li><p>严格区分<font color="    #FA8072">大</font> <font color="#7bafea">小</font>写</p>
+</li>
+<li><p>不能以 <font color="    #FA8072">关键字</font> 作为标识符</p>
+</li>
+<li><p>由于系统内部使用了一些以下划线开头的标识符, 为了防止冲突建议用户尽量避免使用下划线开头的标识符</p>
+</li>
+<li><p>标识符应该做到 见名知意 用英文或者缩写或者拼音</p>
+</li>
+</ul>
+<h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><h4>C语言系统定义了32个专用名字</h4>
+
+<div class="mermaid">
+graph LR
+A[" 控制语句关键字 (12个) "]-->B[" break "]
+A[" 控制语句关键字 (12个) "]-->C[" case "]
+A[" 控制语句关键字 (12个) "]-->D[" continue "]
+A[" 控制语句关键字 (12个) "]-->E[" defaulf "]
+A[" 控制语句关键字 (12个) "]-->F[" do "]
+A[" 控制语句关键字 (12个) "]-->G[" break "]
+A[" 控制语句关键字 (12个) "]-->H[" else "]
+A[" 控制语句关键字 (12个) "]-->I[" for "]
+A[" 控制语句关键字 (12个) "]-->J[" goto "]
+A[" 控制语句关键字 (12个) "]-->K[" if "]
+A[" 控制语句关键字 (12个) "]-->L[" return "]
+A[" 控制语句关键字 (12个) "]-->M[" switch "]
+A[" 控制语句关键字 (12个) "]-->N[" while "]
+</div>
+
+<div class="mermaid">
+graph LR
+A[" 数据类型关键字 (12个) "]-->B[" char "]
+A[" 数据类型关键字 (12个) "]-->C[" enum "]
+A[" 数据类型关键字 (12个) "]-->D[" double "]
+A[" 数据类型关键字 (12个) "]-->E[" long "]
+A[" 数据类型关键字 (12个) "]-->F[" float "]
+A[" 数据类型关键字 (12个) "]-->G[" int "]
+A[" 数据类型关键字 (12个) "]-->H[" shoat "]
+A[" 数据类型关键字 (12个) "]-->I[" int "]
+A[" 数据类型关键字 (12个) "]-->J[" short "]
+A[" 数据类型关键字 (12个) "]-->K[" signed "]
+A[" 数据类型关键字 (12个) "]-->L[" stuct "]
+A[" 数据类型关键字 (12个) "]-->M[" unsigned "]
+A[" 数据类型关键字 (12个) "]-->N[" union "]
+A[" 数据类型关键字 (12个) "]-->O[" void "]
+</div>
+
+
+<div class="mermaid">
+graph LR
+A[" 储存类型关键字 (4个) "]-->B[" auto "]
+A[" 储存类型关键字 (4个) "]-->C[" exetern "]
+A[" 储存类型关键字 (4个) "]-->D[" register "]
+A[" 储存类型关键字 (4个) "]-->E[" static "]
+</div>
+
+<div class="mermaid">
+graph LR
+A[" 其它关键字 (4个) "]-->B[" const "]
+A[" 其它关键字 (4个) "]-->C[" sizeof "]
+A[" 其它关键字 (4个) "]-->D[" typedef "]
+A[" 其它关键字 (4个) "]-->E[" volatle "]
+</div>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/C-Symbols.html">https://sdq3.link/C-Symbols.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

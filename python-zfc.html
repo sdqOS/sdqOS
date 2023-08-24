@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>Python 字符串(我失忆了)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E5%85%A8%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">以下全是字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%93%8D%E4%BD%9C"><span class="toc-text">字符串拼接操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-text">索引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%87%E7%89%87"><span class="toc-text">切片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">代码格式化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">字符串的一些使用方法</span></a></li></ol>
+      </div>
+      <p><strong>我真的失忆了</strong></p>
+<span id="more"></span>
+
+<h1 id="以下全是字符串"><a href="#以下全是字符串" class="headerlink" title="以下全是字符串"></a>以下全是字符串</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Python">s = <span class="hljs-string">&#x27;s&#x27;</span><br>d = <span class="hljs-string">&quot;d&quot;</span><br>q = <span class="hljs-string">&#x27;&#x27;&#x27;q&#x27;&#x27;&#x27;</span><br>sdq = <span class="hljs-string">&quot;d &#x27;s&#x27; &quot;</span><br>sdz = <span class="hljs-string">&#x27;&#x27;&#x27; &quot;s&#x27;d&#x27;&quot; q&#x27;&#x27;&#x27;</span><br><span class="hljs-built_in">print</span>(s, d, sdq, q, sdz, sep=<span class="hljs-string">&#x27;\n&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="字符串拼接操作"><a href="#字符串拼接操作" class="headerlink" title="字符串拼接操作"></a>字符串拼接操作</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 字符串拼接</span><br><span class="hljs-comment"># print(&#x27;s&#x27; + &#x27;d&#x27; + &#x27;q&#x27;)</span><br><span class="hljs-comment"># 字符串和数字是不能拼接的</span><br><span class="hljs-comment"># print(&#x27;sdq&#x27; + 3)</span><br><span class="hljs-comment"># 连续打印5次史迪奇</span><br><span class="hljs-comment"># print(5 * &#x27;sdq&#x27;)</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 索引 变量名[] 表索引 编程语言都是从0开始计数的</span><br>sdq= <span class="hljs-string">&#x27;我叫史迪奇&#x27;</span><br><span class="hljs-built_in">print</span>(str1[<span class="hljs-number">0</span>], str1[<span class="hljs-number">3</span>], str1[-<span class="hljs-number">1</span>])<br><span class="hljs-built_in">print</span>(str1[<span class="hljs-number">10</span>])  <span class="hljs-comment">#超出会报错</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 切片 变量名[a:b] 同数学区间的[a,b)</span><br>sdq = <span class="hljs-string">&#x27;0123456789&#x27;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;sdq[0:3]&#x27;</span>, sdq[<span class="hljs-number">0</span>:<span class="hljs-number">3</span>])         <span class="hljs-comment">#012</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;sdq[1:]&#x27;</span>, sdq[<span class="hljs-number">1</span>:])           <span class="hljs-comment">#123456789</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;sdq[:2]&#x27;</span>, sdq[:<span class="hljs-number">2</span>])           <span class="hljs-comment">#01</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;sdq[:]&#x27;</span>, sdq[:])             <span class="hljs-comment">#返回全部</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;sdq[-4:-1]&#x27;</span>, sdq[-<span class="hljs-number">4</span>:-<span class="hljs-number">1</span>])     <span class="hljs-comment">#678</span><br><span class="hljs-built_in">print</span>(sdq[<span class="hljs-number">1</span>:<span class="hljs-number">100</span>])                   <span class="hljs-comment"># 切片超出范围是不会报错的会返回全部</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="代码格式化"><a href="#代码格式化" class="headerlink" title="代码格式化"></a>代码格式化</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># name = &#x27;史迪奇&#x27;</span><br><span class="hljs-comment"># number = 626</span><br><span class="hljs-comment"># print(name+&#x27;是个&#x27;+str(number)+&#x27;号实验品&#x27;)</span><br><span class="hljs-comment"># print(&#x27;&#123;&#125;是个&#123;&#125;号实验品&#x27;.format(name, number))</span><br><span class="hljs-comment"># print(&#x27;&#123;name&#125;是个&#123;number&#125;号实验品&#x27;.format(name=&#x27;史迪奇&#x27;, number=626))</span><br><span class="hljs-comment"># print(f&#x27;&#123;name&#125;是个&#123;number&#125;号实验品&#x27;)</span><br><span class="hljs-comment"># 在一些老的教程里会用%的形式格式化代码, 在Python3里就不建议使用了</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="字符串的一些使用方法"><a href="#字符串的一些使用方法" class="headerlink" title="字符串的一些使用方法"></a>字符串的一些使用方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Python">sdq = <span class="hljs-string">&#x27;Stitch&#x27;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;find第一次出现b的索引&#x27;</span>, sdq.find(<span class="hljs-string">&#x27;h&#x27;</span>))  <span class="hljs-comment">#看h的下标</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;replace&#x27;</span>, sdq.replace(<span class="hljs-string">&#x27;i&#x27;</span>, <span class="hljs-string">&#x27;I&#x27;</span>))  <span class="hljs-comment">#拿I替换i</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;upper&#x27;</span>, sdq.upper()) <span class="hljs-comment">#全大写</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;lower&#x27;</span>, sdq.lower()) <span class="hljs-comment">#全小写</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;swapcase 对换&#x27;</span>, <span class="hljs-string">&#x27;sdq&#x27;</span>.swapcase())  <span class="hljs-comment">#反转字母大小写</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;去前后空格&#x27;</span>, <span class="hljs-string">&#x27; sdq &#x27;</span>.strip(), sep=<span class="hljs-string">&#x27;&#x27;</span>)  <br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;S t i t c h &#x27;</span>.replace(<span class="hljs-string">&#x27; &#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>))   <span class="hljs-comment">#空格替换空字符串</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(<span class="hljs-string">&#x27;S t i t c h&#x27;</span>)) <span class="hljs-comment"># 获取字符串长度 里面的空格也是计算长度的</span><br></code></pre></td></tr></table></figure>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/python-zfc.html">https://sdq3.link/python-zfc.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

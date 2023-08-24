@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>TypeScript调用接口</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3"><span class="toc-text">调用接口</span></a></li></ol>
+      </div>
+      <p><strong>TypeScript学习笔记</strong></p>
+<span id="more"></span>
+
+
+<h3 id="调用接口"><a href="#调用接口" class="headerlink" title="调用接口"></a>调用接口</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Girl</span> &#123;<br>    name : <span class="hljs-built_in">string</span>;<br>    age : <span class="hljs-built_in">number</span>;<br>    bust : <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-keyword">const</span> girl=&#123;<br>    <span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;史迪奇&#x27;</span>,<br>    age : <span class="hljs-number">0</span>,<br>    bust : <span class="hljs-number">999</span><br><br>&#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">screenResume</span> = (<span class="hljs-params">girl:Girl</span>) =&gt; &#123;<br>    girl.<span class="hljs-property">age</span> &lt; <span class="hljs-number">24</span> &amp;&amp; girl.<span class="hljs-property">bust</span> &gt;= <span class="hljs-number">90</span> &amp;&amp; <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span> + <span class="hljs-string">&#x27;进入战场&#x27;</span>)<br>    girl.<span class="hljs-property">age</span> &gt;= <span class="hljs-number">24</span> || girl.<span class="hljs-property">bust</span> &lt; <span class="hljs-number">90</span> &amp;&amp; <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span> + <span class="hljs-string">&#x27;已死亡&#x27;</span>)<br>&#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">getResume</span> = (<span class="hljs-params">girl:Girl</span>) =&gt; &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span>+<span class="hljs-string">&#x27;的年龄&#x27;</span>+girl.<span class="hljs-property">age</span>)<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span>+<span class="hljs-string">&#x27;的实验品编号&#x27;</span>+girl.<span class="hljs-property">bust</span>)<br>&#125;<br><br><span class="hljs-title function_">screenResume</span>(girl)<br><span class="hljs-title function_">getResume</span>(girl)<br></code></pre></td></tr></table></figure>
+
+<p><strong>接口不仅能限制对象还可以限制类</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Girl</span> &#123;<br>    name : <span class="hljs-built_in">string</span>;<br>    age : <span class="hljs-built_in">number</span>;<br>    bust : <span class="hljs-built_in">number</span>;<br>    waistline ?: <span class="hljs-built_in">number</span>;<br>    [<span class="hljs-attr">propname</span>:<span class="hljs-built_in">string</span>]:<span class="hljs-built_in">any</span>;<br>    <span class="hljs-title function_">say</span>():<span class="hljs-built_in">string</span><br>&#125;<br><br><span class="hljs-keyword">interface</span> syp <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Girl</span>&#123;<br>    <span class="hljs-title function_">syp</span>():<span class="hljs-built_in">string</span><br>&#125;<br><br><span class="hljs-keyword">const</span> girl=&#123;<br>    <span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;史迪奇&#x27;</span>,<br>    age : <span class="hljs-number">0</span>,<br>    bust : <span class="hljs-number">626</span>,<br>    <span class="hljs-attr">waistline</span>:<span class="hljs-number">999</span>,<br>    <span class="hljs-attr">sex</span>:<span class="hljs-string">&#x27;男&#x27;</span>,<br>    <span class="hljs-title function_">say</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;毁灭吧&quot;</span><br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">sdq</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Girl</span>&#123;<br>    <span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;鲁本&#x27;</span><br>    age : <span class="hljs-number">0</span><br>    bust : <span class="hljs-number">625</span><br>    <span class="hljs-attr">waistline</span>:<span class="hljs-number">999</span><br>    <span class="hljs-attr">sex</span>:<span class="hljs-string">&#x27;男&#x27;</span><br>    <span class="hljs-title function_">say</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;毁灭吧&quot;</span><br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">screenResume</span> = (<span class="hljs-params">girl:Girl</span>) =&gt; &#123;<br>    girl.<span class="hljs-property">age</span> &lt; <span class="hljs-number">24</span> &amp;&amp; girl.<span class="hljs-property">bust</span> &gt;= <span class="hljs-number">90</span> &amp;&amp; <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span> + <span class="hljs-string">&#x27;进入战场&#x27;</span>)<br>    girl.<span class="hljs-property">age</span> &gt;= <span class="hljs-number">24</span> || girl.<span class="hljs-property">bust</span> &lt; <span class="hljs-number">90</span> &amp;&amp; <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span> + <span class="hljs-string">&#x27;已死亡&#x27;</span>)<br>&#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">getResume</span> = (<span class="hljs-params">girl:Girl</span>) =&gt; &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span>+<span class="hljs-string">&#x27;的年龄&#x27;</span>+girl.<span class="hljs-property">age</span>)<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span>+<span class="hljs-string">&#x27;的实验品编号&#x27;</span>+girl.<span class="hljs-property">bust</span>)<br>    girl.<span class="hljs-property">waistline</span> &amp;&amp; <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span>+<span class="hljs-string">&#x27;的战斗力&#x27;</span>+girl.<span class="hljs-property">waistline</span>)<br>    girl.<span class="hljs-property">sex</span> &amp;&amp; <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(girl.<span class="hljs-property">name</span>+<span class="hljs-string">&#x27;的性别&#x27;</span>+girl.<span class="hljs-property">sex</span>)<br>&#125;<br><br><span class="hljs-title function_">screenResume</span>(girl)<br><span class="hljs-title function_">getResume</span>(girl)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/TypeScript-interface.html">https://sdq3.link/TypeScript-interface.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

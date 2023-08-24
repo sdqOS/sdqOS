@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>爬虫 re模块的使用(牢饭吃到饱)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0re%E6%A8%A1%E5%9D%97%E5%85%88%E5%AD%A6%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">学习re模块先学正则表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#findall"><span class="toc-text">findall</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#finditer"><span class="toc-text">finditer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#search"><span class="toc-text">search</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#match"><span class="toc-text">match</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%84%E5%8A%A0%E8%BD%BD%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">预加载正则表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%84%E5%8A%A0%E8%BD%BD%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-1"><span class="toc-text">预加载正则表达式</span></a></li></ol>
+      </div>
+      <p><strong>每天一个入狱小技巧</strong></p>
+<span id="more"></span>
+
+
+<h1 id="学习re模块先学正则表达式"><a href="#学习re模块先学正则表达式" class="headerlink" title="学习re模块先学正则表达式"></a><a target="_blank" rel="noopener" href="https://sdq3.gitee.io/reptile-RegEx.html">学习re模块先学正则表达式</a></h1><h1 id="findall"><a href="#findall" class="headerlink" title="findall"></a>findall</h1><p><strong>匹配字符串中所有的符号正则的内容</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> re <br><br>sdq = re.findall(<span class="hljs-string">r&quot;\d+&quot;</span>,<span class="hljs-number">613</span>号实验品 亚亚,<span class="hljs-number">617</span>号实验品 团团,<span class="hljs-number">618</span>号实验品 红绿灯,<span class="hljs-number">619</span>号实验品 火焰球,<span class="hljs-number">624</span>号实验品 安琪,<br><span class="hljs-number">625</span>号实验品 鲁本,<span class="hljs-number">626</span>号实验品 史迪仔)<br><span class="hljs-built_in">print</span>(sdq)<br></code></pre></td></tr></table></figure>
+
+<h1 id="finditer"><a href="#finditer" class="headerlink" title="finditer"></a>finditer</h1><p><strong>匹配字符串中所有的内容 [返回的是迭代器] 从迭代器中拿到内容需要.group</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> re <br><br>sdq = re.findall(<span class="hljs-string">r&quot;\d+&quot;</span>,<span class="hljs-number">613</span>号实验品 亚亚,<span class="hljs-number">617</span>号实验品 团团,<span class="hljs-number">618</span>号实验品 红绿灯,<span class="hljs-number">619</span>号实验品 火焰球,<span class="hljs-number">624</span>号实验品 安琪,<br><span class="hljs-number">625</span>号实验品 鲁本,<span class="hljs-number">626</span>号实验品 史迪仔)<br><span class="hljs-keyword">for</span> i sdq:<br>    <span class="hljs-built_in">print</span>(sdq.group())<br></code></pre></td></tr></table></figure>
+
+<h1 id="search"><a href="#search" class="headerlink" title="search"></a>search</h1><p><strong>返回第一个拿到的结果, 返回的结果是match对象, .group()是拿数据</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> re <br><br>sdq = re.search(<span class="hljs-string">r&quot;\d+&quot;</span>,<span class="hljs-number">613</span>号实验品 亚亚,<span class="hljs-number">617</span>号实验品 团团,<span class="hljs-number">618</span>号实验品 红绿灯,<span class="hljs-number">619</span>号实验品 火焰球,<span class="hljs-number">624</span>号实验品 安琪,<br><span class="hljs-number">625</span>号实验品 鲁本,<span class="hljs-number">626</span>号实验品 史迪仔)<br><span class="hljs-built_in">print</span>(sdq.group())<br></code></pre></td></tr></table></figure>
+
+<h1 id="match"><a href="#match" class="headerlink" title="match"></a>match</h1><p><strong>从头开始匹配, 前面没有就停止</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> re <br><br>sdq = re.search(<span class="hljs-string">r&quot;\d+&quot;</span>,<span class="hljs-number">613</span>号实验品 亚亚,<span class="hljs-number">617</span>号实验品 团团,<span class="hljs-number">618</span>号实验品 红绿灯,<span class="hljs-number">619</span>号实验品 火焰球,<span class="hljs-number">624</span>号实验品 安琪,<br><span class="hljs-number">625</span>号实验品 鲁本,<span class="hljs-number">626</span>号实验品 史迪仔)<br><span class="hljs-built_in">print</span>(sdq.group())<br></code></pre></td></tr></table></figure>
+
+<h1 id="预加载正则表达式"><a href="#预加载正则表达式" class="headerlink" title="预加载正则表达式"></a>预加载正则表达式</h1><p><strong>从头开始匹配, 前面没有就停止</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> re <br><br>sdq = re.<span class="hljs-built_in">compile</span>(<span class="hljs-string">r&quot;\d+&quot;</span>)<br><br>zdz = sdq.finditer(<span class="hljs-string">&quot;613号实验品 亚亚,617号实验品 团团,618号实验品 红绿灯,619号实验品 火焰球,624号实验品 安琪,</span><br><span class="hljs-string">625号实验品 鲁本,626号实验品 史迪仔&quot;</span>)<br><br><span class="hljs-keyword">for</span> it <span class="hljs-keyword">in</span> sdz<br>    <span class="hljs-built_in">print</span>(it.group())<br></code></pre></td></tr></table></figure>
+
+<h1 id="预加载正则表达式-1"><a href="#预加载正则表达式-1" class="headerlink" title="预加载正则表达式"></a>预加载正则表达式</h1><p><strong>从头开始匹配, 前面没有就停止</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> re <br><br>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&#x27;yy&#x27;</span>&gt;&lt;span <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;613&quot;</span>&gt;亚亚&lt;/span&gt;&lt;/div&gt;<br><br>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&#x27;tt&#x27;</span>&gt;&lt;span <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;617&quot;</span>&gt;团团&lt;/span&gt;&lt;/div&gt;<br><br>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&#x27;hld&#x27;</span>&gt;&lt;span <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;618&quot;</span>&gt;红绿灯&lt;/span&gt;&lt;/div&gt;<br><br>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&#x27;tt&#x27;</span>&gt;&lt;span <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;619&quot;</span>&gt;团团&lt;/span&gt;&lt;/div&gt;<br><br>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&#x27;lb&#x27;</span>&gt;&lt;span <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;625&quot;</span>&gt;鲁本&lt;/span&gt;&lt;/div&gt;<br><br>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&#x27;sdq&#x27;</span>&gt;&lt;span <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;626&quot;</span>&gt;史迪奇&lt;/span&gt;&lt;/div&gt;<br><span class="hljs-comment"># (?&lt;分组名字&gt;正则表达式)</span><br>obj = re.<span class="hljs-built_in">compile</span>(<span class="hljs-string">r&quot;&lt;div class=&#x27;.*?&#x27;&gt;&lt;span id=&quot;</span>(?&lt;<span class="hljs-built_in">id</span>&gt;\d+)<span class="hljs-string">&quot;&gt;(?P&lt;name&gt;.*?)&lt;/span&gt;&lt;/div&gt;, re.S)  # re.S: 让.能匹配换行符</span><br><span class="hljs-string"></span><br><span class="hljs-string">result = obj.finditer(s)</span><br><span class="hljs-string"></span><br><span class="hljs-string">for it in sdz</span><br><span class="hljs-string">    print(it.group())</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/reptile-re.html">https://sdq3.link/reptile-re.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

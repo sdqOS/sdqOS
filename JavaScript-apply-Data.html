@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>JavaScript 函数</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8"><span class="toc-text">方法的定义和调用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95"><span class="toc-text">定义方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#apply"><span class="toc-text">apply</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#var%E5%92%8Clet%E5%92%8Cconst%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">var和let和const的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E5%AF%B9%E8%B1%A1"><span class="toc-text">内部对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1"><span class="toc-text">标准对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date"><span class="toc-text">Date</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">基本使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#json%E5%AD%97%E7%AC%A6%E4%B8%B2js%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">json字符串js对象的转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ajax"><span class="toc-text">Ajax</span></a></li></ol></li></ol>
+      </div>
+      <p><strong>JavaScript个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="方法的定义和调用"><a href="#方法的定义和调用" class="headerlink" title="方法的定义和调用"></a>方法的定义和调用</h1><h2 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h2><p><strong>方法就是把函数放在对象里面 对象只有两个东西: 属性和方法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> sdq = &#123;<br>    <span class="hljs-comment">// 名称</span><br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;史迪奇&quot;</span>,、<br>    <span class="hljs-comment">// 编号</span><br>    <span class="hljs-attr">number</span>: <span class="hljs-number">626</span>,<br><br>    <span class="hljs-comment">//方法</span><br>    计算编号: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-comment">// 今年 - 编号</span><br>        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getFullYear</span>():<br>        <span class="hljs-keyword">return</span> now - <span class="hljs-variable language_">this</span>.<span class="hljs-property">nuber</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 属性</span><br>sdq.<span class="hljs-property">name</span><br><span class="hljs-comment">// 方法 (方法一定带括号)</span><br>sdq.<span class="hljs-title function_">number</span>()<br></code></pre></td></tr></table></figure>
+
+<p><strong>另类写法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getSdq</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getFullYear</span>():<br>        <span class="hljs-keyword">return</span> now - <span class="hljs-variable language_">this</span>.<span class="hljs-property">nuber</span>;<br>    &#125;<br><br><span class="hljs-keyword">var</span> sdq = &#123;<br>    <span class="hljs-comment">// 名称</span><br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;史迪奇&quot;</span>,、<br>    <span class="hljs-comment">// 编号</span><br>    <span class="hljs-attr">number</span>: <span class="hljs-number">626</span>,<br>    <span class="hljs-attr">sdq3</span>: getSdq<br>&#125;<br><br><span class="hljs-comment">// 提示: 正常</span><br>sdq.<span class="hljs-property">name</span><br><span class="hljs-comment">// 提示: NaN window</span><br>sdq.<span class="hljs-title function_">number</span>()<br></code></pre></td></tr></table></figure>
+
+<h1 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h1><p><strong>控制this指向</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getSdq</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getFullYear</span>():<br>        <span class="hljs-keyword">return</span> now - <span class="hljs-variable language_">this</span>.<span class="hljs-property">nuber</span>;<br>    &#125;<br><br><span class="hljs-keyword">var</span> sdq = &#123;<br>    <span class="hljs-comment">// 名称</span><br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;史迪奇&quot;</span>,、<br>    <span class="hljs-comment">// 编号</span><br>    <span class="hljs-attr">number</span>: <span class="hljs-number">626</span>,<br>    <span class="hljs-attr">sdq3</span>: getSdq<br>&#125;<br><br><span class="hljs-comment">// this 指向 sdq 参数为空</span><br>etSdq.<span class="hljs-title function_">apply</span>(sdq,[]);<br></code></pre></td></tr></table></figure>
+
+<h1 id="var和let和const的区别"><a href="#var和let和const的区别" class="headerlink" title="var和let和const的区别"></a>var和let和const的区别</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">const</span> 定义常量<br><span class="hljs-keyword">let</span> 有区域<br><span class="hljs-keyword">var</span> 整个函数内都有效<br></code></pre></td></tr></table></figure>
+
+<h1 id="内部对象"><a href="#内部对象" class="headerlink" title="内部对象"></a>内部对象</h1><h2 id="标准对象"><a href="#标准对象" class="headerlink" title="标准对象"></a>标准对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">typeof</span> <span class="hljs-number">333</span><br><span class="hljs-string">&quot;number&quot;</span><br><br><span class="hljs-keyword">typeof</span> <span class="hljs-string">&#x27;333&#x27;</span><br><span class="hljs-string">&quot;string&quot;</span><br><br><span class="hljs-keyword">typeof</span> <span class="hljs-literal">true</span><br><span class="hljs-string">&quot;boolean&quot;</span><br><br><span class="hljs-keyword">typeof</span> <span class="hljs-title class_">NaN</span><br><span class="hljs-string">&quot;number&quot;</span><br><br><span class="hljs-keyword">typeof</span> []<br><span class="hljs-string">&quot;object&quot;</span><br><br><span class="hljs-keyword">typeof</span> &#123;&#125;<br><span class="hljs-string">&quot;object&quot;</span><br><br><span class="hljs-keyword">typeof</span> <span class="hljs-title class_">Math</span>.<span class="hljs-property">sdq</span><br><span class="hljs-string">&quot;function&quot;</span><br><br><span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span><br><span class="hljs-string">&quot;undefined&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br><br>now.<span class="hljs-title function_">getFullYear</span>(); <span class="hljs-comment">// 年</span><br>now.<span class="hljs-title function_">getMonth</span>();    <span class="hljs-comment">// 月 0-11</span><br>now.<span class="hljs-title function_">getDate</span>();     <span class="hljs-comment">// 日</span><br>now.<span class="hljs-title function_">getDay</span>();      <span class="hljs-comment">// 星期几</span><br>now.<span class="hljs-title function_">getHours</span>();    <span class="hljs-comment">// 时</span><br>now.<span class="hljs-title function_">getMinutes</span>();  <span class="hljs-comment">// 分</span><br>now.<span class="hljs-title function_">getseconds</span>();  <span class="hljs-comment">// 秒</span><br>now.<span class="hljs-title function_">getTime</span>();     <span class="hljs-comment">// 时间截 全世界统一 1970 1.1 0:00:00 毫秒数</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(一窜数字))  <span class="hljs-comment">//时间截转为时间</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>转换</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(一窜数字);<br><br><span class="hljs-title class_">Sat</span> <span class="hljs-title class_">Jan</span> <span class="hljs-number">04</span> <span class="hljs-number">2021</span> <span class="hljs-number">10</span>:<span class="hljs-number">48</span>:<span class="hljs-number">35</span> <span class="hljs-variable constant_">GMT</span>+<span class="hljs-number">0800</span> (中国标准时间)<br><br>now.<span class="hljs-property">toLocaleString</span>  <span class="hljs-comment">// 注意, 调用是一个方法/方式 非属性</span><br><br>f <span class="hljs-title function_">toLocaleString</span>(<span class="hljs-params"></span>) &#123;[native code]&#125;<br><br>now.<span class="hljs-title function_">toLocaleString</span>()<br><span class="hljs-string">&quot;2020/1/4 上午10:51:25&quot;</span><br><br>now.<span class="hljs-title function_">toGMTString</span>()<br><span class="hljs-string">&quot;Sat, 03 Jan 2021 05:48:42&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="json字符串js对象的转换"><a href="#json字符串js对象的转换" class="headerlink" title="json字符串js对象的转换"></a>json字符串js对象的转换</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> user = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;史迪奇&quot;</span>,<br>    <span class="hljs-attr">number</span>: <span class="hljs-number">626</span>,<br>    <span class="hljs-attr">sex</span>: <span class="hljs-string">&quot;未知&quot;</span><br>&#125;<br><br><span class="hljs-comment">// 对象转化json字符串 &#123;&quot;name&quot;:&quot;史迪奇&quot;, &quot;number&quot;:626, &quot;sex&quot;: &quot;未知&quot;&#125;</span><br><span class="hljs-keyword">var</span> jsonUser = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(user);<br><br><span class="hljs-comment">// json 字符串转化对象 参数为 json字符串</span><br><span class="hljs-keyword">var</span> obj = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(<span class="hljs-string">&#x27;&#123;&quot;name&quot;:&quot;史迪奇&quot;, &quot;number&quot;:626, &quot;sex&quot;: &quot;未知&quot;&#125;&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><ul>
+<li>原生的js写法 xhr 异步请求</li>
+<li>jQuey 封装的方法 $(“#name”).ajax(“”)</li>
+<li>axios 请求</li>
+</ul>
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/JavaScript-apply-Data.html">https://sdq3.link/JavaScript-apply-Data.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

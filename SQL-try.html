@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>SQL Server T-SQL 视图</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE"><span class="toc-text">创建视图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%91%E8%A7%86%E5%9B%BE%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-text">向视图插入数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE"><span class="toc-text">查询视图数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-%E6%9B%B4%E6%96%B0-%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE"><span class="toc-text">修改(更新)视图数据</span></a></li></ol>
+      </div>
+      <p><strong>SQL Server个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">create</span> <span class="hljs-keyword">view</span> 视图(字段别名) <span class="hljs-keyword">as</span> <span class="hljs-keyword">select</span> 字段 <span class="hljs-keyword">from</span> 表 <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">CHECK</span> OPTION<br></code></pre></td></tr></table></figure>
+
+<h1 id="向视图插入数据"><a href="#向视图插入数据" class="headerlink" title="向视图插入数据"></a>向视图插入数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">insert</span> 视图 <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;数据&#x27;</span>) <br></code></pre></td></tr></table></figure>
+
+<h1 id="查询视图数据"><a href="#查询视图数据" class="headerlink" title="查询视图数据"></a>查询视图数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> 字段 <span class="hljs-keyword">from</span> 视图<br></code></pre></td></tr></table></figure>
+
+<h1 id="修改-更新-视图数据"><a href="#修改-更新-视图数据" class="headerlink" title="修改(更新)视图数据"></a>修改(更新)视图数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">update</span> 视图 <span class="hljs-keyword">set</span> 修改的字段<span class="hljs-operator">=</span><span class="hljs-string">&#x27;修改的数据&#x27;</span> <span class="hljs-keyword">where</span> 匹配字段<span class="hljs-operator">=</span><span class="hljs-string">&#x27;匹配数据&#x27;</span> <br></code></pre></td></tr></table></figure>
+
+<br>
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/SQL-try.html">https://sdq3.link/SQL-try.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

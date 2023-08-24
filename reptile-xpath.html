@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>爬虫 xpath(牢饭吃到饱)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#xpath-%E6%98%AF%E5%9C%A8XML%E6%96%87%E6%A1%A3%E4%B8%AD%E6%90%9C%E7%B4%A2%E5%86%85%E5%AE%B9%E7%9A%84%E4%B8%80%E9%97%A8%E8%AF%AD%E8%A8%80-%E5%8F%AF%E4%BB%A5%E7%94%A8%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-text">xpath 是在XML文档中搜索内容的一门语言 可以用绝对定位和相对定位</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85xpath"><span class="toc-text">安装xpath</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xpath%E8%AF%AD%E6%B3%95"><span class="toc-text">xpath语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0"><span class="toc-text">综合练习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML%E4%BB%A3%E7%A0%81-%E4%BF%9D%E5%AD%98sdq-html"><span class="toc-text">HTML代码 保存sdq.html</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#py%E4%BB%A3%E7%A0%81"><span class="toc-text">py代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E5%8F%96%E7%89%B9%E5%AE%9A%E8%8A%82%E7%82%B9%E7%9A%84%E8%AF%AD%E6%B3%95"><span class="toc-text">选取特定节点的语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%B4%A2%E5%BC%95%E4%BF%AE%E9%A5%B0%E8%8A%82%E7%82%B9"><span class="toc-text">通过索引修饰节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%B1%9E%E6%80%A7%E5%80%BC%E4%BF%AE%E9%A5%B0%E8%8A%82%E7%82%B9"><span class="toc-text">通过属性值修饰节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%AD%90%E8%8A%82%E7%82%B9%E7%9A%84%E5%80%BC%E4%BF%AE%E9%A5%B0%E8%8A%82%E7%82%B9"><span class="toc-text">通过子节点的值修饰节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%8C%85%E5%90%AB%E4%BF%AE%E9%A5%B0"><span class="toc-text">通过包含修饰</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E5%8F%96%E6%9C%AA%E7%9F%A5%E8%8A%82%E7%82%B9%E7%9A%84%E8%AF%AD%E6%B3%95"><span class="toc-text">选取未知节点的语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#xpath%E5%A4%8D%E5%90%88%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="toc-text">xpath复合使用语法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xpath%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E5%88%97%E8%A1%A8%E7%9A%84%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5"><span class="toc-text">xpath方法返回列表的三种情况</span></a></li></ol>
+      </div>
+      <p><strong>每天一个入狱小技巧</strong></p>
+<span id="more"></span>
+
+
+<h1 id="xpath-是在XML文档中搜索内容的一门语言-可以用绝对定位和相对定位"><a href="#xpath-是在XML文档中搜索内容的一门语言-可以用绝对定位和相对定位" class="headerlink" title="xpath 是在XML文档中搜索内容的一门语言 可以用绝对定位和相对定位"></a>xpath 是在XML文档中搜索内容的一门语言 可以用绝对定位和相对定位</h1><p><strong>html是xml的一个子集</strong></p>
+<h1 id="安装xpath"><a href="#安装xpath" class="headerlink" title="安装xpath"></a>安装xpath</h1><p><strong>打开cmd 输入以下内容</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell">pip install xpath<br></code></pre></td></tr></table></figure>
+
+<h1 id="xpath语法"><a href="#xpath语法" class="headerlink" title="xpath语法"></a>xpath语法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Python">主要分为<span class="hljs-number">3</span>大类<br><br>层级:   / 直接子集   跳级     斜杠隔开的是节点<br><br>属性:   @ 属性访问  如//link/@href 从选中的节点标签中获取指定的值<br><br>函数:   contains() 包含   text()文本 等...  如//title/text() 从开闭标签之间去文本内容<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nodename</td>
+<td align="center">选中该元素</td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="center">从根节点选取或者是元素和元素间的过度</td>
+</tr>
+<tr>
+<td align="center">//</td>
+<td align="center">从匹配选择的当前节点选择文档的节点而不用考虑它们的位置</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center">选取属性</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">选取当前节点</td>
+</tr>
+<tr>
+<td align="center">..</td>
+<td align="center">选取当前节点的父节点</td>
+</tr>
+<tr>
+<td align="center">text()</td>
+<td align="center">选取文本</td>
+</tr>
+</tbody></table>
+<h1 id="综合练习"><a href="#综合练习" class="headerlink" title="综合练习"></a>综合练习</h1><p><strong>打开这个<a target="_blank" rel="noopener" href="https://www.umei.cc/bizhitupian/weimeibizhi/">网址</a></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 导入xpath</span><br><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree<br><br>xml = <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">&lt;book&gt;</span><br><span class="hljs-string">    &lt;id&gt;???&lt;/id&gt;</span><br><span class="hljs-string">    &lt;name&gt;星际宝贝&lt;/name&gt;</span><br><span class="hljs-string">    &lt;price&gt;!!!&lt;/price&gt;</span><br><span class="hljs-string">    &lt;nick&gt;实验品&lt;/nick&gt;</span><br><span class="hljs-string">    &lt;author&gt;</span><br><span class="hljs-string">        &lt;nick id=&quot;624&quot;&gt;安琪&lt;/nick&gt;</span><br><span class="hljs-string">        &lt;nick id=&quot;625&quot;&gt;鲁本&lt;/nick&gt;</span><br><span class="hljs-string">        &lt;nick id=&quot;626&quot;&gt;史迪奇&lt;/nick&gt;</span><br><span class="hljs-string">        &lt;nick class=&quot;221&quot;&gt;小火花&lt;/nick&gt;</span><br><span class="hljs-string">        &lt;div&gt;</span><br><span class="hljs-string">            &lt;nick&gt;搞破坏&lt;/nick&gt;</span><br><span class="hljs-string">        &lt;/div&gt;</span><br><span class="hljs-string">        &lt;span&gt;</span><br><span class="hljs-string">            &lt;nick&gt;吃饭&lt;/nick&gt;</span><br><span class="hljs-string">        &lt;/span&gt;</span><br><span class="hljs-string">    &lt;/author&gt;</span><br><span class="hljs-string"></span><br><span class="hljs-string">    &lt;partner&gt;</span><br><span class="hljs-string">        &lt;nick id=&quot;029&quot;&gt;跳棋&lt;/nick&gt;</span><br><span class="hljs-string">        &lt;nick id=&quot;001&quot;&gt;史灵可&lt;/nick&gt;</span><br><span class="hljs-string">    &lt;/partner&gt;</span><br><span class="hljs-string">&lt;/book&gt;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>tree = etree.HTML(html.text)   <span class="hljs-comment">#加载爬取下来的源码</span><br><span class="hljs-comment"># tree = etree.parse(paese)   #加载文件</span><br><span class="hljs-comment"># tree = etree.XML(xml)       #加载XML</span><br><br>result = tree.xpath(<span class="hljs-string">&quot;/book//nick/text().extract&quot;</span>) <span class="hljs-comment">#text()就是文字 .extract就是提取</span><br><span class="hljs-built_in">print</span>(result)<br></code></pre></td></tr></table></figure>
+
+<h1 id="HTML代码-保存sdq-html"><a href="#HTML代码-保存sdq-html" class="headerlink" title="HTML代码 保存sdq.html"></a>HTML代码 保存sdq.html</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>&gt;</span>百度<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://www.google.com&quot;</span>&gt;</span>谷歌<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://www.sogou.com&quot;</span>&gt;</span>搜狗<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;Stitch&quot;</span>&gt;</span>Stitch<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;sdq&quot;</span>&gt;</span>史迪奇<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;sdz&quot;</span>&gt;</span>史迪仔<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;Lilo&quot;</span>&gt;</span>莉萝<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;Nani&quot;</span>&gt;</span>兰莉<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="py代码"><a href="#py代码" class="headerlink" title="py代码"></a>py代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree<br><br>tree = etree.parse(<span class="hljs-string">&quot;sdq.html&quot;</span>)<br><span class="hljs-comment"># result = tree.xpath(&#x27;/html&#x27;)</span><br><span class="hljs-comment"># result = tree.xpath(&quot;/html/body/ul/li/a/text()&quot;)</span><br><span class="hljs-comment"># result = tree.xpath(&quot;/html/body/ul/li[1]/a/text()&quot;)  # xpath的顺序是从1开始数的, []表示索引</span><br><span class="hljs-comment"># result = tree.xpath(&quot;/html/body/ol/li/a[@href=&#x27;dapao&#x27;]/text()&quot;)  # [@xxx=xxx] 属性的筛选</span><br><span class="hljs-comment"># print(result)</span><br><br><span class="hljs-comment"># ol_li_list = tree.xpath(&quot;/html/body/ol/li&quot;)</span><br><br><span class="hljs-comment"># for li in ol_li_list:</span><br><span class="hljs-comment">#     # 从每一个li中提取到文字信息</span><br><span class="hljs-comment">#     result = li.xpath(&quot;./a/text()&quot;)  # 在li中继续去寻找 相对查找</span><br><span class="hljs-comment">#     print(result)</span><br><span class="hljs-comment">#     result2 = li.xpath(&quot;./a/@href&quot;)  # @属性意思是拿到属性值</span><br><span class="hljs-comment">#     print(result2)</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># print(tree.xpath(&quot;/html/body/ul/li/a/@href&quot;))</span><br><span class="hljs-built_in">print</span>(tree.xpath(<span class="hljs-string">&#x27;/html/body/div[1]/text().extract&#x27;</span>))       <span class="hljs-comment">#text()就是文字 .extract就是提取</span><br><span class="hljs-built_in">print</span>(tree.xpath(<span class="hljs-string">&#x27;/html/body/ol/li/a/text().extract&#x27;</span>))      <span class="hljs-comment">#text()就是文字 .extract就是提取</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="选取特定节点的语法"><a href="#选取特定节点的语法" class="headerlink" title="选取特定节点的语法"></a>选取特定节点的语法</h1><h3 id="通过索引修饰节点"><a href="#通过索引修饰节点" class="headerlink" title="通过索引修饰节点"></a>通过索引修饰节点</h3><table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">//title[@lang=”eng”]</td>
+<td align="left">选择lang属性值为eng的所有title元素</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[1]</td>
+<td align="left">选择属于bookstore子元素的第一个book元素</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[last()]</td>
+<td align="left">选择属于bookstore子元素的最后一个book元素</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[last()-1]</td>
+<td align="left">选择属于bookstore子元素的倒数第二个book元素</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[position()&gt;1]</td>
+<td align="left">选择bookstore下面的book元素从第二个开始选择</td>
+</tr>
+<tr>
+<td align="left">//book/title[text()=”sdq”]</td>
+<td align="left">选择所有book下的title元素仅仅选择文本为sdq的title元素</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[price&gt;33.33]</td>
+<td align="left">选取bookstore元素中book元素的所有title元素且其中price元素的值必须大于33.33</td>
+</tr>
+</tbody></table>
+<h3 id="通过属性值修饰节点"><a href="#通过属性值修饰节点" class="headerlink" title="通过属性值修饰节点"></a>通过属性值修饰节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python">//div[@<span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;sdq&quot;</span>]/div/@<span class="hljs-built_in">id</span>     出现在[]中@是使用标签属性名和属性值修饰节点 出现在结尾的/@是取属性值<br></code></pre></td></tr></table></figure>
+
+<h3 id="通过子节点的值修饰节点"><a href="#通过子节点的值修饰节点" class="headerlink" title="通过子节点的值修饰节点"></a>通过子节点的值修饰节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Python">//span[i&gt;<span class="hljs-number">333</span>]   i是标签<br>//div[span[<span class="hljs-number">2</span>]&gt;<span class="hljs-number">9.3</span>]   span是标签<br></code></pre></td></tr></table></figure>
+
+<h3 id="通过包含修饰"><a href="#通过包含修饰" class="headerlink" title="通过包含修饰"></a>通过包含修饰</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Python">//div[contains(@<span class="hljs-built_in">id</span>,<span class="hljs-string">&quot;sd&quot;</span>)]       找出sdq通过属性名和大概的属性值 <br>//div[contains(text(),<span class="hljs-string">&quot;下一页&quot;</span>)]     通过文本内容包含有下一页的字  <br></code></pre></td></tr></table></figure>
+
+<h1 id="选取未知节点的语法"><a href="#选取未知节点的语法" class="headerlink" title="选取未知节点的语法"></a>选取未知节点的语法</h1><table>
+<thead>
+<tr>
+<th align="center">通配符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*</td>
+<td align="center">匹配任何元素节点</td>
+</tr>
+<tr>
+<td align="center">@*</td>
+<td align="center">匹配任何属性节点</td>
+</tr>
+<tr>
+<td align="center">node()</td>
+<td align="center">匹配任何类型的节点</td>
+</tr>
+<tr>
+<td align="center">//*</td>
+<td align="center">全部的标签</td>
+</tr>
+<tr>
+<td align="center">//@*</td>
+<td align="center">全部的属性</td>
+</tr>
+</tbody></table>
+<h2 id="xpath复合使用语法"><a href="#xpath复合使用语法" class="headerlink" title="xpath复合使用语法"></a>xpath复合使用语法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python">//h2/a|//td/a<br></code></pre></td></tr></table></figure>
+
+<h1 id="xpath方法返回列表的三种情况"><a href="#xpath方法返回列表的三种情况" class="headerlink" title="xpath方法返回列表的三种情况"></a>xpath方法返回列表的三种情况</h1><ul>
+<li><p>返回空列表: 根据xpath语法规则字符串, 没有定位到任何元素</p>
+</li>
+<li><p>返回由字符串构成的列表: xpath字符串匹配的一定是文本内容或某属性的值</p>
+</li>
+<li><p>返回由Element对象构成的列表: xpath规则字符串匹配的是标签, 列表中的Element对象可以继续进行xpath</p>
+</li>
+</ul>
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/reptile-xpath.html">https://sdq3.link/reptile-xpath.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

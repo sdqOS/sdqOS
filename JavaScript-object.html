@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>JavaScript 数据类型之(对象)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript%E4%B9%9F%E6%98%AF%E4%B8%80%E7%A7%8D%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E8%A8%80-%E6%89%80%E6%9C%89%E7%9A%84%E9%94%AE%E9%83%BD%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%80%BC%E5%8F%AF%E4%BB%A5%E6%98%AF%E4%BB%BB%E6%84%8F%E5%AF%B9%E8%B1%A1"><span class="toc-text">JavaScript也是一种面向对象的语言 所有的键都是字符串 值可以是任意对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC"><span class="toc-text">对象赋值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%AD%98%E5%9C%A8%E5%AF%B9%E8%B1%A1-%E4%B8%8D%E4%BC%9A%E6%8A%A5%E9%94%99"><span class="toc-text">undefined 使用不存在对象, 不会报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#delete-%E5%8A%A8%E6%80%81%E7%9A%84%E5%88%A0%E5%87%8F%E5%B1%9E%E6%80%A7"><span class="toc-text">delete 动态的删减属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%9A%84%E6%B7%BB%E5%8A%A0%E7%BB%99%E6%96%B0%E7%9A%84%E5%B1%9E%E6%80%A7%E6%B7%BB%E5%8A%A0%E5%80%BC"><span class="toc-text">动态的添加给新的属性添加值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AF%E5%90%A6%E5%9C%A8%E8%BF%99%E4%B8%AA%E5%AF%B9%E8%B1%A1-%E5%B1%9E%E6%80%A7%E5%80%BC%E6%98%AF%E5%90%A6%E5%9C%A8%E8%BF%99%E4%B8%AA%E5%AF%B9%E8%B1%A1"><span class="toc-text">判断属性值是否在这个对象  属性值是否在这个对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%B1%9E%E6%80%A7%E6%98%AF%E5%90%A6%E6%98%AF%E8%BF%99%E4%B8%AA%E5%AF%B9%E8%B1%A1%E8%87%AA%E8%BA%AB%E6%8B%A5%E6%9C%89%E7%9A%84-hasOwnProperty"><span class="toc-text">判断属性是否是这个对象自身拥有的 hasOwnProperty()</span></a></li></ol>
+      </div>
+      <p><strong>JavaScript个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="JavaScript也是一种面向对象的语言-所有的键都是字符串-值可以是任意对象"><a href="#JavaScript也是一种面向对象的语言-所有的键都是字符串-值可以是任意对象" class="headerlink" title="JavaScript也是一种面向对象的语言 所有的键都是字符串 值可以是任意对象"></a>JavaScript也是一种面向对象的语言 所有的键都是字符串 值可以是任意对象</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> 对象名 = &#123;    <br>    属性名: 属性值<br>    属性名: 属性值<br>    属性名: 属性值<br>&#125; <br><br><span class="hljs-comment">/*通过下标取值和赋值*/</span><br><span class="hljs-keyword">var</span> person = &#123;<br>   <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;sdq&quot;</span>,<br>   <span class="hljs-attr">age</span>: <span class="hljs-number">3</span>,<br>   <span class="hljs-attr">email</span>: <span class="hljs-string">&quot;???????@???&quot;</span><br>   <span class="hljs-attr">score</span>: <span class="hljs-number">0</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>若干个键值对 js中对象, {…..}表示一个对象, 键值对描述属性xxxx: xxxx, 多个属性之间使用逗号隔开, 最后一个属性不加逗号</strong></p>
+<h1 id="对象赋值"><a href="#对象赋值" class="headerlink" title="对象赋值"></a>对象赋值</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">person.<span class="hljs-property">name</span> = <span class="hljs-string">&quot;sdq&quot;</span>      <span class="hljs-comment">/*这里赋值sdq*/</span><br>person.<span class="hljs-property">name</span>              <span class="hljs-comment">/*这里输出sdq*/</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="undefined-使用不存在对象-不会报错"><a href="#undefined-使用不存在对象-不会报错" class="headerlink" title="undefined 使用不存在对象, 不会报错"></a>undefined 使用不存在对象, 不会报错</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">person.<span class="hljs-property">sdz</span><br><span class="hljs-literal">undefined</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="delete-动态的删减属性"><a href="#delete-动态的删减属性" class="headerlink" title="delete 动态的删减属性"></a>delete 动态的删减属性</h1><p><strong>例子</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">delete</span> person.<span class="hljs-property">name</span><br><span class="hljs-literal">true</span><br>person<br></code></pre></td></tr></table></figure>
+
+<h1 id="动态的添加给新的属性添加值"><a href="#动态的添加给新的属性添加值" class="headerlink" title="动态的添加给新的属性添加值"></a>动态的添加给新的属性添加值</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">person.<span class="hljs-property">sdq</span> = <span class="hljs-string">&quot;sdz&quot;</span>  <span class="hljs-comment">/*这里赋值sdz*/</span><br>person      <br></code></pre></td></tr></table></figure>
+
+<h1 id="判断属性值是否在这个对象-属性值是否在这个对象"><a href="#判断属性值是否在这个对象-属性值是否在这个对象" class="headerlink" title="判断属性值是否在这个对象  属性值是否在这个对象"></a>判断属性值是否在这个对象  属性值是否在这个对象</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-string">&quot;sdq&quot;</span> <span class="hljs-keyword">in</span> person        <br><span class="hljs-literal">true</span>         <br><span class="hljs-string">&quot;sdqz&quot;</span> <span class="hljs-keyword">in</span> person   <br><span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="判断属性是否是这个对象自身拥有的-hasOwnProperty"><a href="#判断属性是否是这个对象自身拥有的-hasOwnProperty" class="headerlink" title="判断属性是否是这个对象自身拥有的 hasOwnProperty()"></a>判断属性是否是这个对象自身拥有的 hasOwnProperty()</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">person.<span class="hljs-title function_">hasOwnProperty</span>(<span class="hljs-string">&quot;toString&quot;</span>)<br><span class="hljs-literal">false</span>       <br>person.<span class="hljs-title function_">hasOwnProperty</span>(<span class="hljs-string">&quot;sdq&quot;</span>)<br><span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/JavaScript-object.html">https://sdq3.link/JavaScript-object.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

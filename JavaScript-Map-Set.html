@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>JavaScript 数据类型之(Map和Set)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Map"><span class="toc-text">Map</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Set"><span class="toc-text">Set</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iterator"><span class="toc-text">iterator</span></a></li></ol>
+      </div>
+      <p><strong>JavaScript个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">/*ES6 Map*/</span><br><span class="hljs-comment">/*学生的成绩, 学生的名字 两种方式*/</span><br><span class="hljs-keyword">var</span> names = [<span class="hljs-string">&quot;史迪奇&quot;</span>,<span class="hljs-string">&quot;史迪仔&quot;</span>,<span class="hljs-string">&quot;强霸&quot;</span>];<br><span class="hljs-keyword">var</span> scores = [<span class="hljs-number">100</span>,<span class="hljs-number">100</span>,<span class="hljs-number">36</span>]<br><span class="hljs-comment">/*另一种*/</span><br><span class="hljs-keyword">var</span> map = naw <span class="hljs-title class_">Map</span>([[<span class="hljs-string">&quot;史迪奇&quot;</span>,<span class="hljs-number">100</span>],[<span class="hljs-string">&quot;史迪仔&quot;</span>,<span class="hljs-number">100</span>],[<span class="hljs-string">&quot;强霸&quot;</span>,<span class="hljs-number">36</span>]]);<br><span class="hljs-keyword">var</span> name = map.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;史迪奇&quot;</span>);    <span class="hljs-comment">/*通过key获得value*/</span> <br>map.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;独眼霹雳&quot;</span>,<span class="hljs-number">60</span>);          <span class="hljs-comment">/*新增或修改*/</span> <br>map.<span class="hljs-title function_">delete</span>(<span class="hljs-string">&quot;强霸&quot;</span>);              <span class="hljs-comment">/*删除*/</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">set.<span class="hljs-title function_">add</span>(<span class="hljs-number">3</span>)                 <span class="hljs-comment">/*添加*/</span>  <br>set.<span class="hljs-title function_">delete</span>(<span class="hljs-string">&quot;强霸&quot;</span>);        <span class="hljs-comment">/*删除*/</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(set.<span class="hljs-title function_">has</span>(<span class="hljs-number">3</span>))    <span class="hljs-comment">/*是否包含某个元素*/</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h1><p><strong>遍历数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">/*通过for of, for in 下标 */</span>  <br><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> x <span class="hljs-keyword">of</span> arr)&#123;<br>     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>遍历map</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>([[<span class="hljs-string">&quot;史迪奇&quot;</span>,<span class="hljs-number">100</span>],[<span class="hljs-string">&quot;史迪仔&quot;</span>,<span class="hljs-number">100</span>],[<span class="hljs-string">&quot;强霸&quot;</span>,<span class="hljs-number">100</span>]]);<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> x <span class="hljs-keyword">of</span> map)&#123;<br>     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>遍历set</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-title function_">set</span>([[<span class="hljs-string">&quot;史迪奇&quot;</span>,<span class="hljs-number">100</span>],[<span class="hljs-string">&quot;史迪仔&quot;</span>,<span class="hljs-number">100</span>],[<span class="hljs-string">&quot;强霸&quot;</span>,<span class="hljs-number">100</span>]]);<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> x <span class="hljs-keyword">of</span> set)&#123;<br>     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/JavaScript-Map-Set.html">https://sdq3.link/JavaScript-Map-Set.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>TypeScript类</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%B1%BB"><span class="toc-text">使用类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#publie-private-protected"><span class="toc-text">publie private protected</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="toc-text">类的继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get%E5%92%8Cset"><span class="toc-text">get和set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%B1%BB"><span class="toc-text">静态类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-text">抽象类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AA%E8%AF%BB%E6%96%B9%E6%B3%95"><span class="toc-text">只读方法</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <p><strong>TypeScript学习笔记</strong></p>
+<span id="more"></span>
+
+
+<h1 id="使用类"><a href="#使用类" class="headerlink" title="使用类"></a>使用类</h1><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript">sdq是sdz是父类<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">sdq</span>&#123;<br>    content = <span class="hljs-string">&quot;史迪奇&quot;</span><br>    <span class="hljs-title function_">sayHello</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">content</span><br>    &#125;<br>&#125;<br><br>sdz是sdq是子类<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">sdz</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">sdq</span>&#123;<br>    <span class="hljs-title function_">sayHello</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">super</span>.<span class="hljs-title function_">sayHello</span>()+<span class="hljs-string">&#x27;是小恶魔&#x27;</span><br>    &#125;<br>    <span class="hljs-title function_">sayLove</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;史迪仔&quot;</span><br>    &#125;<br>&#125;<br><br><br><span class="hljs-keyword">const</span> goddess = <span class="hljs-keyword">new</span> <span class="hljs-title function_">sdz</span>()<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(goddess.<span class="hljs-title function_">sayHello</span>())<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(goddess.<span class="hljs-title function_">sayLove</span>())<br></code></pre></td></tr></table></figure>
+
+<h1 id="publie-private-protected"><a href="#publie-private-protected" class="headerlink" title="publie private protected"></a>publie private protected</h1><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript">类的内部和类的外部<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SDQ</span>&#123;<br>    这里就是类的内部 <br>    name : <span class="hljs-built_in">string</span>;<br>    <span class="hljs-comment">//相当于 publie name : string;</span><br>&#125;<br><br>这里就是类的外部<br><span class="hljs-keyword">const</span> sdq = <span class="hljs-keyword">new</span> <span class="hljs-title function_">SDQ</span>()<br>sdq.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;史迪奇&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sdq.<span class="hljs-property">name</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h3><p><strong>继承前</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SDQ</span> &#123;<br>    相当于<span class="hljs-number">1</span> <span class="hljs-keyword">public</span> name : <span class="hljs-built_in">string</span>;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> name : <span class="hljs-built_in">string</span></span>)&#123;<br>    相当于<span class="hljs-number">2</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> sdq = <span class="hljs-keyword">new</span> <span class="hljs-title function_">SDQ</span>(<span class="hljs-string">&quot;我叫史迪奇&quot;</span>)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sdq.<span class="hljs-property">name</span>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>继承后</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SDQ</span> &#123;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> name : <span class="hljs-built_in">string</span></span>)&#123;&#125;<br>&#125;<br><br>类的继承<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SDZ</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">SDQ</span>&#123;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> bianhao:<span class="hljs-built_in">number</span></span>)&#123;<br>        <span class="hljs-variable language_">super</span>(<span class="hljs-string">&quot;史迪仔&quot;</span>)<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> sdz = <span class="hljs-keyword">new</span> <span class="hljs-title function_">SDZ</span>(<span class="hljs-number">626</span>)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sdz.<span class="hljs-property">bianhao</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="get和set"><a href="#get和set" class="headerlink" title="get和set"></a>get和set</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SDQ</span> &#123;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> _age: <span class="hljs-built_in">number</span></span>)&#123;&#125;<br>    <span class="hljs-keyword">get</span> <span class="hljs-title function_">age</span>()&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">_age</span>-<span class="hljs-number">10</span><br>    &#125;<br>    <span class="hljs-keyword">set</span> <span class="hljs-title function_">age</span>(<span class="hljs-params">age:<span class="hljs-built_in">number</span></span>)&#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">_age</span> = age+<span class="hljs-number">3</span> <br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> sdq = <span class="hljs-keyword">new</span> <span class="hljs-title function_">SDQ</span>(<span class="hljs-number">626</span>)<br>sdq.<span class="hljs-property">age</span>=<span class="hljs-number">25</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sdq.<span class="hljs-property">age</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="静态类"><a href="#静态类" class="headerlink" title="静态类"></a>静态类</h3><p><strong>statc</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SDQ</span>&#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-title class_">MyName</span>()&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;我叫史迪奇&quot;</span><br>    &#125;<br>&#125;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable constant_">SDQ</span>.<span class="hljs-title class_">MyName</span>())<br></code></pre></td></tr></table></figure>
+
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript">抽象类<br><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">sdq</span> &#123;<br>    <span class="hljs-keyword">abstract</span> <span class="hljs-title function_">skill</span>()<br>&#125;<br><br>抽象方法<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">cifan</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">sdq</span>&#123;<br>    业务逻辑<br>    <span class="hljs-title function_">skill</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;进食&quot;</span>)<br>    &#125;<br>&#125;<br><br>抽象方法<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">shuijiao</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">sdq</span>&#123;<br>    业务逻辑<br>    <span class="hljs-title function_">skill</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;睡觉&quot;</span>)<br>    &#125;<br>&#125;<br><br>抽象方法<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">pohuai</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">sdq</span>&#123;<br>    业务逻辑<br>    <span class="hljs-title function_">skill</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;破坏&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="只读方法"><a href="#只读方法" class="headerlink" title="只读方法"></a>只读方法</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SDQ</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> _name :<span class="hljs-built_in">string</span>;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name:<span class="hljs-built_in">string</span> </span>)&#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">_name</span> = name;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> sdq = <span class="hljs-keyword">new</span> <span class="hljs-title function_">SDQ</span>(<span class="hljs-string">&#x27;史迪仔&#x27;</span>)<br><br><span class="hljs-comment">// 无法分配到 &quot;_name&quot; , 因为它是只读属性</span><br>sdq.<span class="hljs-property">_name</span>= <span class="hljs-string">&#x27;史迪奇&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sdq.<span class="hljs-property">_name</span>)<br></code></pre></td></tr></table></figure>
+
+<br>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/TypeScript-class.html">https://sdq3.link/TypeScript-class.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

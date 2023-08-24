@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Text</title>
-    <!-- 导入网络js -->
-    <link rel="stylesheet" href="/bulma.min.css">
-
+    <link rel="icon" href="/text.png">
     <!-- 导入css -->
     <link rel="stylesheet" href="/style.css"/>
-  
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
   <meta name="generator" content="Hexo 5.4.2"></head>
   <body>
 
@@ -23,8 +26,8 @@
     <div id="content-wrap">
         <div class="container">
           <!-- 点击文章 -->
-<div class="wenzhang-container">
-  <h1 class="title is-3 is-4-mobile">C语 数组</h1>
+<div>
+  <h1>C语 数组</h1>
   <wenzhang>
       <div class="contents">
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">一维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的定义:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">数组定义格式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的赋值例子:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的储存例子:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">一维数组元素的引用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%95%B0%E7%BB%84int-arr-N-%E5%88%99%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%8B%E6%A0%87%E4%B8%BA-0-N-1-%E5%8D%B3%E6%9C%80%E5%A4%A7%E7%9A%84%E4%B8%8B%E6%A0%87%E4%B8%BA%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6-1"><span class="toc-text">如果数组int arr[N]; 则数组的下标为: 0 ~ N-1 即最大的下标为数组长度-1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">数组元素的引用形式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">一维数组元素的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的遍历例子:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">二维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">二维数组的定义:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">二维数组的储存例子:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">二维数组的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">二维数组的初始化:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的遍历例子:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">二维数组元素的引用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">数组元素的引用形式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">二维数组元素的初始化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84"><span class="toc-text">字符数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">字符数组的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">一维数组的定义形式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">二维数组的定义形式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">字符数组元素的初始化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">字符串处理函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0-puts"><span class="toc-text">字符串输出函数 puts</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E5%87%BD%E6%95%B0-gets"><span class="toc-text">字符串输入函数 gets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5%E5%87%BD%E6%95%B0-strcat"><span class="toc-text">字符串连接函数 strcat</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%8D%E5%88%B6%E5%87%BD%E6%95%B0-strcpy"><span class="toc-text">字符串复制函数 strcpy</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0-strcmp"><span class="toc-text">字符串比较函数 strcmp</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6%E5%87%BD%E6%95%B0-strlen"><span class="toc-text">检测字符串长度函数 strlen</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%86%99%E5%AD%97%E6%AF%8D%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E5%87%BD%E6%95%B0-strlwr"><span class="toc-text">大写字母转换为小写字母函数 strlwr</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%A4%A7%E5%86%99%E5%AD%97%E6%AF%8D-strupr"><span class="toc-text">小写字母转换为大写字母 strupr</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">字符串输出函数 puts的格式:</span></a></li></ol></li></ol></li></ol></li></ol>
@@ -301,18 +304,67 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">strupr ( 字符数组 );<br></code></pre></td></tr></table></figure>
 
 <br>
-      <p class="copyright"><strong>Links: <a href="https://sdq3.gitee.io/C-Array.html">https://sdq3.gitee.io/C-Array.html</a></strong></p>
-  </wenzhang>
-</div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
         </div>
     </div>
     
 <footer id="footer" >
     <span class="konga">
         <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
         <a class="jiao"  href=".">></a>
     </span>
+    <div id="text_output"></div>
+    </div>
+
 </footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/C-Array.html">https://sdq3.link/C-Array.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
   </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
   </body>
 </html>

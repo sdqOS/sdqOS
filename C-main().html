@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>C语 概述(程序结构)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E7%BB%93%E6%9E%84"><span class="toc-text">总体结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E8%88%AC%E7%BB%93%E6%9E%84"><span class="toc-text">函数的一般结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E7%AC%A6%E5%8F%B7%E7%BA%A6%E5%AE%9A"><span class="toc-text">语法符号约定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-text">函数说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BD%93"><span class="toc-text">函数体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E%E8%AF%AD%E5%8F%A5%E9%83%A8%E5%88%86"><span class="toc-text">说明语句部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%AF%AD%E5%8F%A5%E9%83%A8%E5%88%86"><span class="toc-text">执行语句部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E7%A8%8B%E5%BA%8F%E4%B9%A6%E5%86%99%E6%A0%BC%E5%BC%8F"><span class="toc-text">源程序书写格式</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="toc-text">C语言的编译过程:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">C语言的关键字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%E6%98%AF%E5%9F%BA%E6%9C%AC%E5%8D%95%E4%BD%8D-%E6%95%B0%E6%8D%AE%E9%A1%B9%E6%98%AF%E6%9C%80%E5%B0%8F%E5%8D%95%E4%BD%8D%E4%B8%8D%E5%8F%AF%E5%88%86%E5%89%B2"><span class="toc-text">C语言中数据元素是基本单位, 数据项是最小单位不可分割</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E4%B8%AD-%E7%AE%97%E6%B3%95%E7%9A%84%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="toc-text">C语言中 算法的复杂性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%95%88%E7%8E%87%E5%BA%A6%E9%87%8F%E6%98%AF-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="toc-text">时间效率度量是 时间复杂性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E6%80%A7%E9%87%8F%E5%BA%A6%E6%98%AF-%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="toc-text">算法复杂性量度是 空间复杂性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E7%A9%BA%E5%A4%8D%E6%9D%82%E6%80%A7%E6%9C%89%E6%9C%80%E5%A5%BD%E6%83%85%E5%86%B5%E5%92%8C%E6%9C%80%E5%9D%8F%E6%83%85%E5%86%B5-%E4%B8%80%E8%88%AC%E6%8C%87%E7%9A%84%E6%98%AF%E5%B9%B3%E5%9D%87%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="toc-text">时空复杂性有最好情况和最坏情况, 一般指的是平均复杂性</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <p><strong>C语学习笔记</strong></p>
+<span id="more"></span>
+
+<h1 id="总体结构"><a href="#总体结构" class="headerlink" title="总体结构"></a>总体结构</h1><ul>
+<li>一个完整的C语言程序是由一个且<font color="#FA8072">只能有一个 main() 函数 (又称主要函数)</font> 和 若干个其他函数结合而成, 或仅由一个 main() 构成</li>
+</ul>
+<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
+<li><p><font color="#FA8072">函数</font>是C语言的<font color="#FA8072">基本单位</font>, 所有的C语言程序都是由一个 mian() 函数或一个 mian() 函数与多个其它函数构成的 mian() 函数的作用相当于其他高级语言的<font color="#FA8072">主程序</font> 其他函数的作用相当于子程序</p>
+</li>
+<li><p><font color="#FA8072">函数</font>一般包括数据的定义部分和执行部分 <font color="#FA8072">数据定义部分 (也称声明部分)</font>用于定义程序用到的所有<font color="#FA8072">变量的名字和变量类型</font>, 并可以对变量指定初值 执行部分用于完成程序所规定的各项操作</p>
+</li>
+<li><p>C语言程序总是从 mian() 函数开始执行 一个C语言开始执行 一个C语言程序总是从 mian() 函数开始执行, 而不论其在程序中位置如何 主函数执行完毕, 亦即程序执行完毕 习惯上将主函数  mian() 放在最前头</p>
+</li>
+</ul>
+<h1 id="函数的一般结构"><a href="#函数的一般结构" class="headerlink" title="函数的一般结构"></a>函数的一般结构</h1><ul>
+<li>任何函数(包括主函数 main() )都是由函数说明和函数体两部分组成</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C">[函数类型] 函数名 (函数参数表)   <span class="hljs-comment">/* 函数说明部分 */</span><br>&#123;<br>    说明语句部分;   <span class="hljs-comment">/* 函数体部分 */</span><br>    执行语句部分；  <span class="hljs-comment">/* 函数体部分 */</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="语法符号约定"><a href="#语法符号约定" class="headerlink" title="语法符号约定"></a>语法符号约定</h3><ul>
+<li>[…]  方括号表示可选 (既可以指定也可以缺省)</li>
+<li>… 省略号表示前面的项可以重复</li>
+<li>| 表示是两侧的项必选其一 </li>
+</ul>
+<h3 id="函数说明"><a href="#函数说明" class="headerlink" title="函数说明"></a>函数说明</h3><ul>
+<li>由函数类型(可缺省) 函数名和函数参数表 三部分组成</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">数据类型 参数<span class="hljs-number">1</span> [, 数据类型 参数<span class="hljs-number">2</span> .]<br></code></pre></td></tr></table></figure>
+
+<h3 id="函数体"><a href="#函数体" class="headerlink" title="函数体"></a>函数体</h3><ul>
+<li>大括号(必须配对使用)内的说明语句部分和执行【语句部分为函数体</li>
+</ul>
+<h4 id="说明语句部分"><a href="#说明语句部分" class="headerlink" title="说明语句部分"></a>说明语句部分</h4><ul>
+<li>说明语句部分由变量定义, 自定义类型定义, 自定义函数说明, 外部变量说明等部分组成, 其中变量定义是主要的</li>
+</ul>
+<h4 id="执行语句部分"><a href="#执行语句部分" class="headerlink" title="执行语句部分"></a>执行语句部分</h4><ul>
+<li>执行语句部分由若干条执行语句构成</li>
+</ul>
+<h4 id="源程序书写格式"><a href="#源程序书写格式" class="headerlink" title="源程序书写格式"></a>源程序书写格式</h4><ul>
+<li><p>所有语句都必须以分号 “;” 结束, 函数的最后一个语句也不例外</p>
+</li>
+<li><p>程序行的书写格式自由, 即允许一条内写几条语句, 也允许一条语句分成几行写</p>
+</li>
+<li><p>/* 要注释的代码 */ 必须按照注释格式注释</p>
+</li>
+<li><p>注释可以单站一行, 也可以跟在语句的后面, 如果一行写不下, 可另起一行继续写</p>
+</li>
+<li><p>注释中 /* 可以是任意中文 符合  */ 在非中文 环境显示乱码 但是不影响程序的执行</p>
+</li>
+</ul>
+<h1 id="C语言的编译过程"><a href="#C语言的编译过程" class="headerlink" title="C语言的编译过程:"></a>C语言的编译过程:</h1><br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">编辑 -&gt; 预处理 -&gt; 编译 -&gt; 汇编 -&gt; 链接 -&gt; 运行<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="C语言的关键字"><a href="#C语言的关键字" class="headerlink" title="C语言的关键字"></a>C语言的关键字</h1><br>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">auto</span>: 声明自动变量<br><br><span class="hljs-keyword">break</span>: 跳出当前循环<br><br><span class="hljs-keyword">case</span>: 开关语句分支<br><br><span class="hljs-type">char</span>: 声明字符型变量或函数返回值类型<br><br><span class="hljs-type">const</span>: 声明只读变量<br><br><span class="hljs-keyword">continue</span>: 结束当前循环, 开始下一轮循环<br><br><span class="hljs-keyword">default</span>: 开关语句中的 <span class="hljs-string">&quot;默认&quot;</span> 分支<br><br><span class="hljs-keyword">do</span>: 循环语句的循环体<br><br><span class="hljs-type">double</span>: 声明双精度浮点型变量或函数返回值类型<br><br><span class="hljs-keyword">else</span>: 条件语句否定分支 (与<span class="hljs-keyword">if</span>连用 )<br><br><span class="hljs-keyword">enum</span>: 声明枚举类型<br><br><span class="hljs-keyword">extern</span>: 声明变量或函数是在其它文件或本文件的其他位置定义<br><br><span class="hljs-type">float</span>: 声明浮点型变量或函数返回值类型<br><br><span class="hljs-keyword">for</span>: 一种循环语句<br><br><span class="hljs-keyword">goto</span>: 无条件跳转语句<br><br><span class="hljs-keyword">if</span>: 条件语句<br><br><span class="hljs-type">int</span>: 声明整型变量或函数<br><br><span class="hljs-type">long</span>: 声明长整型变量或函数返回值类型<br><br><span class="hljs-keyword">register</span>: 声明寄存器变量<br><br><span class="hljs-keyword">return</span>: 子程序返回语句 (可以带参数, 也可不带参数 )<br><br><span class="hljs-type">short</span>: 声明短整型变量或函数<br><br><span class="hljs-type">signed</span>: 声明有符号类型变量或函数<br><br><span class="hljs-keyword">sizeof</span>: 计算数据类型或变量长度 (即所占字节数 )<br><br><span class="hljs-type">static</span>: 声明静态变量<br><br><span class="hljs-keyword">struct</span>: 声明结构体类型<br><br><span class="hljs-keyword">switch</span>: 用于开关语句<br><br><span class="hljs-keyword">typedef</span>: 用以给数据类型取别名<br><br><span class="hljs-type">unsigned</span>: 声明无符号类型变量或函数<br><br><span class="hljs-keyword">union</span>: 声明共用体类型<br><br><span class="hljs-type">void</span>: 声明函数无返回值或无参数, 声明无类型指针<br><br><span class="hljs-keyword">volatile</span>: 说明变量在程序执行中可被隐含地改变<br><br><span class="hljs-keyword">while</span>: 循环语句的循环条件<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="C语言中数据元素是基本单位-数据项是最小单位不可分割"><a href="#C语言中数据元素是基本单位-数据项是最小单位不可分割" class="headerlink" title="C语言中数据元素是基本单位, 数据项是最小单位不可分割"></a>C语言中数据元素是基本单位, 数据项是最小单位不可分割</h1><h2 id="C语言中-算法的复杂性"><a href="#C语言中-算法的复杂性" class="headerlink" title="C语言中 算法的复杂性"></a>C语言中 算法的复杂性</h2><ul>
+<li><h3 id="时间效率度量是-时间复杂性"><a href="#时间效率度量是-时间复杂性" class="headerlink" title="时间效率度量是 时间复杂性"></a>时间效率度量是 时间复杂性</h3><ul>
+<li>时间复杂性是指运行时间</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h3 id="算法复杂性量度是-空间复杂性"><a href="#算法复杂性量度是-空间复杂性" class="headerlink" title="算法复杂性量度是 空间复杂性"></a>算法复杂性量度是 空间复杂性</h3><ul>
+<li>空间复杂性是运行时候程序所占有空间变量</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h3 id="时空复杂性有最好情况和最坏情况-一般指的是平均复杂性"><a href="#时空复杂性有最好情况和最坏情况-一般指的是平均复杂性" class="headerlink" title="时空复杂性有最好情况和最坏情况, 一般指的是平均复杂性"></a>时空复杂性有最好情况和最坏情况, 一般指的是平均复杂性</h3></li>
+</ul>
+<br>
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/C-main().html">https://sdq3.link/C-main().html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>Vue.js 表单输入绑定的基础用法</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E6%9C%AC"><span class="toc-text">输入文本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC"><span class="toc-text">输入多行文本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E5%8D%95%E4%B8%AA%E5%A4%8D%E9%80%89%E6%A1%86"><span class="toc-text">输入单个复选框</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E5%A4%9A%E4%B8%AA%E5%A4%8D%E9%80%89%E6%A1%86"><span class="toc-text">输入多个复选框</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E5%8D%95%E9%80%89%E6%8C%89%E9%92%AE"><span class="toc-text">输入单选按钮</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E9%80%89%E6%8B%A9%E6%A1%86%E5%8D%95%E9%80%89%E6%97%B6"><span class="toc-text">输入选择框单选时</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E9%80%89%E6%8B%A9%E6%A1%86%E5%A4%9A%E9%80%89%E6%97%B6"><span class="toc-text">输入选择框多选时</span></a></li></ol>
+      </div>
+      <p><strong>Vue.js个人整理</strong></p>
+<span id="more"></span>
+
+<h1 id="输入文本"><a href="#输入文本" class="headerlink" title="输入文本"></a>输入文本</h1><!--more-->
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs HTML"> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span> = <span class="hljs-string">&quot;app1&quot;</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        请输入你喜欢的城市<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;cname&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>            你选择的城市:&#123;&#123;cname&#125;&#125;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        回复评论: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;huifu&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>            你选回复是:&#123;&#123;huifu&#125;&#125;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">        <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#app1&#x27;</span>,</span><br><span class="language-javascript">        data : &#123;</span><br><span class="language-javascript">            cname : <span class="hljs-string">&quot;哈哈哈尔滨市&quot;</span>,</span><br><span class="language-javascript">            huifu : <span class="hljs-string">&quot;我叫史迪奇&quot;</span>,</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C>直接实战</font></p>
+<iframe id="iframe" src="/html/文本.html"></iframe>
+
+
+
+<h1 id="输入多行文本"><a href="#输入多行文本" class="headerlink" title="输入多行文本"></a>输入多行文本</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span> = <span class="hljs-string">&quot;app2&quot;</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>你的名字: <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;white-space: pre-line;&quot;</span>&gt;</span>&#123;&#123; name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;name &quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;请输入你的名字&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>            你的名字:&#123;&#123;name&#125;&#125;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">        <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#app2&#x27;</span>,</span><br><span class="language-javascript">        data : &#123;</span><br><span class="language-javascript">            name : <span class="hljs-string">&quot;史迪奇&quot;</span>,</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C>直接实战</font></p>
+<iframe id="iframe" src="/html/多行文本.html"></iframe>
+
+
+
+<h1 id="输入单个复选框"><a href="#输入单个复选框" class="headerlink" title="输入单个复选框"></a>输入单个复选框</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span> = <span class="hljs-string">&quot;app3&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>            你的选择是: &#123;&#123;checked &#125;&#125;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;checked&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;checkbox&quot;</span>&gt;</span>&#123;&#123; checked &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>        <br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">        <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#app3&#x27;</span>,</span><br><span class="language-javascript">        data : &#123;</span><br><span class="language-javascript">            checked : <span class="hljs-literal">false</span>,</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C>直接实战</font></p>
+<iframe id="iframe" scrolling = "no" src="/html/单个复选框.html"></iframe>
+
+
+
+<h1 id="输入多个复选框"><a href="#输入多个复选框" class="headerlink" title="输入多个复选框"></a>输入多个复选框</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span> = <span class="hljs-string">&quot;app4&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;blue&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;蓝色&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;color&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;blue&quot;</span>&gt;</span>蓝色<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;red&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;红色&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;color&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;red&quot;</span>&gt;</span>红色<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;yellow&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;黄色&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;color&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;yellow&quot;</span>&gt;</span>黄色<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>            你选择的颜色是: &#123;&#123;color&#125;&#125;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">        <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#app4&#x27;</span>,</span><br><span class="language-javascript">        data : &#123;</span><br><span class="language-javascript">            color : [],</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C>直接实战</font></p>
+<iframe id="iframe" src="/html/多个复选框.html"></iframe>
+
+
+
+<h1 id="输入单选按钮"><a href="#输入单选按钮" class="headerlink" title="输入单选按钮"></a>输入单选按钮</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span> = <span class="hljs-string">&quot;app5&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;男&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;男&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;sex&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;男&quot;</span>&gt;</span>男<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;女&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;女&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;sex&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;女&quot;</span>&gt;</span>女<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>                你选择的性别是: &#123;&#123;sex&#125;&#125;<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">        <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#app5&#x27;</span>,</span><br><span class="language-javascript">        data : &#123;</span><br><span class="language-javascript">            sex :[]</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C>直接实战</font></p>
+<iframe id="iframe" src="/html/单选按钮.html"></iframe>
+
+
+
+<h1 id="输入选择框单选时"><a href="#输入选择框单选时" class="headerlink" title="输入选择框单选时"></a>输入选择框单选时</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span> = <span class="hljs-string">&quot;app6&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>            请你选择你喜欢的季节:<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;season&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 50px;&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>春天<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>夏天<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>秋天<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>冬天<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>        <br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>            你喜欢的季节是: &#123;&#123;season&#125;&#125;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">        <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#app6&#x27;</span>,</span><br><span class="language-javascript">        data : &#123;</span><br><span class="language-javascript">            <span class="hljs-attr">season</span>: <span class="hljs-string">&quot;夏天&quot;</span>,</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C>直接实战</font></p>
+<iframe id="iframe" src="/html/选择框单选时.html"></iframe>
+
+
+
+<h1 id="输入选择框多选时"><a href="#输入选择框多选时" class="headerlink" title="输入选择框多选时"></a>输入选择框多选时</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span> = <span class="hljs-string">&quot;app7&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>请你选择你喜欢的季节:<br>        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;selected&quot;</span>  <span class="hljs-attr">multiple</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 50px;&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>春天<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>夏天<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>秋天<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>冬天<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>          <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>            你喜欢的季节是:&#123;&#123;selected&#125;&#125;<br>            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>            多选时按住, 往下拖<br>          <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span><br><span class="language-javascript">        <span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#app7&#x27;</span>,</span><br><span class="language-javascript">        data : &#123;</span><br><span class="language-javascript">            <span class="hljs-attr">selected</span>:[<span class="hljs-string">&quot;夏天&quot;</span>,<span class="hljs-string">&quot;冬天&quot;</span>]</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><font  color=#DC143C>直接实战</font></p>
+<iframe id="iframe" src="/html/选择框多选时.html"></iframe>
+
+<br>
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/Vue-usage.html">https://sdq3.link/Vue-usage.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>

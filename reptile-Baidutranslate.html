@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text</title>
+    <link rel="icon" href="/text.png">
+    <!-- 导入css -->
+    <link rel="stylesheet" href="/style.css"/>
+    <!-- 评论系统 -->
+    
+    
+<script src="/js/waline.js"></script>
+
+    <link href='https://unpkg.com/@waline/client@2.7.1/dist/waline.css' rel='stylesheet' />
+  <meta name="generator" content="Hexo 5.4.2"></head>
+  <body>
+
+  <div id="page-container">
+    <span class="pai">
+    <a class="kong" href="/"> 主页 </a>
+    <a class="kong" href="/archives"> 分类 </a>
+    <a class="kong" href="/about"> 关于 </a>
+</span>
+
+    <div id="content-wrap">
+        <div class="container">
+          <!-- 点击文章 -->
+<div>
+  <h1>爬虫 访问百度翻译(牢饭吃到饱)</h1>
+  <wenzhang>
+      <div class="contents">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5requests"><span class="toc-text">导入requests</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91%E6%A1%88%E4%BE%8B"><span class="toc-text">百度翻译案例</span></a></li></ol>
+      </div>
+      <p><strong>每天一个入狱小技巧</strong></p>
+<span id="more"></span>
+
+
+<h1 id="导入requests"><a href="#导入requests" class="headerlink" title="导入requests"></a>导入requests</h1><!--more-->
+<p><strong>打开cmd输入以下代码</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs PowerShell">pip install requests<br></code></pre></td></tr></table></figure>
+
+<h1 id="百度翻译案例"><a href="#百度翻译案例" class="headerlink" title="百度翻译案例"></a>百度翻译案例</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> requests<br><br>url = <span class="hljs-string">&quot;https://fanyi.baidu.com/sug&quot;</span><br><br>s = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入你要翻译的英文单词&quot;</span>)<br><br>dat = &#123;<br>        <span class="hljs-string">&quot;kw&quot;</span>:s<br>    &#125;<br><br>tou = &#123;<br>    <span class="hljs-string">&quot;user-agent&quot;</span>: <span class="hljs-string">&quot;Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Mobile Safari/537.36&quot;</span><br>&#125;<br><br>pachon = requests.post(url,headers=tou,data=dat)<br><br><span class="hljs-built_in">print</span>(pachon)<br><br><span class="hljs-built_in">print</span>(pachon.json())<br><br>pachon.close()  <span class="hljs-comment">#断开/关闭连接, 一定要断开</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+
+
+
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTk3NS8yMjQ4Ng==">
+  <!-- 评论系统 -->
+  <!-- 评论系统 -->
+<body>
+  <!-- ... -->
+  <div id="vcomments" class="comment">
+
+  </div>
+  <script>
+  
+    Waline.init({
+      el: '#vcomments',
+      serverURL: 'https://comments.sdq3.link/'
+    });
+  </script>
+    </wenzhang>
+
+
+
+
+
+
+        </div>
+    </div>
+    
+<footer id="footer" >
+    <span class="konga">
+        <a class="jiao"  href="."><</a>
+            <input type="text" id="text_input"  placeholder="搜索" >
+            
+        <a class="jiao"  href=".">></a>
+    </span>
+    <div id="text_output"></div>
+    </div>
+
+</footer>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<bokebangquan>
+<!-- 博客版权 -->
+<p><strong>
+  作者: 我叫史迪奇
+  <br>
+  本文来自于: 
+   <a href="https://sdq3.link/reptile-Baidutranslate.html">https://sdq3.link/reptile-Baidutranslate.html</a>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</strong></p>
+
+</bokebangqua>
+  </div>
+  
+<script src="/jquery.min.js"></script>
+
+  
+<script src="/main.js"></script>
+
+  </body>
+</html>
