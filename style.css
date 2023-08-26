@@ -354,13 +354,41 @@ body > bokebangquan,#content-wrap > bokebangquan > p{
     padding: 1.25rem;
 }
 
+/* 屏蔽来必力广告 */
+#trc_wrapper_52443{
+    display: none !important;
+}
+#trc_header_56062 > span{
+    display: none !important;
+}
+#taboola-livere > div{
+    display: none !important;
+}
 
+/* 图片变黑白 */
+/* img{
+    filter: grayscale(100%) !important;
+}
+#sns-login > button{
+    filter: grayscale(100%) !important;
+}
 
+#list > div > div > div > ul > li > button > img{
+    filter: grayscale(100%) !important;
+} */
 
+/* 时间正序 时间倒序 同感正序 */
+/* #container {
+    display: none !important;
+    filter: grayscale(100%) !important; 
+    color: #000 !important;  
+} */
 
-
-
-
+/* 评论变黑白 body整个变成黑白 因为实在太多了 所以懒得选 */
+body{
+    filter: grayscale(100%) !important; 
+    color: #000 !important;   
+}
 
 
 
