@@ -364,6 +364,19 @@ body > bokebangquan,#content-wrap > bokebangquan > p{
 #taboola-livere > div{
     display: none !important;
 }
+/* 评论区黑白 */
+/* #lv-container{
+    filter: grayscale(100%) !important; 
+    color: #000 !important;   
+} */
+/* 时间正序 时间倒序 同感正序 */
+/* #container {
+    display: none !important;
+    filter: grayscale(100%) !important; 
+    color: #000 !important;  
+} */
+
+
 
 /* 图片变黑白 */
 /* img{
@@ -377,18 +390,16 @@ body > bokebangquan,#content-wrap > bokebangquan > p{
     filter: grayscale(100%) !important;
 } */
 
-/* 时间正序 时间倒序 同感正序 */
-/* #container {
-    display: none !important;
-    filter: grayscale(100%) !important; 
-    color: #000 !important;  
-} */
-
 /* 评论变黑白 body整个变成黑白 因为实在太多了 所以懒得选 */
+
+
 body{
     filter: grayscale(100%) !important; 
     color: #000 !important;   
 }
+
+
+
 
 
 
